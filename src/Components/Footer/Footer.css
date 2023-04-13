@@ -1,0 +1,18 @@
+.footer{
+    background-color: #252323;
+    color: white;
+    display: flex;
+    flex-direction: column;
+}
+.footer-2{
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-evenly;
+}
+img{
+    flex-basis:50px;
+    height: 3rem;
+    width:auto;
+    margin: 10px;
+    padding: 10px;
+}
