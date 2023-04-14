@@ -28,7 +28,7 @@ function NavBar() {
     <li class="list" name="item">
     <Link to="/Login" onclick="return 0" name="expand" >Login  &#9660;</Link>
       <ul name="sub_menu" class="submenu_list">
-        <li class="sub_list sign-up"><Link to='/Register'>Don't Have an Account? Register Here!</Link></li>
+        <li class="sub_list sign-up"><Link to='/Register'>Don't Have an Account? Register Here! &#9660; </Link></li>
       </ul>
     </li>
   </ul>
