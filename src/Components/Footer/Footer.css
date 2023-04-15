@@ -10,16 +10,20 @@
     color: white;
     display: flex;
     flex-direction: column;
+    margin: 100vh 0 0 0
 }
 .footer-2{
     display: flex;
     flex-flow: row nowrap;
     justify-content: space-evenly;
 }
-img{
+.footer img{
     flex-basis:50px;
     height: 3rem;
     width:auto;
     margin: 10px;
     padding: 10px;
+}
+.footer p{
+    margin: 0 auto 30px auto;
 }
