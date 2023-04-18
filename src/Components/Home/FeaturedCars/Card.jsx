@@ -55,7 +55,7 @@ function Card() {
         </div>
         <div class="featured-cars-cardBody">
         <div class="featured-cars-container">
-          <div class="featured-cars-card cardfour">
+          <div class="featured-cars-card featured-cars-cardfour">
             <div class="featured-cars-imgBx">
               <img class="featured-cars-cardImg" src={toyota} alt="image" />
             </div>
