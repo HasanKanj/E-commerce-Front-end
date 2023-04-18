@@ -79,7 +79,11 @@ const AdminNewCar = () => {
 
   return (
     <>
-      <Link className="btn btn-dark my-3" to="/Admin/cars">
+      <Link
+        className="btn btn-dark my-3"
+        to="/Cars"
+        style={{ width: "150px", whiteSpace: "nowrap", float: "left" }}
+      >
         Go Back
       </Link>
 
@@ -250,10 +254,14 @@ const AdminNewCar = () => {
 
         <br />
 
-        <button type="submit" class="btn btn-primary">
+       
+        <button type="submit"
+        className="btn btn-primary"
+        style={{ width: "150px", whiteSpace: "nowrap", float: "left" }}
+      >
           Create Car
-        </button>
-        backgroundColor: "#8B0000"
+      </button>
+     
        
       </form>
     </>

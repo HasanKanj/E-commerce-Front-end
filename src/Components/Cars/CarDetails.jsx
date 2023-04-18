@@ -2,7 +2,6 @@ import React, { useState, useEffect } from "react";
 import { Link, useParams } from "react-router-dom";
 import { Row, Col, Image, ListGroup, Button, Nav, Tab } from "react-bootstrap";
 
-
 const CarDetails = () => {
   const { id } = useParams();
   const [product, setProduct] = useState({});
@@ -26,18 +25,19 @@ const CarDetails = () => {
     setActiveKey(key);
   };
 
-  
-
   return (
     <>
-      <Link className="btn btn-dark my-3" to="/Cars">
+      <Link
+        className="btn btn-dark my-3"
+        to="/Cars"
+        style={{ width: "150px", whiteSpace: "nowrap", float: "left" }}
+      >
         Go Back
       </Link>
       <Row>
-        
-        <Col md={6}>
+        <Col md={7}>
           {product.url && ( // <-- only render Image if product.url exists
-            <div >
+            <div>
               <Image
                 src={product.url}
                 alt={product.name}
@@ -46,9 +46,12 @@ const CarDetails = () => {
               />
             </div>
           )}
-         
+
           <Tab.Container id="left-tabs-example" activeKey={activeKey}>
-            <Nav variant="tabs" style={{ backgroundColor: "#FAF9F6" }}>
+            <Nav
+              variant="tabs"
+              style={{ backgroundColor: "#ddd", flexWrap: "nowrap" }}
+            >
               <Nav.Item>
                 <Nav.Link
                   eventKey="description"
@@ -57,6 +60,13 @@ const CarDetails = () => {
                     backgroundColor:
                       activeKey === "features" ? "#808080" : "#222222",
                     color: "#ffffff",
+                    borderBottom:
+                      activeKey === "description" ? "3px solid #8B0000" : "",
+                    padding: "15px 25px 10px 25px",
+                    fontWeight: 600,
+                    fontSize: 14,
+                    width: 200,
+                    display: "inline-block", // Add this line to make the link inline
                   }}
                 >
                   Description
@@ -70,6 +80,13 @@ const CarDetails = () => {
                     backgroundColor:
                       activeKey === "description" ? "#808080" : "#222222",
                     color: "#ffffff",
+                    borderBottom:
+                      activeKey === "features" ? "3px solid #8B0000" : "",
+                    padding: "15px 25px 10px 25px",
+                    fontWeight: 600,
+                    fontSize: 14,
+                    width: 200,
+                    display: "inline-block", // Add this line to make the link inline
                   }}
                 >
                   Features
@@ -78,10 +95,10 @@ const CarDetails = () => {
             </Nav>
             <br />
             <Tab.Content>
-              <Tab.Pane eventKey="description">
+              <Tab.Pane eventKey="description" style={{ textAlign: "left" }}>
                 <p style={{ fontFamily: "Poppins" }}>{product.description}</p>
               </Tab.Pane>
-              <Tab.Pane eventKey="features">
+              <Tab.Pane eventKey="features" style={{ textAlign: "left" }}>
                 <ul>
                   <li>Features: {product.features}</li>
                 </ul>

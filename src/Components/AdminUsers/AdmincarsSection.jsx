@@ -82,17 +82,32 @@ const AdminCarsScreen = () => {
     <>
       <ToastContainer />
 
-      <Link className="btn btn-dark my-3" to="/">
+      <Link
+        className="btn btn-dark my-3"
+        to="/"
+        style={{ width: "150px", whiteSpace: "nowrap", float: "left" }}
+      >
         Go Back
       </Link>
       <h1>Cars</h1>
-      <Link className="btn btn-primary my-3  " to="/Admin/newcar">
+
+      <Link
+        className="btn btn-dark my-3"
+        to="/Admin/newcar"
+        style={{
+          width: "170px",
+          whiteSpace: "nowrap",
+          float: "right",
+          backgroundColor: "red",
+          color: "#fff",
+        }}
+      >
         Create New Car
       </Link>
       <Table striped bordered hover responsive className="table-sm">
         <thead>
           <tr>
-          <th>Image</th>
+            <th>Image</th>
 
             <th>Name</th>
             <th>Mileage</th>
@@ -108,7 +123,6 @@ const AdminCarsScreen = () => {
         <tbody style={{ borderBottom: "1px solid black" }}>
           {cars.map((car) => (
             <tr key={car._id}>
-             
               <td>
                 {editingCar && editingCar._id === car._id ? (
                   <div>
@@ -148,7 +162,7 @@ const AdminCarsScreen = () => {
                   car.mileage
                 )}
               </td>
-             
+
               <td>
                 {editingCar && editingCar._id === car._id ? (
                   <Form.Control
