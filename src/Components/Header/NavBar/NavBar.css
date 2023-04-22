@@ -4,12 +4,18 @@
   padding: 0;
   box-sizing: border-box;
 }
+.menu_wrapper{
+  width:100%;
+  margin:0;
+}
 /* body {
     background:#eee;
     font-family:consolas,courier,monospace;
   } */
   .menu_list, .submenu_list {
     list-style:none;
+    width:100%;
+    margin: 0 0;
     background:#333;
     color:#888;
     /* font-family:consolas,courier,monospace; */

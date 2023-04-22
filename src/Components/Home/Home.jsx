@@ -4,7 +4,7 @@ import audi from "../Home/images/audi.jpg";
 import bmlogo from "../Home/images/bmlogo.jpg";
 import audilogo from "../Home/images/audilogo.jpg";
 import merclogo from "../Home/images/merclogo.jpeg";
-
+import Card from "./FeaturedCars/Card";
 
 import "./Home.css";
 
@@ -48,12 +48,19 @@ function Home() {
           </div>
         </div>
       </div>
+      <div className="Home">
+        <h1>Home</h1>
+        <div className="HomeFeaturedCars">
+          <h2>Featured Cars:</h2>
+          <Card />
+        </div>
+      </div>
       <div>
         <Landingpage />
       </div>
-      <div className="featuredcars">
+      {/* <div className="featuredcars">
         <h1>Featured Cars</h1>
-      </div>
+      </div> */}
       <div className="testimonials">
         <h1 className="testimonial-title">Testimonials</h1>
         <div className="testi">
