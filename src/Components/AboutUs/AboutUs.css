@@ -1,0 +1,134 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  /* border: 2px solid red; */
+}
+
+/* About Us */
+/* About Us */
+/* About Us */
+/* About Us */
+
+
+/* About Us */
+/* About Us */
+/* About Us */
+/* About Us */
+
+.about-welcome{
+  color: red;
+  font-size: 65px;
+  font-style: italic;
+  margin-top: 10vh;
+}
+
+.about-titDesc{
+  display: flex;
+  /* border: 2px solid red; */
+  flex-direction: column;
+  text-align: left;
+  width: 40vw;
+  font-size: 20px;
+
+
+}
+
+.about-titDescImg{
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  padding: 15vh;
+   animation: mymove 1s 1 forwards;
+ 
+}
+
+.aboutimage{
+  width: 40vw;
+  height: 35vh;
+  margin-top: 150px;
+}
+
+
+
+@keyframes mymove {
+  from {
+    transform: translateX(-60vh);
+  }
+  to {
+    transform: translateX(0px);
+  }
+}
+
+
+
+
+
+
+/* About Footer  */
+/* About Footer  */
+/* About Footer  */
+/* About Footer  */
+
+
+
+
+.about-imageFooter {
+  text-align: center;
+  background-image: url("../AboutUs/images/redcar.jpg");
+  height: 90vh;
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.about-allimgs{
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.aboutsection {
+  
+  padding:20vh 40vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10vh;
+}
+
+.aboutsection i {
+  color: white;
+}
+
+.about-dollar {
+    width: 30%;
+  height: 30%;
+  border-radius: 20vh;
+}
+
+.about-customer {
+   width: 30%;
+  height: 30%;
+  border-radius: 20vh;
+}
+
+.about-thumb {
+  width: 30%;
+  height: 30%;
+  border-radius: 20vh;
+}
+.aboutsection h3 {
+  color: white;
+  margin-top: 10px;
+} 
+
+.about-reasonTitle{
+   font-size: 45px;
+   color: white;
+ 
+  padding-top: 150px;
+}
+
+ 

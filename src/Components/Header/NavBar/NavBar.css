@@ -4,15 +4,15 @@
   padding: 0;
   box-sizing: border-box;
 }
-body {
+/* body {
     background:#eee;
     font-family:consolas,courier,monospace;
-  }
+  } */
   .menu_list, .submenu_list {
     list-style:none;
     background:#333;
     color:#888;
-    font-family:consolas,courier,monospace;
+    /* font-family:consolas,courier,monospace; */
   }
   .menu_list{
     padding:0;

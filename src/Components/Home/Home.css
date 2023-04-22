@@ -1,6 +1,243 @@
 * {
-    width: 100%;
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.home-allofabout {
+  background-color: rgb(238, 238, 238);
+}
+
+.home-imageheader {
+  width: 100%;
+  color: white;
+  padding-top: 50px;
+  height: 90vh;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.home-num1 {
+  color: red;
+}
+
+.home-nametitle {
+  font-size: 40px;
+  font-weight: 500px;
+}
+
+.home-BMW {
+  width: 100%;
+  height: 60vh;
+}
+
+.home-audi {
+  width: 100%;
+  height: 60vh;
+}
+.home-collectionwithtitles {
+  text-align: center;
+  font-size: 30px;
+  color: white;
+}
+.home-collectionwithtitles i {
+  text-align: center;
+
+  font-size: 25px;
+  color: red;
+}
+
+.overlay {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 100%;
+  width: 100%;
+  opacity: 0;
+  transition: 0.3s ease;
+}
+
+.container {
+  position: relative;
+  width: 100%;
+  max-width: 400px;
+}
+
+.container:hover .overlay {
+  opacity: 1;
+}
+
+.home-imagecollectionwithtitles {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  padding: 10vh;
+  background-color: rgb(17, 19, 22);
+}
+
+.home-imagecollection {
+  width: 100%;
+  padding-top: 50px;
+  height: 65vh;
+  display: flex;
+  /* border: 2px solid green; */
+  align-items: center;
+  justify-content: center;
+  flex-direction: row;
+}
+
+
+
+
+
+
+
+
+
+.featuredcars {
+  text-align: center;
+  width: 100%;
+  height: 30vh;
+
+  margin-top: 50vh;
+}
+
+/* Reasons to buy section */
+
+.home-imageFooter {
+  text-align: center;
+  height: 80vh;
+}
+
+@media screen and (max-width: 1380px) {
+  .home-imageFooter {
+    text-align: center;
+    background-color: rgb(59, 30, 177);
+    height: 100vh;
+    padding: 5vh;
+    padding-top: 20vh;
+
+    border: 2px solid orange;
   }
+
+  .homethird-img {
+    border: 2px solid red;
+    background-color: rgb(246, 246, 246);
+    height: 50vh;
+    padding-top: 8vh;
+  }
+
+  .homesecondsection {
+    padding: 10px;
+    background-color: lightslategray;
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    border: 2px solid rgb(207, 15, 156);
+  }
+
+  .home-resons {
+    font-size: 50px;
+    margin-top: -55px;
+    color: yellow;
+  }
+}
+
+.homethird-img h3 {
+  color: rgb(183, 49, 8);
+  margin-bottom: 0.5vh;
+}
+
+.homethird-img {
+  color: white;
+  border-bottom: 2px solid rgb(251, 250, 250);
+  padding: 100px;
+  padding-top: 8vh;
+}
+
+.home-resons {
+  font-size: 50px;
+  margin-top: -55px;
+  color: white;
+}
+
+.home-imageFooter h1 {
+  margin-top: -10vh;
+
+  color: rgba(165, 165, 165, 0.348);
+  font-size: 120px;
+  text-align: center;
+}
+
+.homesecondsection {
+  padding: 50px;
+  height: 50vh;
+  display: flex;
+  justify-content: center;
+  text-align: center;
+}
+
+.home-2ndpic {
+  padding-top: 8vh;
+}
+
+.home-icon {
+  width: 50%;
+  height: 9vh;
+  margin-bottom: 2vh;
+  border-radius: 50%;
+}
+
+/* Testimonial Section */
+
+@media only screen and (max-width: 768px) {
+  .testimonial p {
+    font-size: 0.8rem;
+    line-height: 1.5rem;
+  }
+
+  .testimonial h6 {
+    font-size: 1rem;
+  }
+}
+
+@media only screen and (max-width: 576px) {
+  .testimonial img {
+    width: 60px !important;
+    height: 60px !important;
+    object-fit: cover;
+  }
+}
+
+.testimonial {
+  padding: 5vh;
+  padding-bottom: 10vh;
+  text-align: left;
+}
+
+.testi {
+  width: 55%;
+  margin: 0 auto;
+  margin-bottom: 10vh;
+  font-size: 20px;
+  /* border: 2px solid red; */
+}
+
+.testi-quote {
+  color: red;
+  font-size: 80px;
+  text-align: center;
+}
+
+.testimonial-title {
+  margin-top: 20vh;
+  padding-left: 50px;
+  text-align: center;
+  font-size: 50px;
+  margin-bottom: 10vh;
+}
