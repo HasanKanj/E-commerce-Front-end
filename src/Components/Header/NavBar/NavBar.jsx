@@ -25,6 +25,7 @@ function NavBar() {
     <li class="list" name="item">
     <Link to="/ContactUs" name="single" >Contact Us</Link>
     </li>
+    
     <li class="list" name="item">
     <Link to="/Login" onclick="return 0" name="expand" >Login  &#9660;</Link>
       <ul name="sub_menu" class="submenu_list">

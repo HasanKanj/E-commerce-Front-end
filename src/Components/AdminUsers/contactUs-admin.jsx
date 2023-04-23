@@ -9,9 +9,13 @@ function ContactAdminForm() {
   const [email, setEmail] = useState('');
   const [phoneNumber, setPhoneNumber] = useState('');
   const [message, setMessage] = useState('');
-  
+  const [streetLocation, updateLocation]=useState('');
+  const [adminEmail, updateEmail] = useState('');
+  const [adminPhoneNumber, updatePhoneNumber] = useState('');
   const [contacts, setContacts] = useState([]);
   const [submitStatus, setSubmitStatus] = useState('');
+  const[updateStatus , setUpdateStatus]=useState('');
+  
 
   useEffect(() => {
     const fetchContacts = async () => {
@@ -26,7 +30,6 @@ function ContactAdminForm() {
 
     fetchContacts();
   }, []);
-
   const handleSubmit = async (e) => {
     e.preventDefault();
     // Check if all form fields are filled out
@@ -59,6 +62,30 @@ function ContactAdminForm() {
       setSubmitStatus(<span style={{color:'red'}}>Error! There was an issue submitting your message.</span>);
     }
   };
+  const handleUpdate = async (e) => {
+    e.preventDefault();
+
+    // Check if all form fields are filled out
+   
+    try {
+      const response = await fetch('http://localhost:5000/api/contactAdmin/update', {
+        method: 'PUT',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({  adminEmail, adminPhoneNumber, streetLocation }),
+      });
+
+      const data = await response.json();
+      console.log(data);
+
+      // Display success message and error message
+      setUpdateStatus(<span style={{color:'green'}}>Success! Your contact-info has been updated!.</span>);
+    } catch (error) {
+      console.error(error);
+      setUpdateStatus(<span style={{color:'red'}}>Error! There was an issue updating.</span>);
+    }
+  };
   const form = useRef();
 
   const sendEmail = (e) => {
@@ -79,24 +106,40 @@ function ContactAdminForm() {
 
   return (
     <div className='all-contactUs-space'>
-    <div className='contact-us'>
+      <div className='contact-us'>
 
+        <div className='contact-info'>
+          <h1 className='contact-info-title'>Need additional information?</h1>
+          <br />
+          <br />
+          <p className='contact-info-p'>A multifaceted professional skilled in multiple fields of research, development as well as a learning specialist. Over 15 years of experience.</p>
 
-<div className='contact-info'>
-      <h1 className='contact-info-title'>Need additional information?</h1>
-      <br />
-      <br />
-      <p className='contact-info-p'>A multifaceted professional skilled in multiple fields of research, development as well as a learning specialist. Over 15 years of experience. </p>
-      <ul>
-        {contacts.map((contact) => (
-          <li className='contact-info-list' key={contact._id}>
-            <p className='phone-number'  ><img className='phone-img' src={phoneIcon} alt="icon 1" />{contact.adminPhoneNumber}</p>
-            <p className='email' ><img className='email-img' src={emailIcon} alt="icon 2" />{contact.adminEmail}</p>
-            <p className='location'><img className='house-img' src={houseIcon} alt="icon 3" /> {contact.streetLocation}</p>
-          </li>
-        ))}
-      </ul>
-      </div>
+          {contacts.map((contact) => (
+            <form key={contact._id} onSubmit={handleUpdate}>
+              <ul>
+                <li className='contact-info-list'>
+                  
+                 <p className='phone-number'> <img className='phone-img' src={phoneIcon} alt="icon 1" /> <input className='update-info'  type='text' placeholder={contact.adminPhoneNumber} onChange={(e) => updatePhoneNumber(e.target.value)} /></p>
+                
+
+                
+                  
+                  <p className='email'> <img className='email-img' src={emailIcon} alt="icon 1" /> <input className='update-info' type='email' placeholder={contact.adminEmail} onChange={(e) => updateEmail(e.target.value)} /></p>
+                
+
+                
+                  
+                  <p className='location'> <img className='house-img' src={houseIcon} alt="icon 1" /> <input className='update-info' type='text' placeholder={contact.streetLocation} onChange={(e) => updateLocation(e.target.value)}  /></p>
+            
+
+                
+                  <button type='submit' className='form-button'>Update</button>
+                  {updateStatus && <p>{updateStatus}</p>}
+                </li>
+              </ul>
+            </form>
+          ))}
+        </div>
 
 
       <div className='contact-form'>
@@ -104,7 +147,7 @@ function ContactAdminForm() {
       <p className='contact-form-p'>Feel free to browse our massive inventory online, set up a test drive with a sales associate, or inquire about financing!</p>
       {submitStatus && <p>{submitStatus}</p>}
    
-   <form ref={form} onSubmit={handleFormSubmit}  class="form">
+   <form ref={form} onSubmit={handleFormSubmit} class="form">
   <div class="form-group">
     <label class="form-label">
       
