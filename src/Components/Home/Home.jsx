@@ -49,20 +49,28 @@ function Home() {
         </div>
       </div>
       <div className="Home">
-        <h1>Home</h1>
-        <div className="HomeFeaturedCars">
+        {/* <div className="HomeFeaturedCars">
           <h2>Featured Cars:</h2>
+          <Card />
+        </div> */}
+        <div className="featuredcars">
+          <h1>Featured Cars</h1>
+          <br></br>
+          <br></br>
+          <br></br>
+          <br></br>
+          <br></br>
+          <br></br>
           <Card />
         </div>
       </div>
       <div>
         <Landingpage />
       </div>
-      {/* <div className="featuredcars">
-        <h1>Featured Cars</h1>
-      </div> */}
+
       <div className="testimonials">
-        <h1 className="testimonial-title">Testimonials</h1>
+        <h1 className="testimonial-title">Why Clients Love Us</h1>
+        <p className="testimonials-p">Many clients are thrilled by the service we deliver and are happy to tell us. Read about what some have said about us here.</p>
         <div className="testi">
           <Testimonial />
         </div>

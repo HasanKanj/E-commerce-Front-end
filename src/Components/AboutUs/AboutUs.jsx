@@ -7,7 +7,7 @@ import "./AboutUs.css";
 
 function AboutUs() {
   return (
-    <div>
+    <div className="about-everything">
       <h1 className="about-welcome"> Welcome to RoadCar</h1>
       <div className="about-titDescImg">
         <div className="about-titDesc">
@@ -19,9 +19,11 @@ function AboutUs() {
             <p>
               Welcome to RoadCar. Our company was founded with a mission to
               offer high-quality, reliable cars that meet the needs of our
-              diverse customers. We continually strive to exceed our customers'
+              diverse customers.We continually strive to exceed our customers'
               expectations by focusing on innovation and excellence in
-              everything we do. We specialize in offering a wide range of cars
+              everything we do.
+              <br></br>
+              <br></br>We specialize in offering a wide range of cars
               that cater to different preferences and budgets. Whether you're
               looking for a classic car that'll turn heads, an electric vehicle
               that's environmentally friendly or a practical family car, we have

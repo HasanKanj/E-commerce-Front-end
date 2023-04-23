@@ -20,21 +20,21 @@ const Landingpage = () => {
             <div className="homesecondsection">
               <div className="homethird-img">
                 <img className="home-icon" src={choose}></img>
-                <h3>Choose The Car You Like</h3>
-                <i>
+                <h2>Choose The Car You Like</h2>
+                <h3>
                   Make a reservation to come and check the car you like at your
                   preferred time.
-                </i>
+                </h3>
               </div>
-              <div className="homethird-img home-2ndpic">
+              <div className="homethird-img">
                 <img className="home-icon" src={Pay}></img>
-                <h3>Pay In Cash</h3>
-                <i>Pay the amount agreed on in dollars.</i>
+                <h2>Pay In Cash</h2>
+                <h3>Pay the amount agreed on in dollars.</h3>
               </div>
               <div className="homethird-img">
                 <img className="home-icon" src={drive}></img>
-                <h3>Enjoy Your New Car</h3>
-                <i>Get your dream car and enjoy your freedom.</i>
+                <h2>Enjoy Your New Car</h2>
+                <h3>Get your dream car and enjoy your freedom.</h3>
               </div>
             </div>
           </div>

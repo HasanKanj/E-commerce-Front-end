@@ -24,13 +24,13 @@ const ContactUs = () => {
     speed: 1000,
     swipeToSlide: true,
     autoplaySpeed: 2000,
-    slidesToShow: 2,
+    slidesToShow: 1,
     slidesToScroll: 1,
     responsive: [
       {
         breakpoint: 992,
         settings: {
-          slidesToShow: 2,
+          slidesToShow: 1,
           slidesToScroll: 1,
           infinite: true,
           dots: true,
@@ -48,7 +48,6 @@ const ContactUs = () => {
 
   return (
     <Slider {...settings}>
-      
       {testimonials.map((testimonial) => (
         <div className="testimonial py-4 px-3" key={testimonial.id}>
           <div>
@@ -57,8 +56,9 @@ const ContactUs = () => {
           <p className="section__description">{testimonial.description}</p>
 
           <div className="mt-3 d-flex align-items-center gap-4">
+            <br></br>
             <div>
-              <h6 className="mb-0 mt-3">{testimonial.name}</h6>
+              <h6 className="section__description">{testimonial.name}</h6>
               <p className="section__description">{testimonial.title}</p>
             </div>
           </div>
