@@ -4,15 +4,25 @@ import { Row, Col, Image, ListGroup, Nav, Tab } from "react-bootstrap";
 import { Modal, ModalHeader, ModalBody, ModalFooter } from "reactstrap";
 
 const CarDetails = () => {
-  const { id } = useParams();
+  const { name } = useParams();
   const [product, setProduct] = useState({});
   const [activeKey, setActiveKey] = useState("description");
 
   useEffect(() => {
     const fetchProduct = async () => {
       try {
-        const res = await fetch(`http://localhost:5000/api/cars/${id}`);
-        const data = await res.json();
+        // Fetch the product by name to get its _id field
+        const resNames = await fetch(`http://localhost:5000/api/cars`);
+        const dataNames = await resNames.json();
+        const car = dataNames.find((c) => c.name === name);
+
+        if (!car) {
+          throw new Error(`Car with name '${name}' not found`);
+        }
+
+        // Use the _id field to fetch the full product details
+        const resId = await fetch(`http://localhost:5000/api/cars/${car._id}`);
+        const data = await resId.json();
         setProduct(data);
       } catch (error) {
         console.error(error);
@@ -20,7 +30,7 @@ const CarDetails = () => {
     };
 
     fetchProduct();
-  }, [id]);
+  }, [name]);
 
   const handleTabClick = (key) => {
     setActiveKey(key);
@@ -53,7 +63,7 @@ const CarDetails = () => {
               style={{
                 backgroundColor: "#ddd",
                 flexWrap: "nowrap",
-                width: "20%",
+                width: "23%",
               }}
             >
               <Nav.Item>

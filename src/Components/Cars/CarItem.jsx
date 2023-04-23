@@ -27,7 +27,9 @@ const CarItem = ({ products, selectedCategory }) => {
       <h1
         className="section__title mb-5"
         style={{ borderBottom: "solid 5px red" }}
-      > </h1>
+      >
+        {" "}
+      </h1>
 
       {filteredProducts.map((product) => (
         <Col lg="4" md="4" sm="6" key={product._id} className="mb-5">
@@ -82,7 +84,7 @@ const CarItem = ({ products, selectedCategory }) => {
                     className="w-50 car__item-btn car__btn-details"
                     style={{ borderRadius: "40px" }}
                   >
-                    <Link to={`/product/${product._id}`}>See Details</Link>
+                    <Link to={`/product/${product.name}`}>See Details</Link>
                   </button>
                   <button
                     className="w-50 car__item-btn car__btn-rent"
