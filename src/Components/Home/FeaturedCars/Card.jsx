@@ -8,61 +8,61 @@ import toyota from './images/toyota-logo-freelogovectors.net_.svg'
 function Card() {
   
   return (
-      <div class="cardFlex">
-        <div class="cardBody">
-          <div class="container">
-            <div class="card cardone">
-              <div class="imgBx">
-                <img class="cardImg" src={logo} alt="aaa" />
+      <div class="featured-cars-cardFlex">
+        <div class="featured-cars-cardBody">
+          <div class="featured-cars-container">
+            <div class="featured-cars-card featured-cars-cardone">
+              <div class="featured-cars-imgBx">
+                <img class="featured-cars-cardImg" src={logo} alt="image" />
               </div>
-              <div class="contentBx">
-                <div class="size"></div>
-                <Link to="/Cars" class="button">
+              <div class="featured-cars-contentBx">
+                <div class="featured-cars-size"></div>
+                <Link to="/Cars" class="featured-cars-button">
                   Go to gallery
                 </Link>
               </div>
             </div>
           </div>
         </div>
-        <div class="cardBody">
-          <div class="container">
-            <div class="card cardtwo">
-              <div class="imgBx">
-                <img class="cardImg" src={mercedes} alt="aaa" />
+        <div class="featured-cars-cardBody">
+          <div class="featured-cars-container">
+            <div class="featured-cars-card featured-cars-cardtwo">
+              <div class="featured-cars-imgBx">
+                <img class="featured-cars-cardImg" src={mercedes} alt="image" />
               </div>
-              <div class="contentBx">
-                <div class="size"></div>
-                <Link to="/Cars#mercedes" class="button">
+              <div class="featured-cars-contentBx">
+                <div class="featured-cars-size"></div>
+                <Link to="/Cars" class="featured-cars-button">
                   Go to gallery
                 </Link>
               </div>
             </div>
           </div>
         </div>
-        <div class="cardBody">
-          <div class="container">
-            <div class="card cardthree">
-              <div class="imgBx">
-                <img class="cardImg" src={gmc} alt="aaa" />
+        <div class="featured-cars-cardBody">
+          <div class="featured-cars-container">
+            <div class="featured-cars-card featured-cars-cardthree">
+              <div class="featured-cars-imgBx">
+                <img class="featured-cars-cardImg" src={gmc} alt="image" />
               </div>
-              <div class="contentBx">
-                <div class="size"></div>
-                <Link to="/Cars" class="button">
+              <div class="featured-cars-contentBx">
+                <div class="featured-cars-size"></div>
+                <Link to="/Cars" class="featured-cars-button">
                   Go to gallery
                 </Link>
               </div>
             </div>
           </div>
         </div>
-        <div class="cardBody">
-        <div class="container">
-          <div class="card cardfour">
-            <div class="imgBx">
-              <img class="cardImg" src={toyota} alt="aaa" />
+        <div class="featured-cars-cardBody">
+        <div class="featured-cars-container">
+          <div class="featured-cars-card cardfour">
+            <div class="featured-cars-imgBx">
+              <img class="featured-cars-cardImg" src={toyota} alt="image" />
             </div>
-            <div class="contentBx">
-              <div class="size"></div>
-              <Link to="/Cars" class="button">
+            <div class="featured-cars-contentBx">
+              <div class="featured-cars-size"></div>
+              <Link to="/Cars" class="featured-cars-button">
                 Go to gallery
               </Link>
             </div>

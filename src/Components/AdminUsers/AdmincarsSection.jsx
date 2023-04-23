@@ -3,6 +3,8 @@ import { Link } from "react-router-dom";
 import { Table, Button, Form } from "react-bootstrap";
 import { ToastContainer } from "react-toastify";
 import { toast } from "react-toastify";
+import Swal from "sweetalert2/dist/sweetalert2.js";
+import "sweetalert2/src/sweetalert2.scss";
 import "react-toastify/dist/ReactToastify.css";
 
 import axios from "axios";
@@ -22,12 +24,33 @@ const AdminCarsScreen = () => {
   }, []);
 
   const deleteHandler = async (id) => {
-    if (window.confirm("Are you sure?")) {
-      await axios.delete(`http://localhost:5000/api/cars/${id}`);
-      setCars(cars.filter((car) => car._id !== id));
-      toast.success("Car deleted successfully!");
+    const result = await Swal.fire({
+      title: "Are you sure?",
+      text: "You won't be able to revert this!",
+      icon: "warning",
+      showCancelButton: true,
+      confirmButtonColor: "#dc3545",
+      cancelButtonColor: "#6c757d",
+      confirmButtonText: '<i class="fas fa-trash-alt"></i> Yes, delete it!',
+      confirmButtonIcon: false,
+    });
+  
+    if (result.isConfirmed) {
+      try {
+        await axios.delete(`http://localhost:5000/api/cars/${id}`);
+        setCars(cars.filter((car) => car._id !== id));
+      
+        Swal.fire({
+          icon: "success",
+          title: "Deleted!",
+          text: "Your Car has been deleted.",
+        });
+      } catch (error) {
+        console.log(error);
+      }
     }
   };
+  
 
   const updateHandler = async (id, updatedCar) => {
     const formData = new FormData();
@@ -82,33 +105,34 @@ const AdminCarsScreen = () => {
     <>
       <ToastContainer />
 
-      <Link
-        className="btn btn-dark my-3"
-        to="/"
-        style={{ width: "150px", whiteSpace: "nowrap", float: "left" }}
-      >
-        Go Back
-      </Link>
-      <h1>Cars</h1>
+      <div style={{ display: "flex", justifyContent: "flex-end" }}>
+        <Link
+          className="btn btn-dark my-3"
+          to="/"
+          style={{ width: "150px", whiteSpace: "nowrap" }}
+        >
+          Go Back
+        </Link>
+        <Link
+          className="btn btn-dark my-3"
+          to="/Admin/newcar"
+          style={{
+            width: "170px",
+            whiteSpace: "nowrap",
+            backgroundColor: "red",
+            color: "#fff",
+          }}
+        >
+          Create New Car
+        </Link>
+      </div>
 
-      <Link
-        className="btn btn-dark my-3"
-        to="/Admin/newcar"
-        style={{
-          width: "170px",
-          whiteSpace: "nowrap",
-          float: "right",
-          backgroundColor: "red",
-          color: "#fff",
-        }}
-      >
-        Create New Car
-      </Link>
-      <Table striped bordered hover responsive className="table-sm">
+      <Table striped bordered hover responsive className="table-responsive-sm">
         <thead>
+          <h1>Cars List</h1>
+
           <tr>
             <th>Image</th>
-
             <th>Name</th>
             <th>Mileage</th>
             <th>Price</th>
@@ -117,7 +141,7 @@ const AdminCarsScreen = () => {
             <th>Features</th>
             <th>Description</th>
             <th>Category</th>
-            <th></th>
+            <th>Action</th>
           </tr>
         </thead>
         <tbody style={{ borderBottom: "1px solid black" }}>
@@ -157,6 +181,8 @@ const AdminCarsScreen = () => {
                     name="mileage"
                     value={editingCar.mileage}
                     onChange={handleInputChange}
+                    style={{ width: "120px" }} // Set the width of the input field
+
                   />
                 ) : (
                   car.mileage
@@ -171,6 +197,8 @@ const AdminCarsScreen = () => {
                     name="price"
                     value={editingCar.price}
                     onChange={handleInputChange}
+                    style={{ width: "120px" }} // Set the width of the input field
+
                   />
                 ) : (
                   car.price
@@ -184,6 +212,8 @@ const AdminCarsScreen = () => {
                     name="year"
                     value={editingCar.year}
                     onChange={handleInputChange}
+                    style={{ width: "120px" }} // Set the width of the input field
+
                   />
                 ) : (
                   car.year
@@ -196,6 +226,8 @@ const AdminCarsScreen = () => {
                     value={editingCar.stock}
                     name="stock"
                     onChange={handleInputChange}
+                    style={{ width: "130px" }} // Set the width of the input field
+
                     required
                   >
                     <option value="">Select a category</option>
@@ -246,6 +278,9 @@ const AdminCarsScreen = () => {
                     <option value="MERCEDES">MERCEDES</option>
                     <option value="TOYOTA">TOYOTA</option>
                     <option value="ELECTRIC CAR">ELECTRIC CAR</option>
+                    <option value="GMC">GMC</option>
+                    <option value="FORD">FORD</option>
+                    <option value="AUDI">AUDI</option>
                   </Form.Control>
                 ) : (
                   car.category

@@ -81,7 +81,7 @@ const AdminNewCar = () => {
     <>
       <Link
         className="btn btn-dark my-3"
-        to="/Cars"
+        to="/Admin/cars"
         style={{ width: "150px", whiteSpace: "nowrap", float: "left" }}
       >
         Go Back

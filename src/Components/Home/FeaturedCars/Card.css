@@ -1,4 +1,4 @@
-.cardFlex{
+.featured-cars-cardFlex{
     display: flex;
     flex-flow: row wrap;
     padding:0;
@@ -7,17 +7,17 @@
     margin:0;
     width:100%;
 }
-.cardBody{
+.featured-cars-cardBody{
     margin:5px;
     flex-basis: 320px;
     flex-grow:1;
     flex-shrink:1;
     margin:20px;
 }
-.container{
+.featured-cars-container{
     position:relative;
 }
-.container .card{
+.featured-cars-container .featured-cars-card{
     position: relative;
     width:300px;
     height:350px;
@@ -27,7 +27,7 @@
     box-shadow: 5px 10px #ba0606;
 }
 
-.container .card:before {
+.featured-cars-container .featured-cars-card:before {
     content: '';
     position:absolute;
     top:0;
@@ -38,10 +38,10 @@
     clip-path: circle(150px at 80% 20%);
     transition: 0.5s ease-in-out;
 }
-.container .card:hover:before{
+.featured-cars-container .featured-cars-card:hover:before{
     clip-path: circle(200px at 80% -20%);
 }
-.container .card:after{
+.featured-cars-container .featured-cars-card:after{
     position: absolute;
     top: 30%;
     left: 0%;
@@ -50,21 +50,20 @@
     font-style:italic;
     color: #ba0606;
 }
-.container .cardone:after{
+.featured-cars-container .featured-cars-cardone:after{
     content:'BMW';
 }
-
-.container .cardtwo:after{
+.featured-cars-container .featured-cars-cardtwo:after{
     content:'Mercedes';
 }
 
-.container .cardthree:after{
+.featured-cars-container .featured-cars-cardthree:after{
     content:'GMC';
 }
-.container .cardfour:after{
+.featured-cars-container .featured-cars-cardfour:after{
     content:'Toyota';
 }
-.container .card .imgBx{
+.featured-cars-container .featured-cars-card .featured-cars-imgBx{
     position:absolute;
     top:50%;
     transform: translateY(-50%);
@@ -73,11 +72,11 @@
     height:120px;
     transition: 0.5s;
 }
-.container .card:hover .imgBx{
+.featured-cars-container .featured-cars-card:hover .featured-cars-imgBx{
     top:0%;
     transform:translateY(0%);
 }
-.container .card .imgBx img{
+.featured-cars-container .featured-cars-card .featured-cars-imgBx img{
     position: absolute;
     top:50%;
     left:50%;
@@ -85,7 +84,7 @@
 height:8rem;
 width:auto;
 }
-.container .card .contentBx h2{    
+.featured-cars-container .featured-cars-card .featured-cars-contentBx h2{    
     cursor: pointer;
     color:#121212;
 background-color: white;
@@ -99,7 +98,7 @@ font-size: 15px;
 
 
 }
-.container .card .contentBx{
+.featured-cars-container .featured-cars-card .featured-cars-contentBx{
     position: absolute;
     bottom:0;
     width:100%;
@@ -109,12 +108,12 @@ font-size: 15px;
     z-index: 10;
 }
 
-.container .card:hover .contentBx{
+.featured-cars-container .featured-cars-card:hover .featured-cars-contentBx{
     height:130px;
 }
 
 
-.container .card .contentBx .size , .container .card .contentBx .color {
+.featured-cars-container .featured-cars-card .featured-cars-contentBx .featured-cars-size , .featured-cars-container .featured-cars-card .featured-cars-contentBx .featured-cars-color {
     display:flex;
     justify-content: center;
     align-items:center;
@@ -123,12 +122,12 @@ font-size: 15px;
     opacity:0;
     visibility: hidden;
 }
-.container .card:hover .contentBx .size{
+.featured-cars-container .featured-cars-card:hover .featured-cars-contentBx .featured-cars-size{
 opacity:1;
 visibility: visible;
 transition-delay: 0.5s;
 }
-.container .card .contentBx .size h3{
+.featured-cars-container .featured-cars-card .featured-cars-contentBx .featured-cars-size h3{
     color: #fff;
     font-weight: 300;
     font-size: 14px;
@@ -136,7 +135,7 @@ transition-delay: 0.5s;
     letter-spacing: 2px;
     margin-right:10px;
 }
-.container .card .contentBx .size nav{
+.featured-cars-container .featured-cars-card .featured-cars-contentBx .featured-cars-size nav{
     width:26px;
     height:26px;
     text-align: center;
@@ -152,7 +151,7 @@ transition-delay: 0.5s;
     cursor:pointer;
 }
 
-.container .card .contentBx .button{
+.featured-cars-container .featured-cars-card .featured-cars-contentBx .featured-cars-button{
 /* display: block;
 padding: 2px;
 background: #ba0606;
@@ -179,12 +178,12 @@ text-decoration: none;
 /* transform: translateY(40px); */
 transition: 0.5s;
 }
-.container .card:hover .contentBx .button{
+.featured-cars-container .featured-cars-card:hover .featured-cars-contentBx .featured-cars-button{
     opacity:1;
     transform:translateY(0px); 
     transition-delay: 0.75s;
 }
-.container .card .contentBx .button:hover{
+.featured-cars-container .featured-cars-card .featured-cars-contentBx .featured-cars-button:hover{
 color:white;
 background-color: black;
 transition-delay: 0.1s;

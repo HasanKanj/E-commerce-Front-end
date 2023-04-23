@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
-import { Link, useParams } from "react-router-dom";
-import { Row, Col, Image, ListGroup, Button, Nav, Tab } from "react-bootstrap";
+import { useParams } from "react-router-dom";
+import { Row, Col, Image, ListGroup, Nav, Tab } from "react-bootstrap";
+import { Modal, ModalHeader, ModalBody, ModalFooter } from "reactstrap";
 
 const CarDetails = () => {
   const { id } = useParams();
@@ -25,16 +26,15 @@ const CarDetails = () => {
     setActiveKey(key);
   };
 
+  const [modalIsOpen, setModalIsOpen] = useState(false); // <-- Add state for modal
+
+  const toggleModal = () => {
+    setModalIsOpen(!modalIsOpen);
+  };
+
   return (
     <>
-      <Link
-        className="btn btn-dark my-3"
-        to="/Cars"
-        style={{ width: "150px", whiteSpace: "nowrap", float: "left" }}
-      >
-        Go Back
-      </Link>
-      <Row>
+      <Row style={{ marginTop: "100px" }}>
         <Col md={7}>
           {product.url && ( // <-- only render Image if product.url exists
             <div>
@@ -50,7 +50,11 @@ const CarDetails = () => {
           <Tab.Container id="left-tabs-example" activeKey={activeKey}>
             <Nav
               variant="tabs"
-              style={{ backgroundColor: "#ddd", flexWrap: "nowrap" }}
+              style={{
+                backgroundColor: "#ddd",
+                flexWrap: "nowrap",
+                width: "20%",
+              }}
             >
               <Nav.Item>
                 <Nav.Link
@@ -106,28 +110,53 @@ const CarDetails = () => {
             </Tab.Content>
           </Tab.Container>
         </Col>
-        <Col md={3}>
-          <div style={{ backgroundColor: "#FAF9F6", padding: "20px" }}>
-            <ListGroup variant="flush">
-              <ListGroup.Item>
-                <h3>{product.name}</h3>
-              </ListGroup.Item>
-              <ListGroup.Item>Name: {product.name}</ListGroup.Item>
-              <ListGroup.Item>Category: {product.category}</ListGroup.Item>
-              <ListGroup.Item>Stock: {product.stock}</ListGroup.Item>
-              <ListGroup.Item>Year: {product.year}</ListGroup.Item>
-              <ListGroup.Item>Mileage: {product.mileage}</ListGroup.Item>
-              <ListGroup.Item>Price: {product.price}</ListGroup.Item>
-            </ListGroup>
+        <Col md={4} className="mt-4 mt-md-0">
+          <ListGroup variant="flush">
+            <ListGroup.Item>
+              <h3>{product.name}</h3>
+            </ListGroup.Item>
+            <ListGroup.Item>Name: {product.name}</ListGroup.Item>
+            <ListGroup.Item>Category: {product.category}</ListGroup.Item>
+            <ListGroup.Item>Stock: {product.stock}</ListGroup.Item>
+            <ListGroup.Item>Year: {product.year}</ListGroup.Item>
+            <ListGroup.Item>Mileage: {product.mileage}</ListGroup.Item>
+            <ListGroup.Item>Price: {product.price}</ListGroup.Item>
+          </ListGroup>
+
+          <div className="text-center">
+            <button
+              className="w-50 car__item-btn car__btn-rent"
+              style={{
+                borderRadius: "40px",
+                marginLeft: "10px",
+                marginTop: "50px",
+                color: "white",
+              }}
+              onClick={toggleModal}
+            >
+              Reserve
+            </button>
           </div>
 
-          <Button
-            variant="danger"
-            style={{ borderRadius: "0.5rem", backgroundColor: "#8B0000" }}
-            className="btn-block mt-3"
-          >
-            Reserve Now
-          </Button>
+          {/* Popup Modal */}
+          <Modal isOpen={modalIsOpen} toggle={toggleModal}>
+            <ModalHeader toggle={toggleModal}>Confirm Reservation</ModalHeader>
+            <ModalBody>Are you sure you want to reserve this car?</ModalBody>
+            <ModalFooter>
+              <button
+                className="btn btn-danger"
+                onClick={() => {
+                  console.log("Reserved!"); // <-- Replace with your own logic
+                  toggleModal();
+                }}
+              >
+                Yes
+              </button>{" "}
+              <button className="btn btn-secondary" onClick={toggleModal}>
+                No
+              </button>
+            </ModalFooter>
+          </Modal>
         </Col>
       </Row>
     </>
