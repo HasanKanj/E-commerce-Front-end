@@ -1,8 +1,8 @@
 import React, { useState, useEffect, useRef } from 'react';
-import '/home/alihomsi/Documents/projects/everything real client/REAL CLIENT FRONT END DESIGHN/E-commerce-Front-end/src/Components/ContactUs/ContactUs.css';
-import phoneIcon from '/home/alihomsi/Documents/projects/everything real client/REAL CLIENT FRONT END DESIGHN/E-commerce-Front-end/src/assets/kindpng_3406718.png';
-import emailIcon from '/home/alihomsi/Documents/projects/everything real client/REAL CLIENT FRONT END DESIGHN/E-commerce-Front-end/src/assets/emailIcon.png'
-import houseIcon from '/home/alihomsi/Documents/projects/everything real client/REAL CLIENT FRONT END DESIGHN/E-commerce-Front-end/src/assets/houseIcon.png'
+import "../ContactUs/ContactUs.css"; // <-- Import the CSS file
+import phoneIcon from '../../assets/kindpng_3406718.png';
+import emailIcon from '../../assets/emailIcon.png'
+import houseIcon from '../../assets/houseIcon.png'
 import emailjs from '@emailjs/browser';
 function ContactAdminForm() {
   const [name, setName] = useState('');

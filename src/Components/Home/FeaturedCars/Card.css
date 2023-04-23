@@ -1,0 +1,190 @@
+.featured-cars-cardFlex{
+    display: flex;
+    flex-flow: row wrap;
+    padding:0;
+    justify-content: center;
+    align-content: center;
+    margin:0;
+    width:100%;
+}
+.featured-cars-cardBody{
+    margin:5px;
+    flex-basis: 320px;
+    flex-grow:1;
+    flex-shrink:1;
+    margin:20px;
+}
+.featured-cars-container{
+    position:relative;
+}
+.featured-cars-container .featured-cars-card{
+    position: relative;
+    width:300px;
+    height:350px;
+    background:#151412;
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 5px 10px #ba0606;
+}
+
+.featured-cars-container .featured-cars-card:before {
+    content: '';
+    position:absolute;
+    top:0;
+    left: 0;
+    width:100%;
+    background: #f0eaea;
+    height:100%;
+    clip-path: circle(150px at 80% 20%);
+    transition: 0.5s ease-in-out;
+}
+.featured-cars-container .featured-cars-card:hover:before{
+    clip-path: circle(200px at 80% -20%);
+}
+.featured-cars-container .featured-cars-card:after{
+    position: absolute;
+    top: 30%;
+    left: 0%;
+    font-size:10em;
+    font-weight: 800;
+    font-style:italic;
+    color: #ba0606;
+}
+.featured-cars-container .featured-cars-cardone:after{
+    content:'BMW';
+}
+.featured-cars-container .featured-cars-cardtwo:after{
+    content:'Mercedes';
+}
+
+.featured-cars-container .featured-cars-cardthree:after{
+    content:'GMC';
+}
+.featured-cars-container .featured-cars-cardfour:after{
+    content:'Toyota';
+}
+.featured-cars-container .featured-cars-card .featured-cars-imgBx{
+    position:absolute;
+    top:50%;
+    transform: translateY(-50%);
+    z-index: 10000;
+    width:100%;
+    height:120px;
+    transition: 0.5s;
+}
+.featured-cars-container .featured-cars-card:hover .featured-cars-imgBx{
+    top:0%;
+    transform:translateY(0%);
+}
+.featured-cars-container .featured-cars-card .featured-cars-imgBx img{
+    position: absolute;
+    top:50%;
+    left:50%;
+    transform:translate(-50%,-50%) rotate(-25deg);
+height:8rem;
+width:auto;
+}
+.featured-cars-container .featured-cars-card .featured-cars-contentBx h2{    
+    cursor: pointer;
+    color:#121212;
+background-color: white;
+display: block;
+width:150px;
+padding:10px;
+border-radius: 20px;
+box-shadow: 5px 10px #ba0606;
+margin: -10px auto 0 auto;
+font-size: 15px;
+
+
+}
+.featured-cars-container .featured-cars-card .featured-cars-contentBx{
+    position: absolute;
+    bottom:0;
+    width:100%;
+    height:50px;
+    text-align: center;
+    transition:0.6s;
+    z-index: 10;
+}
+
+.featured-cars-container .featured-cars-card:hover .featured-cars-contentBx{
+    height:130px;
+}
+
+
+.featured-cars-container .featured-cars-card .featured-cars-contentBx .featured-cars-size , .featured-cars-container .featured-cars-card .featured-cars-contentBx .featured-cars-color {
+    display:flex;
+    justify-content: center;
+    align-items:center;
+    padding: 8px 20px;
+    transition: 0.5s;
+    opacity:0;
+    visibility: hidden;
+}
+.featured-cars-container .featured-cars-card:hover .featured-cars-contentBx .featured-cars-size{
+opacity:1;
+visibility: visible;
+transition-delay: 0.5s;
+}
+.featured-cars-container .featured-cars-card .featured-cars-contentBx .featured-cars-size h3{
+    color: #fff;
+    font-weight: 300;
+    font-size: 14px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    margin-right:10px;
+}
+.featured-cars-container .featured-cars-card .featured-cars-contentBx .featured-cars-size nav{
+    width:26px;
+    height:26px;
+    text-align: center;
+    line-height: 26px;
+    font-size: 14px;
+    display: inline-block;
+    color:#111;
+    background: #fff;
+    margin:0 5px;
+    transition: 0.5s;
+    color:#111;
+    border-radius:4px;
+    cursor:pointer;
+}
+
+.featured-cars-container .featured-cars-card .featured-cars-contentBx .featured-cars-button{
+/* display: block;
+padding: 2px;
+background: #ba0606;
+border: 10px solid black;
+border-width:1px;
+width:160px;
+margin: 0 auto;
+border-radius: 4px;
+text-decoration: none;
+font-weight: 600;
+color:rgb(240, 244, 244);
+opacity: 0; */
+cursor: pointer;
+color:#121212;
+background-color: white;
+display: block;
+width:150px;
+padding:10px;
+border-radius: 20px;
+box-shadow: 5px 10px #ba0606;
+margin: 30px auto 0 auto;
+font-size: 15px;
+text-decoration: none;
+/* transform: translateY(40px); */
+transition: 0.5s;
+}
+.featured-cars-container .featured-cars-card:hover .featured-cars-contentBx .featured-cars-button{
+    opacity:1;
+    transform:translateY(0px); 
+    transition-delay: 0.75s;
+}
+.featured-cars-container .featured-cars-card .featured-cars-contentBx .featured-cars-button:hover{
+color:white;
+background-color: black;
+transition-delay: 0.1s;
+    }
