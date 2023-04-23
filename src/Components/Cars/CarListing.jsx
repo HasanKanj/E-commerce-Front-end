@@ -6,7 +6,6 @@ import CommonSection from "../UI/CommonSection.jsx";
 import CarItem from "./CarItem.jsx";
 import "../styles/Car-listing.css"; // <-- Import the CSS file
 
-
 const CarListing = () => {
   const [carData, setCarData] = useState([]);
   const [selectedCategory, setSelectedCategory] = useState("BMW");
@@ -26,8 +25,15 @@ const CarListing = () => {
     <Helmet title="Cars">
       <CommonSection title="Featured Cars" />
       <Container>
+        <link
+          rel="stylesheet"
+          href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css"
+          integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+          crossorigin="anonymous"
+        />
+
         <section>
-          <div style={{ display: "flex", justifyContent: "space-between" }}>
+          <div className="category-nav">
             <h1 style={{ textAlign: "left" }}>{selectedCategory}</h1>
 
             <nav className="navbar-expand-lg navbar-light ">

@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
+
 import { Row, Col, Image, ListGroup, Nav, Tab } from "react-bootstrap";
 import { Modal, ModalHeader, ModalBody, ModalFooter } from "reactstrap";
 
@@ -44,6 +45,8 @@ const CarDetails = () => {
 
   return (
     <>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous"/>
+
       <Row style={{ marginTop: "100px" }}>
         <Col md={7}>
           {product.url && ( // <-- only render Image if product.url exists

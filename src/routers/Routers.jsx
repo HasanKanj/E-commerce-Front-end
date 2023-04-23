@@ -17,8 +17,7 @@ const Routers = () => {
     <div className="App">
       <Routes>
         <Route path="/" element={<Home />} />
-        <Route path="/AboutUs" element={<Container><AboutUs /></Container>} />
-        
+        <Route path="/AboutUs" element={<AboutUs />} />
         <Route path="/Cars" element={<CarListing />} />
         <Route path='/product/:name' element={<Container><CarDetails /></Container>} />
         <Route path='/Admin/cars' element={<AdminCarsScreen />} />

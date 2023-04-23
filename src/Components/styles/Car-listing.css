@@ -2,3 +2,13 @@
     display: flex;
     flex-direction: row;
 }
+.category-container {
+    margin-bottom: 20px; /* or any other value you prefer */
+  }
+
+  .category-nav {
+display: flex;
+justify-content: space-around;
+margin-top: 40px; /* or any other value you prefer */
+
+    }
