@@ -1,0 +1,259 @@
+
+
+/* About Us */
+/* About Us */
+/* About Us */
+/* About Us */
+
+.about-everyhing{
+  background-color: rgb(25, 26, 28);
+}
+
+
+/* About Us */
+/* About Us */
+/* About Us */
+/* About Us */
+
+.about-welcome{
+  color:#d00505;
+  font-size: 50px;
+  font-style: italic;
+  padding-top: 7vh;
+  text-align: center;
+}
+
+.about-titDesc{
+  
+  display: flex;
+  /* border: 2px solid red; */
+  flex-direction: column;
+  text-align: left;
+  width: 40vw;
+  font-size: 20px;
+
+}
+
+.about-titDescImg{
+  display: flex;
+
+  justify-content: space-evenly;
+  align-items: center;
+  padding: 10vh;
+   animation: mymove 1s 1 forwards;
+ 
+}
+
+.aboutimage{
+  width: 40vw;
+  height: 35vh;
+  margin-top: 150px;
+  
+}
+
+
+
+@keyframes mymove {
+  from {
+    transform: translateX(-60vh);
+   
+  }
+  to {
+    transform: translateX(0px);
+   
+  }
+}
+
+@media only screen and (max-width: 750px) {
+  .aboutimage{
+  width: 70vw;
+  height: 25vh;
+  margin-top: 10vh;
+}
+
+}
+
+@media only screen and (max-width: 1100px) {
+
+  .aboutimage{
+  width: 70vw;
+  height: 35vh;
+  margin-top: 10vh;
+}
+.about-welcome{
+  font-size: 45px;
+ 
+}
+
+.about-titDescImg{
+  display: flex;
+  flex-direction: column;
+ 
+  align-items: center;
+
+ 
+}
+
+.about-titDesc{
+  
+  display: flex;
+  flex-direction: column;
+  text-align: left;
+  width: 90vw;
+  font-size: 18px;
+
+}
+
+
+ 
+}
+
+
+
+
+
+
+
+/* About Footer  */
+/* About Footer  */
+/* About Footer  */
+/* About Footer  */
+
+
+
+
+.about-imageFooter {
+  text-align: center;
+  background-image: url("../../assets/redcar.jpg");
+  height: 90vh;
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.about-allimgs{
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+ 
+}
+
+.aboutsection {
+  
+  padding:20vh 40vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10vh;
+ 
+}
+
+.aboutsection i {
+  color: white;
+}
+
+.about-dollar {
+    width: 30%;
+  height: 30%;
+  border-radius: 20vh;
+}
+
+.about-customer {
+   width: 30%;
+  height: 30%;
+  border-radius: 20vh;
+}
+
+.about-thumb {
+  width: 30%;
+  height: 30%;
+  border-radius: 20vh;
+}
+.aboutsection h3 {
+  color: white;
+  margin-top: 10px;
+ 
+} 
+
+.about-reasonTitle{
+   font-size: 45px;
+   color: white;
+  
+ 
+  padding-top: 150px;
+}
+
+ 
+
+@media only screen and (max-width: 1100px) {
+
+.aboutsection {
+  
+  padding:10vh 20vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10vh;
+
+}
+
+.aboutsection h3 {
+  color: white;
+  margin-top: 10px;
+  font-size: 18px;
+  padding: 0 5vh;
+ 
+} 
+.about-customer {
+   width: 40%;
+  height: 40%;
+  border-radius: 20vh;
+}
+
+.about-thumb {
+  width: 45%;
+  height: 40%;
+  border-radius: 20vh;
+}
+.about-dollar {
+    width: 35%;
+  height: 30%;
+  border-radius: 20vh;
+}
+
+
+
+
+}
+
+
+
+@media only screen and (max-width: 650px) {
+
+.aboutsection {
+  
+  padding:10vh 20vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  gap: 10vh;
+}
+
+.about-imageFooter {
+
+  height: 150vh;
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+ 
+}
+  .aboutimage{
+  width: 80vw;
+  height: 25vh;
+  margin-top: 10vh;
+}
+
+}

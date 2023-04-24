@@ -11,10 +11,7 @@ function NavBar() {
       <Link to="/" class="home">Home</Link>
 
     </li>
-    <li class="list" name="item">
-      <Link to="/AboutUs" >About Us</Link>
-
-    </li>
+   
     <li class="list" name="item">        
     <Link to="/Cars" onclick="return 0" name="expand" >Our Cars &#9660;</Link>
       <ul name="sub_menu" class="submenu_list">
@@ -23,8 +20,13 @@ function NavBar() {
       </ul>
     </li>
     <li class="list" name="item">
+      <Link to="/AboutUs" >About Us</Link>
+
+    </li>
+    <li class="list" name="item">
     <Link to="/ContactUs" name="single" >Contact Us</Link>
     </li>
+    
     <li class="list" name="item">
     <Link to="/Login" onclick="return 0" name="expand" >Login  &#9660;</Link>
       <ul name="sub_menu" class="submenu_list">

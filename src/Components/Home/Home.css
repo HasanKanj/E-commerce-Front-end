@@ -1,6 +1,313 @@
-* {
-    width: 100%;
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+.home-allofabout {
+  background-color: rgb(238, 238, 238);
+}
+
+.home-imageheader {
+  width: 100%;
+  color: white;
+  padding-top: 50px;
+  height: 90vh;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.home-num1 {
+  color: #d00505;
+}
+
+.home-nametitle {
+  font-size: 40px;
+  font-weight: 500px;
+}
+
+.home-BMW {
+  width: 100%;
+  height: 60vh;
+}
+
+.home-audi {
+  width: 100%;
+  height: 60vh;
+}
+.home-collectionwithtitles {
+  text-align: center;
+  font-size: 30px;
+  color: white;
+}
+.home-collectionwithtitles i {
+  text-align: center;
+
+  font-size: 25px;
+  color: #d00505;
+}
+
+.overlay {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 100%;
+  width: 100%;
+  opacity: 0;
+  transition: 0.3s ease;
+}
+
+.container-home {
+  position: relative;
+  width: 100%;
+  max-width: 400px;
+}
+
+.container:hover .overlay {
+  opacity: 1;
+}
+
+.home-imagecollectionwithtitles {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  padding: 10vh;
+  background-color: rgb(17, 19, 22);
+}
+
+.home-imagecollection {
+  width: 100%;
+  padding-top: 50px;
+  height: 65vh;
+  display: flex;
+  /* border: 2px solid green; */
+  align-items: center;
+  justify-content: center;
+  flex-direction: row;
+}
+
+@media only screen and (max-width: 1200px) {
+  .home-collectionwithtitles {
+    text-align: center;
+    font-size: 20px;
+    color: white;
   }
+
+  .home-BMW {
+    width: 90%;
+    height: 30vh;
+  }
+
+  .home-audi {
+    width: 90%;
+    height: 30vh;
+  }
+}
+
+@media only screen and (max-width: 700px) {
+  .home-collectionwithtitles {
+    text-align: center;
+    font-size: 20px;
+    color: white;
+  }
+
+  .home-BMW {
+    width: 65%;
+    height: 40vh;
+  }
+
+  .home-audi {
+    width: 65%;
+    height: 35vh;
+  }
+  .home-imagecollection {
+    width: 100%;
+    padding-left: 100px;
+    gap: 40px;
+
+    height: 150vh;
+    display: flex;
+    /* border: 2px solid green; */
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+  }
+}
+
+/* Featured cars */
+/* Featured cars */
+/* Featured Cars */
+
+.featuredcars {
+  text-align: center;
+  color: white;
+  width: 100%;
+  height: 100vh;
+  padding: 20vh 20vh;
+  background-color: rgb(25, 26, 28);
+}
+
+.featuredcars h1 {
+  font-size: 45px;
+  margin-top: -8vh;
+  margin-bottom: 1vh;
+}
+
+/* Reasons to buy section */
+/* Reasons to buy section */
+/* Reasons to buy section */
+/* Reasons to buy section */
+
+.home-imageFooter {
+  text-align: center;
+  height: 80vh;
+}
+
+.homethird-img h3 {
+  color: rgb(245, 244, 243);
+  margin-bottom: 0.5vh;
+}
+
+.homethird-img {
+  color: #d00505;
+  padding: 100px;
+  padding-top: 8vh;
+}
+
+.home-resons {
+  font-size: 50px;
+  margin-top: -55px;
+  color: white;
+}
+
+.home-imageFooter h1 {
+  margin-top: -10vh;
+
+  color: rgba(165, 165, 165, 0.348);
+  font-size: 120px;
+  text-align: center;
+}
+
+.homesecondsection {
+  padding: 50px;
+  height: 50vh;
+  display: flex;
+  justify-content: center;
+  text-align: center;
+}
+
+.home-2ndpic {
+  padding-top: 8vh;
+}
+
+.home-icon {
+  width: 50%;
+  height: 9vh;
+  margin-bottom: 2vh;
+  border-radius: 50%;
+}
+
+/* Testimonial Section */
+
+@media only screen and (max-width: 1100px) {
+  .testimonial p {
+    font-size: 20px;
+  }
+  .testimonials {
+    background-color: rgb(25, 26, 28);
+    text-align: center;
+    height: 90vh;
+  }
+
+  .testimonial h6 {
+    font-size: 1rem;
+  }
+}
+
+@media only screen and (max-width: 576px) {
+  .testimonial img {
+    width: 60px !important;
+    height: 60px !important;
+    object-fit: cover;
+  }
+}
+
+.testimonial {
+  padding: 8vh;
+  padding-bottom: 10vh;
+}
+
+.testimonials {
+  background-color: rgb(25, 26, 28);
+  text-align: center;
+  height: 90vh;
+}
+
+.testimonials-p {
+  text-align: center;
+  padding: 5vh 10vh;
+
+  font-size: 20px;
+  color: #d00505;
+}
+
+.testi {
+  width: 38%;
+  margin: 0 auto;
+  margin-bottom: 10vh;
+  text-align: center;
+  /* border: 2px solid green; */
+
+  font-size: 20px;
+}
+
+.section__description {
+  color: gray;
+  text-align: center;
+  font-size: 30px;
+  width: 30vw;
+}
+
+.testi-quote {
+  color: #d00505;
+  font-size: 80px;
+  text-align: center;
+}
+
+.testimonial-title {
+  text-align: center;
+  font-size: 50px;
+  color: white;
+  padding-top: 10vh;
+}
+
+@media only screen and (max-width: 1200px) {
+  .homethird-img {
+    padding: 20px;
+   
+  }
+  .homethird-img h3 {
+    color: rgb(245, 244, 243);
+    font-size: 15px;
+    text-align: center;
+  }
+
+  .homethird-img {
+    font-size: 10px;
+  }
+}
+
+@media only screen and (max-width: 1200px) {
+  .featuredcars {
+  
+
+    height: 140vh;
+  }
+}
+
+@media only screen and (max-width: 920px) {
+  .featuredcars {
+    
+    text-align: center;
+
+    height: 300vh;
+  }
+}
