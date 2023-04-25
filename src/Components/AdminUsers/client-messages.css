@@ -1,15 +1,19 @@
-.table-container-unique {
+
+.table-container {
   width: 100%;
-  height: auto;
+  height: 788px;
   overflow: auto;
+  
+  
 }
 
-.table-unique {
+table {
   border-collapse: collapse;
   width: 100%;
+  
 }
 
-.th-unique, .td-unique {
+th, td {
   border: 1px solid #BE3F3F;
   padding: 8px;
   width: 25%;
@@ -17,49 +21,51 @@
   overflow-wrap: break-word;
 }
 
-.th-unique {
+th {
   background-color: #191A1C;
   color: white;
+  
 }
 
-.tr-even-unique {
+tr:nth-child(even) {
   background-color: black;
 }
 
-.tr-hover-unique:hover {
+tr:hover {
   background-color: #ddd;
 }
 
-.td-first-unique {
+td:nth-child(1) {
   background-color: #191A1C;
   border: 1px solid #BE3F3F;
   color:#E7E2E6;
   text-align: center;
 }
 
-.td-second-unique {
+td:nth-child(2) {
   background-color: #191A1C;
   border: 1px solid #BE3F3F;
   color:#E7E2E6;
 }
 
-.td-third-unique {
+td:nth-child(3) {
   background-color: #191A1C;
   border: 1px solid #BE3F3F;
   color:#E7E2E6;
 }
 
-.td-fourth-unique {
+td:nth-child(4) {
   background-color: #191A1C;
   border: 1px solid #BE3F3F;
   color:#E7E2E6;
   text-align: left;
 }
-
 @media screen and (max-width: 480px) {
-  .th-unique, .td-unique {
+  td, th {
     width: 25%;
     max-width: 100px;
     overflow-wrap: break-word;
   }
+ 
+  
 }
