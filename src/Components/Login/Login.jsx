@@ -25,9 +25,9 @@ function LoginPage() {
         throw new Error(data.message);
       }
       const data = await response.json();
-      sessionStorage.setItem('token', data.token);
-      console.log(data.token);
-      window.location.href = '/dashboard';
+await sessionStorage.setItem('token', data.token);
+console.log(data.token);
+navigate('/dashboard');
     } catch (error) {
       setError(error.message);
     }
