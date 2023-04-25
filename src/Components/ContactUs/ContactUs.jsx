@@ -63,6 +63,7 @@ function ContactAdminForm() {
       setSubmitStatus(<span style={{color:'red'}}>Error! There was an issue submitting your message.</span>);
     }
   };
+  
   const form = useRef();
 
   const sendEmail = (e) => {
