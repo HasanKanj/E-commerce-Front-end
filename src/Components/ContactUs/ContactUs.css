@@ -11,7 +11,7 @@
     border: 0px solid black;
     box-sizing: border-box;
     
-    margin-bottom: 5% ;
+    
     margin-left: 10%;
     margin-right: 10%;
     padding:200px;
@@ -35,10 +35,14 @@
   box-sizing: border-box;
   margin-top: -105px;
   text-align: left;
+
+  
+  
 }
 .contact-info-list{
   list-style: none;
   margin-top: 35px;
+
   
 }
 
@@ -367,8 +371,9 @@ font-size:45px;
     margin-top:40px;
     width: 100%;
   
-  padding: 0;
+  
   box-sizing: border-box;
+  padding-bottom: 250px;
   
   text-align: left;
   }

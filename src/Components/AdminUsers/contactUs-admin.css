@@ -1,34 +1,7 @@
-.contact-us{
-    width: 100%;
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-  display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 80%;
-    height: 80%;
-    border: 0px solid black;
-    box-sizing: border-box;
-    
-    margin-bottom: 5% ;
-    margin-left: 10%;
-    margin-right: 10%;
-    padding:200px;
-    background-color: #191A1C;
-    color:#E7E2E6 ;
-   
-  
-}
-.contact-form{
-  width: 100%;
-  margin-left:2.5%;
-  padding: 0;
-  box-sizing: border-box;
-  
-}
 
-.contact-info{
+
+
+.contact-info-admin{
   width: 100%;
   margin-right: 2.5%;
   padding: 0;
@@ -36,10 +9,14 @@
   margin-top: -125px;
   text-align: left;
 }
-.contact-info-list{
+
+.contact-info-list-admin{
   list-style: none;
   margin-top: 35px;
+  height: 140px;
+  
 }
+
 
 .form {
   display: flex;
@@ -186,7 +163,7 @@ font-size:45px;
 
 }
 .phone-img{
-  max-width: 5%;
+  max-width:23px;
   height: auto;
   margin: 0;
   padding: 0;
@@ -196,7 +173,7 @@ font-size:45px;
   top:-3px
 }
 .email-img{
-  max-width: 7%;
+  max-width: 33px;
   height: auto;
   margin: 0 auto;
   padding:0;
@@ -205,7 +182,7 @@ font-size:45px;
   top:-10px
 }
 .house-img{
-  max-width: 4.5%;
+  max-width: 20px;
   height: auto;
   margin:0;
   padding: 0;
@@ -227,4 +204,144 @@ font-size:45px;
   position: relative;
   margin-left: 40px; 
   margin-bottom: 30px; 
+}
+.update-info{
+  color:#999;
+  background-color: #1E1F21;
+  border: none;
+  border-radius: 5px;
+  width: 80%;
+  height: 24px;
+}
+
+@media screen and (max-width: 1300px) {
+  .contact-us{
+    display: flex;
+    flex-direction: row;
+  }
+  .form-button {
+    background-color: #BE3F3F;
+    color: #fff;
+    border: none;
+    border-radius: 10px;
+    font-size: 23px;
+    font-weight: 600;
+    padding: 12px 24px;
+    
+    width: 50%;
+  }
+  .phone-img{
+    max-width:23px;
+    height: auto;
+    margin: 0;
+    padding: 0;
+    position: absolute;
+    left: 0;
+    left: -38px;
+    top:-3px
+  }
+  .email-img{
+    max-width: 33px;
+    height: auto;
+    margin: 0 auto;
+    padding:0;
+    position:absolute;
+    left: -43px;
+    top:-10px
+  }
+  .house-img{
+    max-width: 20px;
+    height: auto;
+    margin:0;
+    padding: 0;
+    position: absolute ;
+    left: -36px;
+    top:-6px;
+  }
+
+}
+
+@media screen and (max-width: 1140px) {
+  .contact-us{
+    display: flex;
+    flex-direction: column;
+    margin: auto;
+    height: 100%;
+    
+    align-items: center;
+    justify-content: center;
+    padding:0
+  }
+  .form-button {
+    background-color: #BE3F3F;
+    color: #fff;
+    border: none;
+    border-radius: 10px;
+    font-size: 23px;
+    font-weight: 600;
+    padding: 12px 24px;
+    
+    width: 100%;
+  }
+  .contact-form{
+    order:1;
+  }
+  .contact-info-admin{
+    order:2;
+    margin-top:40px;
+    width: 100%;
+  margin-right: auto;
+  padding-bottom: 120px;
+  box-sizing: border-box;
+  
+  text-align: left;
+
+  }
+  .contact-info{
+    order:2;
+    margin-top:40px;
+    margin-right: auto;
+    width: 100%;
+  
+  padding: 0;
+  box-sizing: border-box;
+  padding-bottom:200px;
+  text-align: left;
+  }
+}
+@media screen and (max-width: 940px) {
+  .contact-us{
+    display: flex;
+    flex-direction: column;
+    margin: 0;
+    height: 100%;
+    margin: auto;
+    align-items: center;
+    justify-content: center;
+    padding:0
+  }
+  .form-button {
+    background-color: #BE3F3F;
+    color: #fff;
+    border: none;
+    border-radius: 10px;
+    font-size: 23px;
+    font-weight: 600;
+    padding: 12px 24px;
+    
+    width: 100%;
+  }
+  .contact-form{
+    order:1;
+  }
+  .contact-info{
+    order:2;
+    margin-top:40px;
+    width: 100%;
+  
+  padding: 0;
+  box-sizing: border-box;
+  
+  text-align: left;
+  }
 }

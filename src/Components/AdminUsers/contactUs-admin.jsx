@@ -1,8 +1,8 @@
 import React, { useState, useEffect, useRef } from 'react';
-import "../ContactUs/ContactUs.css"; // <-- Import the CSS file
-import phoneIcon from '../../assets/kindpng_3406718.png';
-import emailIcon from '../../assets/emailIcon.png'
-import houseIcon from '../../assets/houseIcon.png'
+import '/home/alihomsi/Documents/projects/everything real client/frontend updated/E-commerce-Front-end/src/Components/AdminUsers/contactUs-admin.css';
+import phoneIcon from '/home/alihomsi/Documents/projects/everything real client/frontend updated/E-commerce-Front-end/src/assets/kindpng_3406718.png';
+import emailIcon from '/home/alihomsi/Documents/projects/everything real client/frontend updated/E-commerce-Front-end/src/assets/emailIcon.png'
+import houseIcon from '/home/alihomsi/Documents/projects/everything real client/frontend updated/E-commerce-Front-end/src/assets/houseIcon.png'
 import emailjs from '@emailjs/browser';
 function ContactAdminForm() {
   const [name, setName] = useState('');
@@ -12,23 +12,26 @@ function ContactAdminForm() {
   const [streetLocation, updateLocation]=useState('');
   const [adminEmail, updateEmail] = useState('');
   const [adminPhoneNumber, updatePhoneNumber] = useState('');
-  const [contacts, setContacts] = useState([]);
+  const [contact, setContact] = useState({});
   const [submitStatus, setSubmitStatus] = useState('');
   const[updateStatus , setUpdateStatus]=useState('');
   
+  const fetchContact = async () => {
+    try {
+      const response  = await fetch('http://localhost:5000/api/contactAdmin/getOne');
+      const data = await response.json();
+      console.log("admin contact info",data)
+      setContact(data)
+      updatePhoneNumber(data.adminPhoneNumber)
+      updateEmail(data.adminEmail)
+      updateLocation(data.streetLocation)
 
+    } catch (error) {
+      console.error(error);
+    }
+  };
   useEffect(() => {
-    const fetchContacts = async () => {
-      try {
-        const response  = await fetch('http://localhost:5000/api/contactAdmin/getAll');
-        const data = await response.json();
-        setContacts(data);
-      } catch (error) {
-        console.error(error);
-      }
-    };
-
-    fetchContacts();
+    fetchContact();
   }, []);
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -108,37 +111,23 @@ function ContactAdminForm() {
     <div className='all-contactUs-space'>
       <div className='contact-us'>
 
-        <div className='contact-info'>
+        <div className='contact-info-admin'>
           <h1 className='contact-info-title'>Need additional information?</h1>
           <br />
           <br />
           <p className='contact-info-p'>A multifaceted professional skilled in multiple fields of research, development as well as a learning specialist. Over 15 years of experience.</p>
 
-          {contacts.map((contact) => (
-            <form key={contact._id} onSubmit={handleUpdate}>
+            <form onSubmit={handleUpdate}>
               <ul>
-                <li className='contact-info-list'>
-                  
-                 <p className='phone-number'> <img className='phone-img' src={phoneIcon} alt="icon 1" /> <input className='update-info'  type='text' placeholder={contact.adminPhoneNumber} onChange={(e) => updatePhoneNumber(e.target.value)} /></p>
-                
-
-                
-                  
-                  <p className='email'> <img className='email-img' src={emailIcon} alt="icon 1" /> <input className='update-info' type='email' placeholder={contact.adminEmail} onChange={(e) => updateEmail(e.target.value)} /></p>
-                
-
-                
-                  
-                  <p className='location'> <img className='house-img' src={houseIcon} alt="icon 1" /> <input className='update-info' type='text' placeholder={contact.streetLocation} onChange={(e) => updateLocation(e.target.value)}  /></p>
-            
-
-                
+                <li className='contact-info-list-admin'>  
+                  <p className='phone-number'> <img className='phone-img' src={phoneIcon} alt="icon 1" /> <input className='update-info'  type='text' value={adminPhoneNumber} onChange={(e) => updatePhoneNumber(e.target.value)} /></p>
+                  <p className='email'> <img className='email-img' src={emailIcon} alt="icon 2" /> <input className='update-info' type='email' value={adminEmail} onChange={(e) => updateEmail(e.target.value)} /></p>
+                  <p className='location'> <img className='house-img' src={houseIcon} alt="icon 3" /> <input className='update-info' type='text' value={streetLocation} onChange={(e) => updateLocation(e.target.value)} /></p>
                   <button type='submit' className='form-button'>Update</button>
                   {updateStatus && <p>{updateStatus}</p>}
                 </li>
               </ul>
             </form>
-          ))}
         </div>
 
 

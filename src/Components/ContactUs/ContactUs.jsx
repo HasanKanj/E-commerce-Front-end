@@ -1,32 +1,35 @@
 import React, { useState, useEffect, useRef } from 'react';
-import "../ContactUs/ContactUs.css"; // <-- Import the CSS file
-import phoneIcon from '../../assets/kindpng_3406718.png';
-import emailIcon from '../../assets/emailIcon.png'
-import houseIcon from '../../assets/houseIcon.png'
+import '/home/alihomsi/Documents/projects/everything real client/frontend updated/E-commerce-Front-end/src/Components/ContactUs/ContactUs.css';
+import phoneIcon from '/home/alihomsi/Documents/projects/everything real client/frontend updated/E-commerce-Front-end/src/assets/kindpng_3406718.png';
+import emailIcon from '/home/alihomsi/Documents/projects/everything real client/frontend updated/E-commerce-Front-end/src/assets/emailIcon.png'
+import houseIcon from '/home/alihomsi/Documents/projects/everything real client/frontend updated/E-commerce-Front-end/src/assets/houseIcon.png'
 import emailjs from '@emailjs/browser';
 function ContactAdminForm() {
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
   const [phoneNumber, setPhoneNumber] = useState('');
   const [message, setMessage] = useState('');
-  
-  const [contacts, setContacts] = useState([]);
+  const [contact, setContact] = useState({});
   const [submitStatus, setSubmitStatus] = useState('');
-
+  const fetchContact = async () => {
+    try {
+      const response  = await fetch('http://localhost:5000/api/contactAdmin/getOne');
+      const data = await response.json();
+      setContact(data);
+    } catch (error) {
+      console.error(error);
+    }
+  };
   useEffect(() => {
-    const fetchContacts = async () => {
-      try {
-        const response  = await fetch('http://localhost:5000/api/contactAdmin/getAll');
-        const data = await response.json();
-        setContacts(data);
-      } catch (error) {
-        console.error(error);
-      }
-    };
-
-    fetchContacts();
+    fetchContact();
   }, []);
 
+  const resetForm = () => {
+    setName('');
+    setEmail('');
+    setPhoneNumber('');
+    setMessage('');
+  };
   const handleSubmit = async (e) => {
     e.preventDefault();
     // Check if all form fields are filled out
@@ -54,6 +57,7 @@ function ContactAdminForm() {
       console.log(data);
        // Display success message and error message
       setSubmitStatus(<span style={{color:'green'}}>Success! Your message has been sent.</span>);
+      resetForm(); // Reset the form
     } catch (error) {
       console.error(error);
       setSubmitStatus(<span style={{color:'red'}}>Error! There was an issue submitting your message.</span>);
@@ -88,13 +92,11 @@ function ContactAdminForm() {
       <br />
       <p className='contact-info-p'>A multifaceted professional skilled in multiple fields of research, development as well as a learning specialist. Over 15 years of experience. </p>
       <ul>
-        {contacts.map((contact) => (
-          <li className='contact-info-list' key={contact._id}>
+          <li className='contact-info-list'>
             <p className='phone-number'  ><img className='phone-img' src={phoneIcon} alt="icon 1" />{contact.adminPhoneNumber}</p>
             <p className='email' ><img className='email-img' src={emailIcon} alt="icon 2" />{contact.adminEmail}</p>
             <p className='location'><img className='house-img' src={houseIcon} alt="icon 3" /> {contact.streetLocation}</p>
           </li>
-        ))}
       </ul>
       </div>
 
