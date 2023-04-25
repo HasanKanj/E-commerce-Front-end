@@ -13,13 +13,14 @@ import CarListing from "../Components/Cars/CarListing";
 import AdminNewCar from "../Components/AdminUsers/AdminnewCar";
 import ContactUsAdmin from '../Components/AdminUsers/contactUs-admin';
 import ClientMessages from '../Components/AdminUsers/client-messages';
+import ScrillToTop from '../Components/Home/ScrolltoTop/Scroll';
 const Routers = () => {
     return (
     <div className="App">
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/AboutUs" element={<AboutUs />} />
-        <Route path="/Cars" element={<CarListing />} />
+        <Route path="/cars/:categoryName" element={<CarListing />} />
         <Route path='/product/:name' element={<Container><CarDetails /></Container>} />
         <Route path='/Admin/cars' element={<AdminCarsScreen />} />
         <Route path='/Admin/newcar' element={<Container><AdminNewCar /></Container>} />
@@ -29,6 +30,7 @@ const Routers = () => {
         <Route path="/Login" element={<Login />} />
         <Route path="/Register" element={<Register />} />
       </Routes>
+      <ScrillToTop />
     </div>
   );
   

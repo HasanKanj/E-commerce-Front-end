@@ -14,28 +14,39 @@ function Navbar() {
 
 
   return (
-    <header>
-      <h3>Oussama Ghomrawi</h3>
-      <nav ref={navRef}>
+<>
+<div id="menu_wrapper" class="menu_wrapper">
+  <ul class="menu_list">
+    <li class="list" name="item">
+      <Link to="/" class="home">Home</Link>
 
-        <a href='#About'>About</a>
-        <a href='#Languages'>Skills</a>
-        <a href='#Projects'>Projects</a>
-        <a href='#ContactSection'>Contact</a>
-        <button
-          className="nav-btn-nav-close-btn"
-          onClick={showNavbar}>
-          <FaTimes />
-        </button>
+    </li>
+   
+    <li class="list" name="item">        
+    <Link to="/Cars" onclick="return 0" name="expand" >Our Cars &#9660;</Link>
+      <ul name="sub_menu" class="submenu_list">
+        <li class="sub_list"> <Link to="/fuelCars" >Fuel Cars</Link></li>
+        <li class="sub_list"> <Link to="/electricCars" >Electric Cars</Link></li>
+      </ul>
+    </li>
+    <li class="list" name="item">
+      <Link to="/AboutUs" >About Us</Link>
 
-      </nav>
-      {/* to open nav */}
-      <button className="nav-btn"
-        onClick={showNavbar}>
-        <FaBars />
-      </button>
-    </header>
-  );
+    </li>
+    <li class="list" name="item">
+    <Link to="/ContactUs" name="single" >Contact Us</Link>
+    </li>
+    
+    <li class="list" name="item">
+    <Link to="/Login" onclick="return 0" name="expand" >Login  &#9660;</Link>
+      <ul name="sub_menu" class="submenu_list">
+        <li class="sub_list sign-up"><Link to='/Register'>Don't Have an Account? Register Here! &#9660; </Link></li>
+      </ul>
+    </li>
+  </ul>
+</div>
+</>  
+    )
 }
 
 export default Navbar;

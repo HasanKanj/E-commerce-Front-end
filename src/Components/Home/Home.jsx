@@ -8,7 +8,7 @@ import Card from "./FeaturedCars/Card";
 
 import "./Home.css";
 
-import Testimonial from "./Testimonial";
+import Testimonials from "./Testimonial";
 import HeroSlider from "./Sliderhome";
 import Landingpage from "./video";
 
@@ -65,14 +65,15 @@ function Home() {
         </div>
       </div>
       <div>
-        {/* <Landingpage /> */}
+        <Landingpage />
+        
       </div>
 
       <div className="testimonials">
         <h1 className="testimonial-title">Why Clients Love Us</h1>
         <p className="testimonials-p">Many clients are thrilled by the service we deliver and are happy to tell us. Read about what some have said about us here.</p>
         <div className="testi">
-          <Testimonial />
+          <Testimonials />
         </div>
       </div>
     </div>

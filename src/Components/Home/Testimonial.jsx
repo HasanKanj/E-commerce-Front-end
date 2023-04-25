@@ -5,11 +5,11 @@ import "slick-carousel/slick/slick-theme.css";
 import axios from "axios";
 import "./Home.css"
 
-const ContactUs = () => {
+const Testimonials = () => {
   const [testimonials, setTestimonials] = useState([]);
 
   const fetchTestimonials = async () => {
-    const res = await axios.get("http://localhost:5000/testimonial");
+    const res = await axios.get("http://localhost:5000/api/testimonial");
     setTestimonials(res.data.data);
   };
 
@@ -68,4 +68,4 @@ const ContactUs = () => {
   );
 };
 
-export default ContactUs;
+export default Testimonials;

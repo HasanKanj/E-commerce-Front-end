@@ -1,3 +1,7 @@
+.toast-container .Toastify__toast-body {
+  white-space: nowrap;
+}
+
 .car__item {
   position: relative;
   overflow: hidden;

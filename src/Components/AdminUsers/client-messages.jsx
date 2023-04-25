@@ -1,6 +1,6 @@
-import './client-messages.css'
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
+import './client-messages.css';
 
 function ContactTable() {
   const [contacts, setContacts] = useState([]);
