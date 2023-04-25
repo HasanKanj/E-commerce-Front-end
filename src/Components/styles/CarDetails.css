@@ -1,3 +1,7 @@
+.toast-container .Toastify__toast-body {
+  white-space: nowrap;
+}
+
 .car-details-container {
     margin-top: 100px;
   }

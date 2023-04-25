@@ -1,13 +1,14 @@
 import React, { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
-
 import { Row, Col, Image, ListGroup, Nav, Tab } from "react-bootstrap";
 import { Modal, ModalHeader, ModalBody, ModalFooter } from "reactstrap";
-
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 const CarDetails = () => {
   const { name } = useParams();
   const [product, setProduct] = useState({});
   const [activeKey, setActiveKey] = useState("description");
+  const [modalIsOpen, setModalIsOpen] = useState(false); // <-- Add state for modal
 
   useEffect(() => {
     const fetchProduct = async () => {
@@ -37,15 +38,22 @@ const CarDetails = () => {
     setActiveKey(key);
   };
 
-  const [modalIsOpen, setModalIsOpen] = useState(false); // <-- Add state for modal
-
   const toggleModal = () => {
+    // Check if user is logged in
+    const token = localStorage.getItem("token");
+    if (!token) {
+      toast.error("Please login/register before reserving a car.");
+      return;
+    }
+
+    // User is logged in, proceed with opening the modal
     setModalIsOpen(!modalIsOpen);
   };
-
   return (
     <>
+    
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous"/>
+    <ToastContainer className="toast-container" />
 
       <Row style={{ marginTop: "100px" }}>
         <Col md={7}>

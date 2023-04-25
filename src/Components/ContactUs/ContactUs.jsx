@@ -34,6 +34,12 @@ function ContactAdminForm() {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    // Check if token is present
+    const token = localStorage.getItem("token");
+    if (!token) {
+      alert("You need to be logged in to send a message.");
+      return;
+    }
     // Check if all form fields are filled out
     if (!name || !email || !phoneNumber || !message) {
       setSubmitStatus(
@@ -60,6 +66,7 @@ function ContactAdminForm() {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
+          Authorization: `Bearer ${token}`, // Include token in header
         },
         body: JSON.stringify({ name, email, phoneNumber, message }),
       });

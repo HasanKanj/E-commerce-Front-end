@@ -13,7 +13,7 @@ function NavBar() {
     </li>
    
     <li class="list" name="item">        
-    <Link to="/Cars" onclick="return 0" name="expand" >Our Cars &#9660;</Link>
+    <Link to="/cars/bmw" onclick="return 0" name="expand" >Our Cars &#9660;</Link>
       <ul name="sub_menu" class="submenu_list">
         <li class="sub_list"> <Link to="/fuelCars" >Fuel Cars</Link></li>
         <li class="sub_list"> <Link to="/electricCars" >Electric Cars</Link></li>

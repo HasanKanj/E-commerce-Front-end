@@ -25,16 +25,16 @@ function LoginPage() {
         throw new Error(data.message);
       }
       const data = await response.json();
-      sessionStorage.setItem('token', data.token);
+      localStorage.setItem('token', data.token); // updated to use localStorage
       console.log(data.token);
-      window.location.href = '/dashboard';
+      window.location.href = '/';
     } catch (error) {
       setError(error.message);
     }
   };
 
   useEffect(() => {
-    if (sessionStorage.getItem('token')) sessionStorage.removeItem('token');
+    if (localStorage.getItem('token')) localStorage.removeItem('token'); // updated to use localStorage
   });
 
   return (

@@ -1,6 +1,6 @@
-import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import { Image } from "cloudinary-react";
+import { useState } from "react";
 import { Col, Modal, ModalHeader, ModalBody, ModalFooter } from "reactstrap";
 import {
   RemixIcon,
@@ -8,7 +8,8 @@ import {
   riSettings2Line,
   riTimerFlashLine,
 } from "@mwarnerdotme/react-remixicon";
-
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 import "../styles/car-item.css"; // <-- Import the CSS file
 
 const CarItem = ({ products, selectedCategory }) => {
@@ -19,11 +20,21 @@ const CarItem = ({ products, selectedCategory }) => {
   const [modalIsOpen, setModalIsOpen] = useState(false); // <-- Add state for modal
 
   const toggleModal = () => {
+    // Check if user is logged in
+    const token = localStorage.getItem("token");
+    if (!token) {
+      toast.error("Please login/register before reserving a car.");
+      return;
+    }
+
+    // User is logged in, proceed with opening the modal
     setModalIsOpen(!modalIsOpen);
   };
 
   return (
     <>
+<ToastContainer className="toast-container" />
+
       <h1
         className="section__title mb-5"
         style={{ borderBottom: "solid 5px red" }}
@@ -111,7 +122,7 @@ const CarItem = ({ products, selectedCategory }) => {
                 }}
               >
                 Yes
-              </button>{" "}
+              </button>
               <button className="btn btn-secondary" onClick={toggleModal}>
                 No
               </button>
