@@ -34,7 +34,7 @@ function LoginPage() {
   };
 
   useEffect(() => {
-    if (localStorage.getItem("token")) localStorage.removeItem("token"); // updated to use localStorage
+    if (sessionStorage.getItem("token")) sessionStorage.removeItem("token"); // updated to use localStorage
   });
 
   return (
