@@ -17,7 +17,7 @@ function Card() {
               </div>
               <div class="featured-cars-contentBx">
                 <div class="featured-cars-size"></div>
-                <Link to="/Cars" class="featured-cars-button">
+                <Link to="/cars/bmw" class="featured-cars-button">
                   Go to gallery
                 </Link>
               </div>
@@ -32,8 +32,9 @@ function Card() {
               </div>
               <div class="featured-cars-contentBx">
                 <div class="featured-cars-size"></div>
-                <Link to="/Cars" class="featured-cars-button">
+                <Link to="/cars/mercedes" class="featured-cars-button">
                   Go to gallery
+
                 </Link>
               </div>
             </div>
@@ -47,7 +48,7 @@ function Card() {
               </div>
               <div class="featured-cars-contentBx">
                 <div class="featured-cars-size"></div>
-                <Link to="/Cars" class="featured-cars-button">
+                <Link to="/cars/gmc" class="featured-cars-button">
                   Go to gallery
                 </Link>
               </div>
@@ -62,7 +63,7 @@ function Card() {
             </div>
             <div class="featured-cars-contentBx">
               <div class="featured-cars-size"></div>
-              <Link to="/Cars" class="featured-cars-button">
+              <Link to="/cars/toyota" class="featured-cars-button">
                 Go to gallery
               </Link>
             </div>

@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { Container, Row } from "reactstrap";
+import { useNavigate } from "react-router-dom";
 import Helmet from "../Helmet/Helmet";
 import CommonSection from "../UI/CommonSection.jsx";
 import CarItem from "./CarItem.jsx";
@@ -11,6 +12,7 @@ const CarListing = () => {
   const { category } = useParams();
   const [carData, setCarData] = useState([]);
   const [selectedCategory, setSelectedCategory] = useState("BMW");
+  const navigate = useNavigate();
 
   useEffect(() => {
     category && setSelectedCategory(category);
@@ -23,6 +25,11 @@ const CarListing = () => {
         console.log(error);
       });
   }, []);
+
+  const handleCategorySelection = (categoryName) => {
+    setSelectedCategory(categoryName);
+    navigate(`/cars/${categoryName.toLowerCase()}`);
+  };
 
   return (
     <Helmet title="Cars">
@@ -49,7 +56,7 @@ const CarListing = () => {
                     className={`nav-link${
                       selectedCategory === "BMW" ? " active" : ""
                     }`}
-                    onClick={() => setSelectedCategory("BMW")}
+                    onClick={() => handleCategorySelection("BMW")}
                     style={{
                       cursor: "pointer",
                       color: selectedCategory === "BMW" ? "#8B0000" : "black",
@@ -63,7 +70,7 @@ const CarListing = () => {
                     className={`nav-link${
                       selectedCategory === "MERCEDES" ? " active" : ""
                     }`}
-                    onClick={() => setSelectedCategory("MERCEDES")}
+                    onClick={() => handleCategorySelection("MERCEDES")}
                     style={{
                       cursor: "pointer",
                       color:
@@ -78,7 +85,7 @@ const CarListing = () => {
                     className={`nav-link${
                       selectedCategory === "TOYOTA" ? " active" : ""
                     }`}
-                    onClick={() => setSelectedCategory("TOYOTA")}
+                    onClick={() => handleCategorySelection("TOYOTA")}
                     style={{
                       cursor: "pointer",
                       color:
@@ -91,26 +98,9 @@ const CarListing = () => {
                 <li className="nav-item">
                   <span
                     className={`nav-link${
-                      selectedCategory === "ELECTRIC CAR" ? " active" : ""
-                    }`}
-                    onClick={() => setSelectedCategory("ELECTRIC CAR")}
-                    style={{
-                      cursor: "pointer",
-                      color:
-                        selectedCategory === "ELECTRIC CAR"
-                          ? "#8B0000"
-                          : "black",
-                    }}
-                  >
-                    Electric
-                  </span>
-                </li>
-                <li className="nav-item">
-                  <span
-                    className={`nav-link${
                       selectedCategory === "GMC" ? " active" : ""
                     }`}
-                    onClick={() => setSelectedCategory("GMC")}
+                    onClick={() => handleCategorySelection("GMC")}
                     style={{
                       cursor: "pointer",
                       color: selectedCategory === "GMC" ? "#8B0000" : "black",
@@ -124,7 +114,7 @@ const CarListing = () => {
                     className={`nav-link${
                       selectedCategory === "FORD" ? " active" : ""
                     }`}
-                    onClick={() => setSelectedCategory("FORD")}
+                    onClick={() => handleCategorySelection("FORD")}
                     style={{
                       cursor: "pointer",
                       color: selectedCategory === "FORD" ? "#8B0000" : "black",
@@ -138,7 +128,7 @@ const CarListing = () => {
                     className={`nav-link${
                       selectedCategory === "AUDI" ? " active" : ""
                     }`}
-                    onClick={() => setSelectedCategory("AUDI")}
+                    onClick={() => handleCategorySelection("AUDI")}
                     style={{
                       cursor: "pointer",
                       color: selectedCategory === "AUDI" ? "#8B0000" : "black",
@@ -147,12 +137,29 @@ const CarListing = () => {
                     Audi
                   </span>
                 </li>
+                <li className="nav-item">
+                  <span
+                    className={`nav-link${
+                      selectedCategory === "ELECTRIC CAR" ? " active" : ""
+                    }`}
+                    onClick={() => handleCategorySelection("ELECTRIC CAR")}
+                    style={{
+                      cursor: "pointer",
+                      color:
+                        selectedCategory === "ELECTRIC CAR"
+                          ? "#8B0000"
+                          : "black",
+                    }}
+                  >
+                    Electric
+                  </span>
+                </li>
               </ul>
             </nav>
           </div>
         </section>
       </Container>
-
+    
       <section>
         <Container>
           <Row>
@@ -161,7 +168,7 @@ const CarListing = () => {
         </Container>
       </section>
     </Helmet>
-  );
-};
-
-export default CarListing;
+    );
+    };
+    
+    export default CarListing;

@@ -34,12 +34,12 @@ const AdminCarsScreen = () => {
       confirmButtonText: '<i class="fas fa-trash-alt"></i> Yes, delete it!',
       confirmButtonIcon: false,
     });
-  
+
     if (result.isConfirmed) {
       try {
         await axios.delete(`http://localhost:5000/api/cars/${id}`);
         setCars(cars.filter((car) => car._id !== id));
-      
+
         Swal.fire({
           icon: "success",
           title: "Deleted!",
@@ -50,7 +50,6 @@ const AdminCarsScreen = () => {
       }
     }
   };
-  
 
   const updateHandler = async (id, updatedCar) => {
     const formData = new FormData();
@@ -103,8 +102,12 @@ const AdminCarsScreen = () => {
 
   return (
     <>
-{/* <link rel="stylesheet" href="https://bootswatch.com/5/lux/bootstrap.min.css"/> */}
-
+      <link
+        rel="stylesheet"
+        href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+        crossorigin="anonymous"
+      />
       <ToastContainer />
 
       <div style={{ display: "flex", justifyContent: "flex-end" }}>
@@ -134,7 +137,7 @@ const AdminCarsScreen = () => {
           <h1>Cars List</h1>
 
           <tr>
-            <th>Image</th>
+            <th >Image</th>
             <th>Name</th>
             <th>Mileage</th>
             <th>Price</th>
@@ -184,7 +187,6 @@ const AdminCarsScreen = () => {
                     value={editingCar.mileage}
                     onChange={handleInputChange}
                     style={{ width: "120px" }} // Set the width of the input field
-
                   />
                 ) : (
                   car.mileage
@@ -200,7 +202,6 @@ const AdminCarsScreen = () => {
                     value={editingCar.price}
                     onChange={handleInputChange}
                     style={{ width: "120px" }} // Set the width of the input field
-
                   />
                 ) : (
                   car.price
@@ -215,7 +216,6 @@ const AdminCarsScreen = () => {
                     value={editingCar.year}
                     onChange={handleInputChange}
                     style={{ width: "120px" }} // Set the width of the input field
-
                   />
                 ) : (
                   car.year
@@ -229,7 +229,6 @@ const AdminCarsScreen = () => {
                     name="stock"
                     onChange={handleInputChange}
                     style={{ width: "130px" }} // Set the width of the input field
-
                     required
                   >
                     <option value="">Select a category</option>

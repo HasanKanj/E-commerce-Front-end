@@ -1,6 +1,6 @@
-import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import { Image } from "cloudinary-react";
+import { useState } from "react";
 import { Col, Modal, ModalHeader, ModalBody, ModalFooter } from "reactstrap";
 import {
   RemixIcon,
@@ -146,7 +146,7 @@ const CarItem = ({ products, selectedCategory }) => {
                 }}
               >
                 Yes
-              </button>{" "}
+              </button>
               <button className="btn btn-secondary" onClick={toggleModal}>
                 No
               </button>

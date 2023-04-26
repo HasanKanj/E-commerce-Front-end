@@ -5,7 +5,7 @@ import "slick-carousel/slick/slick-theme.css";
 import axios from "axios";
 import "./Home.css"
 
-const Testimonial = () => {
+const Testimonials = () => {
   const [testimonials, setTestimonials] = useState([]);
 
   const fetchTestimonials = async () => {
@@ -70,4 +70,4 @@ const Testimonial = () => {
   );
 };
 
-export default Testimonial;
+export default Testimonials;

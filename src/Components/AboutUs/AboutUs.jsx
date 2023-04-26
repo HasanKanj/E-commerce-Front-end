@@ -1,7 +1,5 @@
-import NavBar from "../Header/NavBar/NavBar";
 import aboutImg from "../../assets/aboutImg.png";
 import dollar from "../../assets/dollar.png";
-
 import customer from "../../assets/customer.png";
 import thumb from "../../assets/thumb.png";
 import Helmet from "../Helmet/Helmet";

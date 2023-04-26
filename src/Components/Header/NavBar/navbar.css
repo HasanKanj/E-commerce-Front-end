@@ -1,0 +1,107 @@
+.navbar-lina {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  position: fixed;
+  z-index: 100000;
+  padding: 20px;
+  background-color: transparent;
+  transition: background-color 0.5s;
+}
+
+.navbar-lina.scrolled {
+  background-color: #000;
+}
+
+.navbar-lina-logo-div {
+  flex: 50%;
+  justify-self: flex-start;
+}
+
+.navbar-lina-logo {
+  height: 50px;
+  width: auto;
+  object-fit: contain;
+}
+
+.navbar-lina-links {
+
+  flex: 1;
+  justify-self: flex-end;}
+
+.navbar-lina-ul {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+
+.navbar-lina-item {
+  margin-left: 20px;
+}
+
+.navbar-lina-dropdown {
+  position: relative;
+}
+
+.navbar-lina-dropdown:hover .navbar-lina-submenu {
+  display: block;
+}
+
+.navbar-lina-link {
+  text-decoration: none;
+  color: #fff;
+}
+
+.navbar-lina-submenu {
+  display: none;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  background-color: #000;
+  padding: 10px;
+  list-style-type: none;
+  margin: 0;
+  opacity: 0.9;
+  z-index: 1;
+}
+
+.navbar-lina-submenu li {
+  margin-bottom: 10px;
+}
+
+.navbar-lina-login-btn {
+  border: none;
+  background: none;
+  cursor: pointer;
+}
+
+.navbar-lina-menu-toggle {
+  flex: 1;
+  justify-self: flex-end;
+  cursor: pointer;
+}
+
+.navbar-lina-menu-toggle i {
+  font-size: 24px;
+  color: #fff;
+}
+@media screen and (max-width: 768px) {
+  .navbar-lina-mobile {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    /* padding: 0.5rem 1rem; */
+  }
+
+  .navbar-lina-menu-toggle {
+    display: block;
+    color: #fff;
+    font-size: 1.5rem;
+    cursor: pointer;
+  }
+}

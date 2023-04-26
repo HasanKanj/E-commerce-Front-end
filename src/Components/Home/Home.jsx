@@ -8,7 +8,7 @@ import Card from "./FeaturedCars/Card";
 
 import "./Home.css";
 
-import Testimonial from "./Testimonial";
+import Testimonials from "./Testimonial";
 import HeroSlider from "./Sliderhome";
 import Landingpage from "./video";
 
@@ -84,6 +84,7 @@ function Home() {
       </div>
       <div>
         <Landingpage />
+        
       </div>
 
       <div className="testimonials">
@@ -93,7 +94,7 @@ function Home() {
           tell us. Read about what some have said about us here.
         </p>
         <div className="testi">
-          <Testimonial />
+          <Testimonials />
         </div>
       </div>
     </div>
