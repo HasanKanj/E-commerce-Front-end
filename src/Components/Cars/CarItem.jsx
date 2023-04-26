@@ -8,7 +8,9 @@ import {
   riSettings2Line,
   riTimerFlashLine,
 } from "@mwarnerdotme/react-remixicon";
-
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+import axios from "axios";
 import "../styles/car-item.css"; // <-- Import the CSS file
 
 const CarItem = ({ products, selectedCategory }) => {
@@ -19,11 +21,45 @@ const CarItem = ({ products, selectedCategory }) => {
   const [modalIsOpen, setModalIsOpen] = useState(false); // <-- Add state for modal
 
   const toggleModal = () => {
+    // Check if user is logged in
+    const token = sessionStorage.getItem("token");
+    if (!token) {
+      toast.error("Please login/register before reserving a car.");
+      return;
+    }
+
+    // User is logged in, proceed with opening the modal
     setModalIsOpen(!modalIsOpen);
+  };
+  const reserveCar = (carId) => {
+    const token = sessionStorage.getItem("token");
+    if (!token) {
+      toast.error("Please login/register before reserving a car.");
+      return;
+    }
+  
+    axios.post(
+      "http://localhost:5000/api/Reservations/",
+      { carId },
+      {
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      }
+    )
+      .then((response) => {
+        console.log(response.data); // Handle successful response
+        toggleModal(); // Close the modal
+      })
+      .catch((error) => {
+        console.log(error); // Handle error
+      });
   };
 
   return (
     <>
+      <ToastContainer className="toast-container" />
+
       <h1
         className="section__title mb-5"
         style={{ borderBottom: "solid 5px red" }}
@@ -106,8 +142,7 @@ const CarItem = ({ products, selectedCategory }) => {
               <button
                 className="btn btn-danger"
                 onClick={() => {
-                  console.log("Reserved!"); // <-- Replace with your own logic
-                  toggleModal();
+                  reserveCar(product._id);
                 }}
               >
                 Yes
