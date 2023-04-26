@@ -60,7 +60,7 @@ function Navigation() {
             </li>
             <li className="navbar-lina-item navbar-lina-dropdown">
               <span>
-                <Link className="navbar-lina-link" to="/cars" onClick={closeMenu}>
+                <Link className="navbar-lina-link" to="/Cars" onClick={closeMenu}>
                   Our Cars
                 </Link>
               </span>
