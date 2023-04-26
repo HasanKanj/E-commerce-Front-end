@@ -1,5 +1,5 @@
 .home-allofabout {
-  background-color: rgb(238, 238, 238);
+  background-color: rgba(193, 182, 182, 0.863);
 }
 
 .home-imageheader {
@@ -21,6 +21,27 @@
   font-weight: 500px;
 }
 
+.button-overlay {
+  background-color: rgba(193, 182, 182, 0.863);
+  width: 7vw;
+  margin-top: -6vh;
+  height: 6vh;
+  font-size: 18px;
+  text-align: center;
+  border: none;
+  border-radius: 15px;
+}
+.button-overlay a {
+  color: rgb(222, 17, 17);
+
+  text-decoration: none;
+}
+.whyUsText {
+  color: white;
+  font-size: 16px;
+  padding: 16px 32px;
+}
+
 .home-BMW {
   width: 100%;
   height: 60vh;
@@ -28,12 +49,12 @@
 
 .home-audi {
   width: 100%;
-  height: 60vh;
+  height: 45vh;
+  background-color: #d00505;
 }
 .home-collectionwithtitles {
   text-align: center;
   font-size: 30px;
-  color: white;
 }
 .home-collectionwithtitles i {
   text-align: center;
@@ -43,25 +64,42 @@
 }
 
 .overlay {
-  position: absolute;
-  top: 0;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  height: 100%;
-  width: 100%;
+  
+  transition: 0.5s ease;
   opacity: 0;
-  transition: 0.3s ease;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 4vh;
+  text-align: center;
+}
+
+.container-home:hover .home-audi {
+  opacity: 0.3;
+
+
+}
+
+.container-home:hover .overlay {
+  opacity: 1;
 }
 
 .container-home {
   position: relative;
   width: 100%;
   max-width: 400px;
+  background-color: #3c3636;
 }
 
-.container:hover .overlay {
+.container-home:hover .overlay {
   opacity: 1;
+
 }
 
 .home-imagecollectionwithtitles {
@@ -70,18 +108,24 @@
   align-items: center;
   flex-direction: column;
   padding: 10vh;
-  background-color: rgb(17, 19, 22);
+  /* background-color: rgb(57, 58, 58); */
 }
 
 .home-imagecollection {
-  width: 100%;
+  width: 110%;
   padding-top: 50px;
+  padding: 15vh;
   height: 65vh;
   display: flex;
-  /* border: 2px solid green; */
   align-items: center;
-  justify-content: center;
+  justify-content: space-evenly;
+  gap: 2vh;
   flex-direction: row;
+}
+
+.overlay h1 {
+  color: white;
+  font-size: 45px;
 }
 
 @media only screen and (max-width: 1200px) {
@@ -138,11 +182,9 @@
 
 .featuredcars {
   text-align: center;
-  color: white;
   width: 100%;
   height: 100vh;
   padding: 20vh 20vh;
-  background-color: rgb(25, 26, 28);
 }
 
 .featuredcars h1 {
@@ -168,12 +210,13 @@
 
 .homethird-img {
   color: #d00505;
-  padding: 100px;
+  font-size: 20px;
+  padding: 90px;
   padding-top: 8vh;
 }
 
 .home-resons {
-  font-size: 50px;
+  font-size: 60px;
   margin-top: -55px;
   color: white;
 }
@@ -236,15 +279,18 @@
 }
 
 .testimonials {
-  background-color: rgb(25, 26, 28);
   text-align: center;
   height: 90vh;
+  background-color: rgba(193, 182, 182, 0.863);
 }
 
 .testimonials-p {
   text-align: center;
-  padding: 5vh 10vh;
 
+  font-weight: 700;
+  width: 50%;
+  margin-left: 50vh;
+  padding-top: 2vh;
   font-size: 20px;
   color: #d00505;
 }
@@ -254,13 +300,13 @@
   margin: 0 auto;
   margin-bottom: 10vh;
   text-align: center;
-  /* border: 2px solid green; */
+
 
   font-size: 20px;
 }
 
 .section__description {
-  color: gray;
+ 
   text-align: center;
   font-size: 30px;
   width: 30vw;
@@ -275,14 +321,13 @@
 .testimonial-title {
   text-align: center;
   font-size: 50px;
-  color: white;
+
   padding-top: 10vh;
 }
 
 @media only screen and (max-width: 1200px) {
   .homethird-img {
     padding: 20px;
-   
   }
   .homethird-img h3 {
     color: rgb(245, 244, 243);
@@ -297,15 +342,12 @@
 
 @media only screen and (max-width: 1200px) {
   .featuredcars {
-  
-
     height: 140vh;
   }
 }
 
 @media only screen and (max-width: 920px) {
   .featuredcars {
-    
     text-align: center;
 
     height: 300vh;
