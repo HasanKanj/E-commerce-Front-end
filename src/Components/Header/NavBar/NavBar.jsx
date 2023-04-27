@@ -1,7 +1,9 @@
 import React from 'react'
 import './navbar.css'
-import { FaBars, FaTimes } from 'react-icons/fa'
+import { FaTimes } from 'react-icons/fa'
 import { useRef,useState , useEffect} from 'react';
+import { Link } from "react-router-dom";
+import menu from './hamburger.jpg';
 import logo from './RoadCar.jpeg'
 function Navbar() {
 
@@ -36,10 +38,12 @@ function Navbar() {
     <header className={`navbar-lina ${scrollPosition > 0 ? "scrolled" : ""}`}>
             <img className='navbar-lina-logo' src={logo} />
             <nav ref={navRef} className='navbar-lina-nav'>
-        <a href='#About'>About</a>
-        <a href='#Languages'>Skills</a>
-        <a href='#Projects'>Projects</a>
-        <a href='#ContactSection'>Contact</a>
+        <Link to='/'  className="navbar-lina-nav-Links" href='#About'>Home</Link>
+        <Link to='/AboutUs'  className="navbar-lina-nav-Links" href='#Languages'>About Us</Link>
+        <Link to='/Cars'  className="navbar-lina-nav-Links" href='#Projects'>Cars</Link>
+        <Link to='/ContactUs'  className="navbar-lina-nav-Links" href='#ContactSection'>Contact</Link>
+        <Link to='/Login'  className="navbar-lina-nav-Links" href='#ContactSection'><button>Login</button></Link>
+
         <button
           className="navbar-lina-nav-btn-nav-close-btn"
           onClick={showNavbar}>
@@ -48,10 +52,8 @@ function Navbar() {
 
       </nav>
       {/* to open nav */}
-      <button className="navbar-lina-nav-btn"
-        onClick={showNavbar}>
-        <FaBars />
-      </button>
+
+<img className="navbar-lina-nav-btn" src={menu} alt=""  onClick={showNavbar} />
     </header>
   );
 }
