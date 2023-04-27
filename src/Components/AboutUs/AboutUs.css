@@ -5,10 +5,6 @@
 /* About Us */
 /* About Us */
 
-.about-everyhing{
-  background-color: rgb(25, 26, 28);
-}
-
 
 /* About Us */
 /* About Us */
@@ -27,26 +23,25 @@
   
   display: flex;
   /* border: 2px solid red; */
+  width: 50%;
   flex-direction: column;
-  text-align: left;
-  width: 40vw;
+ 
+ 
   font-size: 20px;
 
 }
 
 .about-titDescImg{
   display: flex;
-
-  justify-content: space-evenly;
-  align-items: center;
-  padding: 10vh;
+  justify-content: center;
+flex-direction: row;
    animation: mymove 1s 1 forwards;
  
 }
 
 .aboutimage{
-  width: 40vw;
-  height: 35vh;
+  width: 30vw;
+  height: 25vh;
   margin-top: 150px;
   
 }

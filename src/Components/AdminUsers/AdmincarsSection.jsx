@@ -111,13 +111,7 @@ const AdminCarsScreen = () => {
       <ToastContainer />
 
       <div style={{ display: "flex", justifyContent: "flex-end" }}>
-        <Link
-          className="btn btn-dark my-3"
-          to="/"
-          style={{ width: "150px", whiteSpace: "nowrap" }}
-        >
-          Go Back
-        </Link>
+       
         <Link
           className="btn btn-dark my-3"
           to="/Admin/newcar"

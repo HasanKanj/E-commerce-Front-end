@@ -6,13 +6,16 @@ import Helmet from "../Helmet/Helmet";
 import CommonSection from "../UI/CommonSection.jsx";
 import CarItem from "./CarItem.jsx";
 import "../styles/Car-listing.css"; // <-- Import the CSS file
+import { useParams } from "react-router";
 
 const CarListing = () => {
+  const { category } = useParams();
   const [carData, setCarData] = useState([]);
   const [selectedCategory, setSelectedCategory] = useState("BMW");
   const navigate = useNavigate();
 
   useEffect(() => {
+    category && setSelectedCategory(category);
     axios
       .get("http://localhost:5000/api/cars/")
       .then((response) => {

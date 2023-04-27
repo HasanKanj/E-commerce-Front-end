@@ -19,7 +19,6 @@ function Navbar() {
 
   useEffect(() => {
 
-
     const handleScroll = () => {
       const position = window.pageYOffset;
       setScrollPosition(position);

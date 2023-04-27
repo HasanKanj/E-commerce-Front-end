@@ -14,28 +14,28 @@ function ContactTable() {
   }, []);
 
   return (
-    <div class="table-container">
-    <table>
-      <thead>
-        <tr>
-          <th>Name</th>
-          <th>Email</th>
-          <th>Phone Number</th>
-          <th>Message</th>
-        </tr>
-      </thead>
-      <tbody>
-        {contacts.map(contact => (
-         <tr key={contact._id}>
-         <td>{contact.name}</td>
-         <td>{contact.email}</td>
-         <td>{contact.phoneNumber}</td>
-         <td>{contact.message}</td>
-       </tr>
-     ))}
-   </tbody>
- </table>
-</div>
+    <div className="my-table-container">
+      <table className="my-table">
+        <thead>
+          <tr>
+            <th className="my-table-header">Name</th>
+            <th className="my-table-header">Email</th>
+            <th className="my-table-header">Phone Number</th>
+            <th className="my-table-header">Message</th>
+          </tr>
+        </thead>
+        <tbody>
+          {contacts.map(contact => (
+            <tr key={contact._id} className="my-table-row">
+              <td className="my-table-data">{contact.name}</td>
+              <td className="my-table-data">{contact.email}</td>
+              <td className="my-table-data">{contact.phoneNumber}</td>
+              <td className="my-table-data">{contact.message}</td>
+            </tr>
+          ))}
+        </tbody>
+      </table>
+    </div>
   );
 }
 

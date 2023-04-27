@@ -3,7 +3,7 @@
 }
 
 .slider__item-01 {
-  background: linear-gradient(rgba(59, 60, 66, 0.307), rgba(53, 52, 52, 0.5)),
+  background: linear-gradient(rgba(59, 60, 66, 0.475), rgba(53, 52, 52, 0.5)),
     url("./images/slider-1.jpg");
   background-position: center;
   background-repeat: no-repeat;
@@ -11,7 +11,7 @@
 }
 
 .slider__item-02 {
-  background: linear-gradient(rgba(59, 60, 66, 0.307), rgba(53, 52, 52, 0.5)),
+  background: linear-gradient(rgb(59, 60, 66), rgba(53, 52, 52, 0.5)),
     url("./images/slider-2.jpg");
   background-position: center;
   background-repeat: no-repeat;
@@ -19,7 +19,7 @@
 }
 
 .slider__item-03 {
-  background: linear-gradient(rgba(59, 60, 66, 0.307), rgba(53, 52, 52, 0.5)),
+  background: linear-gradient(rgb(59, 60, 66), rgba(53, 52, 52, 0.5)),
     url("./images/slider-3.jpg");
   background-position: center;
   background-repeat: no-repeat;
@@ -31,8 +31,9 @@
 }
 
 .slider__content {
-  color: rgb(152, 17, 17);
+  color: rgb(255, 0, 0);
   margin-left: 5vh;
+  font-size: 25px;
 
   padding-top: 250px;
   text-align: left;
@@ -41,21 +42,22 @@
 .slider__content h2 {
   color: white;
   padding-top: 30px;
-  width: 125%;
+  width: 35%;
 
-  font-size: 20px;
+  font-size: 25px;
 
   text-align: left;
 }
 
 .reserve__btn {
   font-size: 18px;
+  margin-left: 18vh;
 
   border: none;
-  border-radius: 20px;
-  width: 6vw;
+  border-radius: 5px;
+  width: 8vw;
   height: 5vh;
-  margin-top: 2vh;
+  
 }
 
 .reserve__btn a {

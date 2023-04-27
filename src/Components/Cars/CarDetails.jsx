@@ -3,6 +3,7 @@ import { useParams } from "react-router-dom";
 import { Row, Col, Image, ListGroup, Nav, Tab } from "react-bootstrap";
 import { Modal, ModalHeader, ModalBody, ModalFooter } from "reactstrap";
 import { ToastContainer, toast } from 'react-toastify';
+import axios from "axios";
 import 'react-toastify/dist/ReactToastify.css';
 const CarDetails = () => {
   const { name } = useParams();
@@ -40,7 +41,7 @@ const CarDetails = () => {
 
   const toggleModal = () => {
     // Check if user is logged in
-    const token = localStorage.getItem("token");
+    const token = sessionStorage.getItem("token");
     if (!token) {
       toast.error("Please login/register before reserving a car.");
       return;
@@ -48,6 +49,30 @@ const CarDetails = () => {
 
     // User is logged in, proceed with opening the modal
     setModalIsOpen(!modalIsOpen);
+  };
+  const reserveCar = (carId) => {
+    const token = sessionStorage.getItem("token");
+    if (!token) {
+      toast.error("Please login/register before reserving a car.");
+      return;
+    }
+  
+    axios.post(
+      "http://localhost:5000/api/Reservations/",
+      { carId },
+      {
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      }
+    )
+      .then((response) => {
+        console.log(response.data); // Handle successful response
+        toggleModal(); // Close the modal
+      })
+      .catch((error) => {
+        console.log(error); // Handle error
+      });
   };
   return (
     <>
@@ -167,12 +192,11 @@ const CarDetails = () => {
               <button
                 className="btn btn-danger"
                 onClick={() => {
-                  console.log("Reserved!"); // <-- Replace with your own logic
-                  toggleModal();
+                  reserveCar(product._id);
                 }}
               >
                 Yes
-              </button>{" "}
+              </button>
               <button className="btn btn-secondary" onClick={toggleModal}>
                 No
               </button>
