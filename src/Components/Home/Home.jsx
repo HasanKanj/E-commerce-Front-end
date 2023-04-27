@@ -18,7 +18,8 @@ function Home() {
       <div>
         <HeroSlider />
       </div>
-      <div className="home-allofabout">
+      <div className="home-stickyImage"></div>
+    
         <div className="home-imagecollectionwithtitles">
           <div className="home-collectionwithtitles">
             <h1>MultiBrands Dealer</h1>
@@ -26,6 +27,7 @@ function Home() {
           </div>
 
           <div className="home-imagecollection">
+   
             <div className="container-home">
               <img className="home-audi" src={audilogo} alt="BMW"></img>
               <div className="overlay">
@@ -47,16 +49,7 @@ function Home() {
                 </button>
               </div>
             </div>
-            <div className="container-home">
-              <img className="home-audi" src={GMC} alt="BMW"></img>
-              <div className="overlay">
-                <h1>GMC</h1>
-                <br></br>
-                <button className="button-overlay">
-                  <Link to="/cars/GMC">View Our Collection</Link>
-                </button>
-              </div>
-            </div>
+        
 
             <div className="container-home">
               <img className="home-audi" src={merclogo} alt="BMW"></img>
@@ -81,19 +74,23 @@ function Home() {
             </div>
           </div>
         </div>
-      </div>
-      <div>
+     
+      <div className="landingpage-vid">
         <Landingpage />
       </div>
+      <div className="all-testimonials">
+        <div className="testimonials">
+          <div className="testi-title-p">
+            <h2 className="testimonial-title">Why Clients Love Us</h2>
+            <p className="testimonials-p">
+              Many clients are thrilled by the service we deliver and are happy
+              to tell us. Read about what some have said about us here.
+            </p>
+          </div>
 
-      <div className="testimonials">
-        <h1 className="testimonial-title">Why Clients Love Us</h1>
-        <p className="testimonials-p">
-          Many clients are thrilled by the service we deliver and are happy to
-          tell us. Read about what some have said about us here.
-        </p>
-        <div className="testi">
-          <Testimonial />
+          <div className="testi">
+            <Testimonial />
+          </div>
         </div>
       </div>
     </div>
