@@ -1,4 +1,5 @@
-import aboutImg from "../../assets/aboutImg.png";
+import NavBar from "../Header/NavBar/NavBar";
+import aboutimg from "../AboutUs/images/about.png"
 import dollar from "../../assets/dollar.png";
 import customer from "../../assets/customer.png";
 import thumb from "../../assets/thumb.png";
@@ -37,13 +38,13 @@ function AboutUs() {
             <div className="about-description">
               {about.map((item, index) => (
                 <div className="about-section" key={index}>
-                  <p className="about-description"> {item.description}</p>
+                  <p className="about-cldescription"> {item.description}</p>
                 </div>
               ))}
             </div>
           </div>
 
-          <img className="aboutimage" src={aboutImg} alt="aboutimage"></img>
+          <img className="aboutimage" src={aboutimg} alt="aboutimage"></img>
         </div>
 
         <div className="about-imageFooter">

@@ -47,27 +47,29 @@ const Testimonials = () => {
   };
 
   return (
-    
-      <Slider {...settings}>
-        {testimonials.map((testimonial) => (
-          <div className="testimonial py-4 px-3" key={testimonial.id}>
-            <div>
-              <p className="testi-quote">"</p>
-            </div>
+    <Slider {...settings}>
+      {testimonials.map((testimonial) => (
+        <div className="testimonial py-4 px-3" key={testimonial.id}>
+          <div className="testimon-section">
+            <p className="testi-quote">"</p>
+
             <p className="section__description">{testimonial.description}</p>
 
             <div className="mt-3 d-flex align-items-center gap-4">
               <br></br>
               <div>
                 <h6 className="section__description">{testimonial.name}</h6>
-                <p className="section__description">{testimonial.title}</p>
               </div>
             </div>
           </div>
-        ))}
-      </Slider>
-    
+        </div>
+      ))}
+    </Slider>
   );
 };
 
 export default Testimonials;
+
+
+
+

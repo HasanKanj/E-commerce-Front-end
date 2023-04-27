@@ -13,36 +13,39 @@
 
 .about-welcome{
   color:#d00505;
-  font-size: 50px;
+  font-size: 70px;
   font-style: italic;
-  padding-top: 7vh;
+  font-weight: 50px;
+  padding-top: 20vh;
   text-align: center;
 }
 
-.about-titDesc{
-  
-  display: flex;
-  /* border: 2px solid red; */
-  width: 50%;
-  flex-direction: column;
+.about-cldescription{
  
- 
-  font-size: 20px;
-
+  width: 40vw;
+  border: 2px solid yellow;
+  height: 250vh;
+  margin-left: -100px;
+  padding-top: 5vh;
+  font-size: 25px;
 }
 
 .about-titDescImg{
   display: flex;
   justify-content: center;
-flex-direction: row;
+  
+   flex-direction: row;
+   padding-bottom: 100px;
    animation: mymove 1s 1 forwards;
+  
  
 }
 
 .aboutimage{
-  width: 30vw;
-  height: 25vh;
-  margin-top: 150px;
+  width: 50vw;
+  height: 70vh;
+  margin-top: 50px;
+  border: 2px solid blue;
   
 }
 
@@ -119,6 +122,7 @@ flex-direction: row;
 
 .about-imageFooter {
   text-align: center;
+  top: 0;
   background-image: url("../../assets/redcar.jpg");
   height: 90vh;
   background-attachment: fixed;

@@ -1,5 +1,14 @@
+import { useState, useEffect } from "react";
 import axios from "axios";
-import { useEffect, useState } from "react";
+import {
+  Form,
+  FormGroup,
+  Label,
+  Input,
+  Button,
+  Card,
+  CardBody,
+} from "reactstrap";
 
 function TestimonialAdmin() {
   const [name, setName] = useState("");
@@ -67,10 +76,8 @@ function TestimonialAdmin() {
     newTestimonials[index].description = e.target.value;
     setTestimonials(newTestimonials);
   };
-
   return (
     <div className="all-testimonials">
-      <h1>Testimonials</h1>
       <form onSubmit={handleSubmit}>
         <div className="testtoAdd">
           <label>Name:</label>
