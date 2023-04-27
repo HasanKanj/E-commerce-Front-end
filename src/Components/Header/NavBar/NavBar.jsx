@@ -35,13 +35,15 @@ function Navbar() {
  
   return (
     <header className={`navbar-lina ${scrollPosition > 0 ? "scrolled" : ""}`}>
-            <img className='navbar-lina-logo' src={logo} />
+              <Link to='/'>            <img className='navbar-lina-logo' src={logo} />
+</Link>
+
             <nav ref={navRef} className='navbar-lina-nav'>
         <Link to='/'  className="navbar-lina-nav-Links" href='#About'>Home</Link>
-        <Link to='/AboutUs'  className="navbar-lina-nav-Links" href='#Languages'>About Us</Link>
+        <Link to='/AboutUs'  className="navbar-lina-nav-Links" href='#Languages'>About</Link>
         <Link to='/Cars'  className="navbar-lina-nav-Links" href='#Projects'>Cars</Link>
         <Link to='/ContactUs'  className="navbar-lina-nav-Links" href='#ContactSection'>Contact</Link>
-        <Link to='/Login'  className="navbar-lina-nav-Links" href='#ContactSection'><button>Login</button></Link>
+        <Link to='/Login'  className="navbar-lina-nav-Links" href='#ContactSection'><button className='navbar-lina-login-btn'>Login</button></Link>
 
         <button
           className="navbar-lina-nav-btn-nav-close-btn"
