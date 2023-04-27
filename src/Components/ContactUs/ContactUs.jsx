@@ -87,7 +87,7 @@ function ContactAdminForm() {
 
   return (
     <Helmet title="Cars">
-    <CommonSection title="Featured Cars" />
+    <CommonSection title="Contacat Us" />
       <link
           rel="stylesheet"
           href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css"

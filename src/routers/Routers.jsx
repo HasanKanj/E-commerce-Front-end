@@ -2,7 +2,6 @@ import "../App.css";
 import { Container } from "react-bootstrap";
 import { Route, Routes } from "react-router-dom";
 import AboutUs from "../Components/AboutUs/AboutUs";
-
 import ContactUs from "../Components/ContactUs/ContactUs";
 import Home from "../Components/Home/Home";
 import Register from "../Components/Register/Register";
