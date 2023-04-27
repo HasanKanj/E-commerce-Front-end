@@ -6,16 +6,16 @@ import '@fortawesome/fontawesome-free/css/all.css';
 
 function Navigation() {
   const [isMobile, setIsMobile] = useState(false);
-  const [showMenu, setShowMenu] = useState(false);
+  const [showMenu, setShowMenu] = useState(true);
   const [scrollPosition, setScrollPosition] = useState(window.pageYOffset);
 
   useEffect(() => {
     const handleResize = () => {
       if (window.innerWidth <= 768) {
         setIsMobile(true);
-        setShowMenu(false);
+        setShowMenu(true);
       } else {
-        setIsMobile(false);
+        setIsMobile(true);
         setShowMenu(true);
       }
     };
@@ -47,7 +47,7 @@ function Navigation() {
     <nav className={`navbar-lina ${scrollPosition > 0 && !isMobile ? "scrolled" : ""}`}>
       <div className="navbar-lina-logo-div">
         <Link to="/" onClick={closeMenu}>
-          <img src={logo} alt="Your Logo" className="navbar-lina-logo" />
+          {/* <img src={logo} alt="Your Logo" className="navbar-lina-logo" /> */}
         </Link>
       </div>
       {showMenu && (
