@@ -17,6 +17,10 @@
 .navbar-lina-nav{
   z-index: 1000;
 }
+.scrolled {
+  background-color: #000;
+}
+
 .navbar-lina-nav a {
   text-decoration: none;
   font-size: 20px;
