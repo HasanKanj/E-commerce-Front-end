@@ -1,6 +1,4 @@
-.about-description {
-  width: 70vh;
-}
+/* 
 
 .about-title-desc {
   display: flex;
@@ -13,7 +11,7 @@
 
 .about-textarea {
   width: 70vh;
-  /* border: 2px solid blue; */
+ 
   display: flex;
   flex-direction: column;
 
@@ -38,7 +36,7 @@
   width: 50vh;
   height: 50vh;
   padding: 10vh 20vh;
-  /* border: 2px solid red;  */
+ 
   display: flex;
   flex-direction: column;
 
@@ -125,4 +123,4 @@
 
 .all-testimonials h1 {
   padding: 10vh 20vh 2vh;
-}
+} */
