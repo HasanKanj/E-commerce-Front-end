@@ -17,7 +17,7 @@ import ClientMessages from "../Components/AdminUsers/client-messages";
 import AboutUsAdmin from "../Components/AdminUsers/AboutUs-admin";
 import TestimonialAdmin from "../Components/AdminUsers/TestimonialAdmin";
 import AdminHome from "../Components/AdminUsers/Admin-home";
-import ScrillToTop from "../Components/Home/ScrolltoTop/Scroll";
+import ScrollToTop from "../Components/Home/ScrolltoTop/Scroll";
 const Routers = () => {
   return (
     <div className="App">
@@ -52,7 +52,7 @@ const Routers = () => {
         <Route path="/Login" element={<Login />} />
         <Route path="/Register" element={<Register />} />
       </Routes>
-      <ScrillToTop />
+      <ScrollToTop />
     </div>
   );
 };
