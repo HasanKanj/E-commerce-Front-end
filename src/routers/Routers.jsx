@@ -36,17 +36,13 @@ const Routers = () => {
         <Route path="/Admin/cars" element={<AdminCarsScreen />} />
         <Route
           path="/Admin/newcar"
-          element={
-            <Container>
-              <AdminNewCar />
-            </Container>
-          }
+          element={ <Container> <AdminNewCar /></Container> }
         />
 
         <Route path="/Admin/Home" element={<AdminHome />} />
         <Route path="/Admin/AboutUs" element={<AboutUsAdmin />} />
         <Route path="/ContactUsAdmin" element={<ContactUsAdmin />} />
-        <Route path="/ClientMessages" element={<ClientMessages />} />
+        <Route path="/ClientMessages" element={<Container> <ClientMessages /></Container>} />
         <Route path="/ContactUs" element={<ContactUs />} />
         <Route path="/Login" element={<Login />} />
         <Route path="/Register" element={<Register />} />

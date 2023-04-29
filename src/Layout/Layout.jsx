@@ -7,7 +7,7 @@ import Routers from "../routers/Routers.jsx";
 const Layout = () => {
   return (
     <Fragment>
-      <Header />
+      {/* <Header /> */}
       <div>
         <Routers />
       </div>
