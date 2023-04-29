@@ -15,11 +15,16 @@ import axios from "axios";
 function AboutUsAdmin() {
   const [about, setAbout] = useState([]);
   const [description, setDescription] = useState("");
+  const [isLoading, setIsLoading] = useState(false);
 
   const fetchAbout = async () => {
+    setIsLoading(true);
+
     const res = await axios.get("http://localhost:5000/api/about");
     // console.log(res.data.data);
     setAbout(res.data.data);
+    setIsLoading(false);
+
   };
 
   useEffect(() => {

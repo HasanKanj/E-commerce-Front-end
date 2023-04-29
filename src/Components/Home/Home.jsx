@@ -4,7 +4,7 @@ import audilogo from "../Home/images/audilogo.jpg";
 import merclogo from "../Home/images/merclogo.jpeg";
 import toyota from "../Home/images/toyota.jpeg";
 import GMC from "../Home/images/GMC.jpeg";
-import Card from "./FeaturedCars/Card";
+// import Card from "./FeaturedCars/Card";
 
 import "./Home.css";
 

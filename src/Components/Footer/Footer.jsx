@@ -1,7 +1,33 @@
-import React from "react";
+import React, { useState } from "react";
+import axios from "axios";
 import "./Footer.css";
+import { toast, ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 // import "./Footer.js";
 function Footer() {
+  const [email, setEmail] = useState("");
+  const [loading, setLoading] = useState(true);
+
+  const handleEmailChange = (event) => {
+    setEmail(event.target.value);
+  };
+
+  const handleSubscribe = () => {
+    setLoading(true);
+
+    axios.post("http://localhost:5000/api/newsletter", { email })
+      .then((response) => {
+        console.log(response.data);
+        setEmail("");
+        toast.success("Thank you for subscribing to our newsletter!");
+      })
+      .catch((error) => {
+        console.error(error);
+      });
+      setLoading(false);
+
+  };
+
   return (
     <>
       <div className="footer-lina-container">
@@ -34,16 +60,20 @@ function Footer() {
             <h2>Join Our newsletter</h2>
             <input
               type="email"
-              placeholder="Enter your email address "
+              placeholder="Enter your email"
+              value={email}
+              onChange={handleEmailChange}
               id="footer-lina-email"
             />
             <input
+             onClick={handleSubscribe}
               type="submit"
               value="Sign up"
               name=""
               id="footer-lina-email-btn"
             />
           </div>
+          <ToastContainer autoClose={3000} position="bottom-right" />
         </div>
       </div>
     </>

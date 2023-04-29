@@ -9,12 +9,16 @@ import "../styles/Car-listing.css"; // <-- Import the CSS file
 import { useParams } from "react-router";
 
 const CarListing = () => {
+  const [loading, setLoading] = useState(true);
+
   const { category } = useParams();
   const [carData, setCarData] = useState([]);
   const [selectedCategory, setSelectedCategory] = useState("BMW");
   const navigate = useNavigate();
 
   useEffect(() => {
+    setLoading(true);
+
     category && setSelectedCategory(category);
     axios
       .get("http://localhost:5000/api/cars/")
@@ -24,6 +28,8 @@ const CarListing = () => {
       .catch((error) => {
         console.log(error);
       });
+      setLoading(false);
+
   }, []);
 
   const handleCategorySelection = (categoryName) => {

@@ -8,6 +8,8 @@ import CommonSection from "../UI/CommonSection.jsx";
 import emailjs from "@emailjs/browser";
 
 function ContactAdminForm() {
+  const [loading, setLoading] = useState(true);
+
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
   const [phoneNumber, setPhoneNumber] = useState('');
@@ -15,6 +17,8 @@ function ContactAdminForm() {
   const [contact, setContact] = useState({});
   const [submitStatus, setSubmitStatus] = useState('');
   const fetchContact = async () => {
+    setLoading(true);
+
     try {
       const response  = await fetch('http://localhost:5000/api/contactAdmin/getOne');
       const data = await response.json();
@@ -22,6 +26,8 @@ function ContactAdminForm() {
     } catch (error) {
       console.error(error);
     }
+    setLoading(false);
+
   };
   useEffect(() => {
     fetchContact();

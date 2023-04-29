@@ -10,9 +10,12 @@ const CarDetails = () => {
   const [product, setProduct] = useState({});
   const [activeKey, setActiveKey] = useState("description");
   const [modalIsOpen, setModalIsOpen] = useState(false); // <-- Add state for modal
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     const fetchProduct = async () => {
+      setLoading(true);
+
       try {
         // Fetch the product by name to get its _id field
         const resNames = await fetch(`http://localhost:5000/api/cars`);
@@ -30,6 +33,8 @@ const CarDetails = () => {
       } catch (error) {
         console.error(error);
       }
+      setLoading(false);
+
     };
 
     fetchProduct();

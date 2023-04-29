@@ -9,13 +9,16 @@ import merclogo from "../Home/images/merclogo.jpeg";
 import "../Home/Home.css";
 import HeroSlider from "../Home/Sliderhome";
 import Landingpage from "../Home/video";
-import Card from "../Home/FeaturedCars/Card";
+// import Card from "../Home/FeaturedCars/Card";
 import Testimonial from "../Home/Testimonial";
 import TestimonialAdmin from "./TestimonialAdmin";
-
+import React from "react";
+import {useState} from 'react';
 
 
 function AdminHome() {
+    const [isLoading, setIsLoading] = useState(false);
+
   return (
     <div>
       <div>
@@ -64,7 +67,7 @@ function AdminHome() {
           <br></br>
           <br></br>
           <br></br>
-          <Card/>
+          {/* <Card/> */}
         </div>
       </div>
       <div>

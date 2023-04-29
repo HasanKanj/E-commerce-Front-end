@@ -18,10 +18,13 @@ import AboutUsAdmin from "../Components/AdminUsers/AboutUs-admin";
 import TestimonialAdmin from "../Components/AdminUsers/TestimonialAdmin";
 import AdminHome from "../Components/AdminUsers/Admin-home";
 import ScrollToTop from "../Components/Home/ScrolltoTop/Scroll";
+import Page404 from "../Components/Home/404 Page/Page404";
 const Routers = () => {
   return (
     <div className="App">
       <Routes>
+      <Route exact path="/*" element={<Page404/>} />
+
         <Route path="/" element={<Home />} />
         <Route path="/AboutUs" element={<AboutUs />} />
         <Route path="/Cars" element={<CarListing />} />
