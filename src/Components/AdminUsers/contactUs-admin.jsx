@@ -15,9 +15,13 @@ function ContactAdminForm() {
   const [contact, setContact] = useState({});
   const [submitStatus, setSubmitStatus] = useState('');
   const[updateStatus , setUpdateStatus]=useState('');
-  
+  const [isLoading, setIsLoading] = useState(false);
+
   const fetchContact = async () => {
+    setIsLoading(true);
+
     try {
+
       const response  = await fetch('http://localhost:5000/api/contactAdmin/getOne');
       const data = await response.json();
       console.log("admin contact info",data)
@@ -29,6 +33,8 @@ function ContactAdminForm() {
     } catch (error) {
       console.error(error);
     }
+          setIsLoading(false);
+
   };
   useEffect(() => {
     fetchContact();
@@ -66,6 +72,7 @@ function ContactAdminForm() {
     }
   };
   const handleUpdate = async (e) => {
+
     e.preventDefault();
 
     // Check if all form fields are filled out
@@ -77,6 +84,7 @@ function ContactAdminForm() {
           'Content-Type': 'application/json',
         },
         body: JSON.stringify({  adminEmail, adminPhoneNumber, streetLocation }),
+
       });
 
       const data = await response.json();

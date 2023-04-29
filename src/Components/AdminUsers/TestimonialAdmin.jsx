@@ -1,14 +1,6 @@
 import { useState, useEffect } from "react";
 import axios from "axios";
-import {
-  Form,
-  FormGroup,
-  Label,
-  Input,
-  Button,
-  Card,
-  CardBody,
-} from "reactstrap";
+
 
 function TestimonialAdmin() {
   const [name, setName] = useState("");

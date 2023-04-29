@@ -10,12 +10,17 @@ import { useEffect, useState } from "react";
 import axios from "axios";
 
 function AboutUs() {
+  const [loading, setLoading] = useState(true);
   const [about, setAbout] = useState([]);
   const [description, setDescription] = useState("");
 
   const fetchAbout = async () => {
+    setLoading(true);
+
     const res = await axios.get("http://localhost:5000/api/about");
     setAbout(res.data.data);
+    setLoading(false);
+
   };
 
   useEffect(() => {

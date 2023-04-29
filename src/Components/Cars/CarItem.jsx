@@ -16,6 +16,7 @@ import emailjs from "@emailjs/browser";
 import "../styles/car-item.css"; // <-- Import the CSS file
 
 const CarItem = ({ products, selectedCategory }) => {
+  
   const filteredProducts = selectedCategory
     ? products.filter((product) => product.category === selectedCategory)
     : products;

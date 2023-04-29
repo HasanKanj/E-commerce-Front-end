@@ -1,11 +1,11 @@
 import React from "react";
 import "./navbar.css";
-import { FaTimes } from "react-icons/fa";
 import { useRef, useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import menu from "./hamburger.jpg";
 import logo from "./RoadCar.jpeg";
-function Navbar() {
+
+function Navbars() {
   const [scrollPosition, setScrollPosition] = useState(window.pageYOffset);
 
   // this var will refer to nav tag
@@ -29,11 +29,16 @@ function Navbar() {
     };
   }, []);
 
+  const logOut = () => {
+    window.location.href = "/";
+    window.sessionStorage.clear();
+    sessionStorage.removeItem("token");
+  };
+
   return (
     <header className={`navbar-lina ${scrollPosition > 0 ? "scrolled" : ""}`}>
       <Link to="/">
-        {" "}
-        <img className="navbar-lina-logo" src={logo} />
+        <img className="navbar-lina-logo" alt="a" src={logo} />
       </Link>
 
       <nav ref={navRef} className="navbar-lina-nav">
@@ -53,31 +58,32 @@ function Navbar() {
         >
           Contact
         </Link>
-        <Link
-          to="/Login"
-          className="navbar-lina-nav-Links"
-          href="#ContactSection"
-        >
-          <button className="navbar-lina-login-btn">Login</button>
-        </Link>
 
-        <button
-          className="navbar-lina-nav-btn-nav-close-btn"
-          onClick={showNavbar}
+        <button className="kanj"
+          onClick={logOut}
+          style={{
+            backgroundColor: "#f44336",
+            color: "white",
+            fontSize: "16px",
+            padding: "8px 16px",
+            border: "none",
+            borderRadius: "4px",
+            cursor: "pointer",
+          }}
         >
-          <FaTimes />
+          Logout
         </button>
       </nav>
-      {/* to open nav */}
 
+      {/* to open nav */}
       <img
         className="navbar-lina-nav-btn"
         src={menu}
-        alt=""
+        alt="a"
         onClick={showNavbar}
       />
     </header>
   );
 }
 
-export default Navbar;
+export default Navbars;

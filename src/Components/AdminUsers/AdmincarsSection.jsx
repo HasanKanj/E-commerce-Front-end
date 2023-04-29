@@ -13,11 +13,17 @@ const AdminCarsScreen = () => {
   const [cars, setCars] = useState([]);
   const [editingCar, setEditingCar] = useState(null);
   const [selectedFile, setSelectedFile] = useState(null);
+  const [isLoading, setIsLoading] = useState(false);
 
   useEffect(() => {
+    setIsLoading(true);
+
     const fetchCars = async () => {
+
       const { data } = await axios.get("http://localhost:5000/api/cars");
       setCars(data);
+      setIsLoading(false);
+
     };
 
     fetchCars();

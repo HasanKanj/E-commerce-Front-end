@@ -1,7 +1,5 @@
 import React, { useState } from "react";
 import "./Scroll.css";
-import ScrollIcon from '../../../assets/scroll.png'
-
 const ScrollToTopButton = () => {
   const [isVisible, setIsVisible] = useState(false);
 
@@ -32,9 +30,7 @@ const ScrollToTopButton = () => {
     <button
       className={`scroll-to-top ${isVisible ? "visible" : ""}`}
       onClick={scrollToTop}
-    >
-      <img className='scroll-button' src={ScrollIcon} alt="icon 4" />
-    </button>
+>  back to top  </button>
   );
 };
 

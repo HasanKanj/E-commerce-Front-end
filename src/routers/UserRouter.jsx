@@ -4,10 +4,10 @@ import { Route, Routes } from "react-router-dom";
 import AboutUs from "../Components/AboutUs/AboutUs";
 import ContactUs from "../Components/ContactUs/ContactUs";
 import Home from "../Components/Home/Home";
-import Register from "../Components/Register/Register";
-import Login from "../Components/Login/Login.jsx";
 import CarDetails from "../Components/Cars/CarDetails";
 import CarListing from "../Components/Cars/CarListing";
+import ContactUsAdmin from "../Components/AdminUsers/contactUs-admin";
+import AdminHome from "../Components/AdminUsers/Admin-home";
 import ScrollToTop from "../Components/Home/ScrolltoTop/Scroll";
 import Page404 from "../Components/Home/404 Page/Page404";
 const Routers = () => {
@@ -15,14 +15,23 @@ const Routers = () => {
     <div className="App">
       <Routes>
       <Route exact path="/*" element={<Page404/>} />
+
         <Route path="/" element={<Home />} />
         <Route path="/AboutUs" element={<AboutUs />} />
         <Route path="/Cars" element={<CarListing />} />
         <Route path="/Cars/:category" element={<CarListing />} />
-        <Route path="/product/:name" element={<Container><CarDetails /></Container>}/>
+        <Route
+          path="/product/:name"
+          element={
+            <Container>
+              <CarDetails />
+            </Container>
+          }
+        />
+
+        <Route path="/Admin/Home" element={<AdminHome />} />
+        <Route path="/ContactUsAdmin" element={<ContactUsAdmin />} />
         <Route path="/ContactUs" element={<ContactUs />} />
-        <Route path="/Login" element={<Login />} />
-        <Route path="/Register" element={<Register />} />
       </Routes>
       <ScrollToTop />
     </div>
