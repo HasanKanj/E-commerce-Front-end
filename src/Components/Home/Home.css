@@ -234,7 +234,7 @@
 .testi {
   text-align: center;
   width: 50vw;
-  height: 30vh;
+  height: 50vh;
   
   background-color: black;
   color: antiquewhite;
@@ -306,15 +306,7 @@
     gap: 20px;
     padding-top: 50px;
   }
-  .testi {
-  text-align: center;
-  width: 65vw;
-  height: 45vh;
-  margin-top: 100px;
-  background-color: black;
-  color: antiquewhite;
-  font-size: 20px;
-}
+
 
 
 

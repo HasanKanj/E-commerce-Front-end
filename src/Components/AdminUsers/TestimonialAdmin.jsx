@@ -86,38 +86,42 @@ function TestimonialAdmin() {
             value={description}
             onChange={(e) => setDescription(e.target.value)}
           />
-          <button type="submit">Add</button>
+          <button className="admin-testi-buttons" type="submit">
+            Add
+          </button>
         </div>
         <br></br>
         <br></br>
       </form>
 
       {testimonials.map((test, index) => (
-        <div key={test._id}>
+        <div className="testimonials-view" key={test._id}>
           {editIndex === index ? (
             <form
               className="testimonial-form"
               onSubmit={(e) => handleEdit(e, index)}
             >
-              <textarea
-                className="testimonial-textarea"
-                type="text"
-                value={test.description}
-                onChange={(e) => handleDescriptionChange(e, index)}
-              />
+              <label> Name:</label>
 
               <input
-                className="testimonial-input"
+                className="testtoAddname"
                 type="text"
                 value={test.name}
                 onChange={(e) => handleNameChange(e, index)}
               />
+              <label> Description:</label>
+              <textarea
+                className="testtoAddDesc"
+                type="text"
+                value={test.description}
+                onChange={(e) => handleDescriptionChange(e, index)}
+              />
               <div className="testi-saveCancel">
-                <button className="buttontestimonial-saveCancel" type="submit">
+                <button className="admin-testi-buttons" type="submit">
                   Save
                 </button>
                 <button
-                  className="buttontestimonial-saveCancel"
+                  className="admin-testi-buttons"
                   type="button"
                   onClick={handleCancelEdit}
                 >
@@ -129,18 +133,18 @@ function TestimonialAdmin() {
             <>
               <div className="testi-ViewSection">
                 <div className="testi-testimonialsection">
-                  <p>{test.name}</p>
+                  <h5>{test.name}</h5>
                   <p>{test.description}</p>
                 </div>
                 <div className="testi-delAndEdit">
                   <button
-                    className="buttonAbout-edit"
+                    className="admin-testi-buttons"
                     onClick={() => handleDelete(test._id)}
                   >
                     Delete
                   </button>
                   <button
-                    className="buttonAbout-edit"
+                    className="admin-testi-buttons testiEDit"
                     onClick={(e) => handleEditClick(e, index)}
                   >
                     Edit

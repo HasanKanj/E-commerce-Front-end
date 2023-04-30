@@ -1,4 +1,4 @@
-import NavBar from "../Header/NavBar/NavBar";
+
 import aboutimg from "../AboutUs/images/about.png";
 import dollar from "../../assets/dollar.png";
 import customer from "../../assets/customer.png";
@@ -12,7 +12,7 @@ import axios from "axios";
 function AboutUs() {
   const [loading, setLoading] = useState(true);
   const [about, setAbout] = useState([]);
-  const [description, setDescription] = useState("");
+ 
 
   const fetchAbout = async () => {
     setLoading(true);
@@ -58,7 +58,7 @@ function AboutUs() {
             <h1 className="about-reasonTitle">Reasons to buy from RoadCar</h1>
             <div className="aboutsection">
               <div className="aboutthird-img">
-                <img className="about-thumb" src={thumb}></img>
+                <img className="about-thumb" src={thumb} alt=""></img>
                 <h3>Quality service</h3>
                 <p>
                   We ensure that every vehicle we sell is thoroughly inspected,
@@ -66,7 +66,7 @@ function AboutUs() {
                 </p>
               </div>
               <div className="aboutthird-img">
-                <img className="about-thumb" src={dollar}></img>
+                <img className="about-thumb" src={dollar} alt=""></img>
                 <h3>Competitive pricing</h3>
                 <p>
                   We provide competitive prices to make sure you get the best
@@ -74,7 +74,7 @@ function AboutUs() {
                 </p>
               </div>
               <div className="aboutthird-img">
-                <img className="about-thumb" src={customer}></img>
+                <img className="about-thumb" src={customer} alt=""></img>
                 <h3>Customer Service</h3>
                 <p>
                   We provide exceptional customer service that meets the unique

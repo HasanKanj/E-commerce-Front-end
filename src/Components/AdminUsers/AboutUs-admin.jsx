@@ -1,11 +1,11 @@
 import { useEffect, useState } from "react";
 
-import "./Aboutus.css";
+import "./homeandabout.css";
 
 import NavBar from "../Header/NavBar/NavBar";
 import aboutImg from "../../assets/aboutImg.png";
 import dollar from "../../assets/dollar.png";
-
+import aboutimg from "../AboutUs/images/about.png";
 import customer from "../../assets/customer.png";
 import thumb from "../../assets/thumb.png";
 import Helmet from "../Helmet/Helmet";
@@ -67,14 +67,14 @@ function AboutUsAdmin() {
 
                       <div className="about-textarea">
                         <textarea
-                          className="about-input"
+                          className="AbouttoAddDesc"
                           type="text"
                           required
                           value={description}
                           onChange={(e) => setDescription(e.target.value)}
                         ></textarea>
                         <button
-                          className="buttonAbout-edit"
+                          className="admin-testi-buttons"
                           type="submit"
                           value="submit"
                           onClick={() => handleChange(item._id)}
@@ -87,8 +87,9 @@ function AboutUsAdmin() {
                 ))}
               </div>
             </div>
-
-            <img className="aboutimage" src={aboutImg} alt="aboutimage"></img>
+            <div className="about-description">
+              <img className="aboutimage" src={aboutimg} alt="aboutimage"></img>
+            </div>
           </div>
 
           <div className="about-imageFooter">
@@ -98,26 +99,26 @@ function AboutUsAdmin() {
                 <div className="aboutthird-img">
                   <img className="about-thumb" src={thumb}></img>
                   <h3>Quality service</h3>
-                  <i>
-                    We provide the best quality service that exceeds your
-                    expectations.
-                  </i>
-                </div>
-                <div className="aboutfourth-img">
-                  <img className="about-dollar" src={dollar}></img>
-                  <h3>Competitive pricing</h3>
-                  <i>
-                    Our shop provides competitive prices to make sure you get
-                    the best value for your money.
-                  </i>
+                  <p>
+                    We ensure that every vehicle we sell is thoroughly
+                    inspected, maintained, and ready to hit the road.
+                  </p>
                 </div>
                 <div className="aboutthird-img">
-                  <img className="about-customer" src={customer}></img>
+                  <img className="about-thumb" src={dollar}></img>
+                  <h3>Competitive pricing</h3>
+                  <p>
+                    We provide competitive prices to make sure you get the best
+                    value for your money.
+                  </p>
+                </div>
+                <div className="aboutthird-img">
+                  <img className="about-thumb" src={customer}></img>
                   <h3>Customer Service</h3>
-                  <i>
-                    Our excellent customer service sets us apart from other car
-                    shops.
-                  </i>
+                  <p>
+                    We provide exceptional customer service that meets the
+                    unique needs of each and every customer.
+                  </p>
                 </div>
               </div>
             </div>
