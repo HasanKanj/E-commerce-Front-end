@@ -20,6 +20,9 @@ const Routers = () => {
         <Route path="/Admin/AboutUs" element={<AboutUsAdmin />} />
         <Route path="/ContactUsAdmin" element={<ContactUsAdmin />} />
         <Route path="/ClientMessages" element={<Container> <ClientMessages /></Container>} />
+        <Route path="/Reservations"></Route>
+        <Route path="/Newsletter"></Route>
+
       </Routes>
       <ScrollToTop />
     </div>
