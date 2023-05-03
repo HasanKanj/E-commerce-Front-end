@@ -30,7 +30,12 @@ function LoginPage() {
       const data = await response.json();
       await sessionStorage.setItem("token", data.token);
       console.log(data.token);
-      navigate("/");
+      if (data.role === "admin"){
+        navigate("/Admin/Home");
+      } else {
+        navigate("/");
+      }
+
     } catch (error) {
       setError(error.message);
     }
