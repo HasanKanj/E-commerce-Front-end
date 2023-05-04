@@ -1,7 +1,7 @@
 import React from "react";
 import "./navbar.css";
 import { useRef, useState, useEffect } from "react";
-import { Link } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 import menu from "./hamburger.jpg";
 import logo from "./RoadCar.jpeg";
 
@@ -37,29 +37,43 @@ function AdminNavbar() {
 
   return (
     <header className={`navbar-lina ${scrollPosition > 0 ? "scrolled" : ""}`}>
-      <Link to="/Admin/Home">
-        <img className="navbar-lina-logo"  alt="a" src={logo} />
-      </Link>
+      <NavLink to="/Admin/Home">
+        <img className="navbar-lina-logo" alt="a" src={logo} />
+      </NavLink>
 
       <nav ref={navRef} className="navbar-lina-nav">
-        <Link to="/" className="navbar-lina-nav-Links" href="#About">
+        <NavLink
+          to="/Admin/Home"
+          className="navbar-lina-nav-Links"
+          activeClassName="active"
+        >
           Home
-        </Link>
-        <Link to="/Admin/AboutUs" className="navbar-lina-nav-Links" href="#Languages">
+        </NavLink>
+        <NavLink
+          to="/Admin/AboutUs"
+          className="navbar-lina-nav-Links"
+          activeClassName="active"
+        >
           About
-        </Link>
-        <Link to="/Admin/cars" className="navbar-lina-nav-Links" href="#Projects">
+        </NavLink>
+        <NavLink
+          to="/Admin/cars"
+          className="navbar-lina-nav-Links"
+          activeClassName="active"
+        >
           Cars
-        </Link>
-        <Link
+        </NavLink>
+        <NavLink
           to="/ContactUsAdmin"
           className="navbar-lina-nav-Links"
           href="#ContactSection"
+          activeClassName="active"
         >
           Contact
-        </Link>
+        </NavLink>
 
-        <button className="kanj"
+        <button
+          className="kanj"
           onClick={logOut}
           style={{
             backgroundColor: "#f44336",
@@ -67,7 +81,7 @@ function AdminNavbar() {
             fontSize: "16px",
             padding: "8px 16px",
             border: "none",
-            borderRadius: "4px",
+            borderRadius: "15px",
             cursor: "pointer",
           }}
         >

@@ -6,8 +6,6 @@ import ContactUs from "../Components/ContactUs/ContactUs";
 import Home from "../Components/Home/Home";
 import CarDetails from "../Components/Cars/CarDetails";
 import CarListing from "../Components/Cars/CarListing";
-import ContactUsAdmin from "../Components/AdminUsers/contactUs-admin";
-import AdminHome from "../Components/AdminUsers/Admin-home";
 import ScrollToTop from "../Components/Home/ScrolltoTop/Scroll";
 import Page404 from "../Components/Home/404 Page/Page404";
 const Routers = () => {
@@ -28,9 +26,6 @@ const Routers = () => {
             </Container>
           }
         />
-
-        <Route path="/Admin/Home" element={<AdminHome />} />
-        <Route path="/ContactUsAdmin" element={<ContactUsAdmin />} />
         <Route path="/ContactUs" element={<ContactUs />} />
       </Routes>
       <ScrollToTop />

@@ -31,7 +31,6 @@ function Footer() {
   return (
     <>
       <div className="footer-lina-container">
-        <div className="footer-lina-parrallax"></div>
 
         <div className="footer-lina">
           <div className="footer-lina-heading footer-lina-1">

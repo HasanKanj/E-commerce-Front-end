@@ -3,7 +3,6 @@ import { useNavigate } from "react-router-dom";
 import "./Login.css";
 import swal from "sweetalert";
 
-const API_URL = process.env.REACT_APP_API_URL;
 
 function LoginPage() {
   const navigate = useNavigate();
@@ -31,6 +30,10 @@ function LoginPage() {
       const data = await response.json();
       if (response.ok) {
         sessionStorage.setItem("token", data.token);
+        sessionStorage.setItem("Role", data.role);
+        sessionStorage.setItem("firstName", data.firstName);
+        sessionStorage.setItem("lastName", data.lastName);
+        sessionStorage.setItem("email", data.email);
         swal({
           title: "Login successful",
           icon: "success",
@@ -54,9 +57,8 @@ function LoginPage() {
   };
 
   useEffect(() => {
-    if (sessionStorage.getItem("token")) sessionStorage.removeItem("token"); 
+    if (sessionStorage.getItem("token")) sessionStorage.removeItem("token");
   });
-
 
   return (
     <div className="login-page">

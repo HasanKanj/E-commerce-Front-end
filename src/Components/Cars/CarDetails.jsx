@@ -5,6 +5,8 @@ import { Modal, ModalHeader, ModalBody, ModalFooter } from "reactstrap";
 import { ToastContainer, toast } from 'react-toastify';
 import axios from "axios";
 import emailjs from "@emailjs/browser";
+import Helmet from "../Helmet/Helmet";
+import CommonSection from "../UI/CommonSection.jsx";
 import 'react-toastify/dist/ReactToastify.css';
 const CarDetails = () => {
   const { name } = useParams();
@@ -53,6 +55,7 @@ const CarDetails = () => {
   const toggleModal = () => {
     // Check if user is logged in
     const token = sessionStorage.getItem("token");
+  
     if (!token) {
       toast.error("Please login/register before reserving a car.");
       return;
@@ -63,6 +66,9 @@ const CarDetails = () => {
   };
   const reserveCar = (carId) => {
     const token = sessionStorage.getItem("token");
+    const firstName = sessionStorage.getItem("firstName");
+    const lastName = sessionStorage.getItem("lastName");
+    const email = sessionStorage.getItem("email");
     if (!token) {
       toast.error("Please login/register before reserving a car.");
       return;
@@ -83,6 +89,9 @@ const CarDetails = () => {
   
         const params = {
           car_id: carId,
+          firstName:firstName,
+          lastName:lastName,
+          email:email
 
         };
   
@@ -109,8 +118,10 @@ const CarDetails = () => {
   };
   return (
     <>
-    { loading? <ProgressCircle /> : <div>
     
+    <div>
+      <Helmet title="Cars"/>
+      <CommonSection title="Car Detail Section" />
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous"/>
     <ToastContainer className="toast-container" />
 
@@ -239,7 +250,7 @@ const CarDetails = () => {
           </Modal>
         </Col>
       </Row>
-      </div>}
+      </div>
     </>
    
   );

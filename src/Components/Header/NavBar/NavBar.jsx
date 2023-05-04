@@ -2,7 +2,7 @@ import React from "react";
 import "./navbar.css";
 import { FaTimes } from "react-icons/fa";
 import { useRef, useState, useEffect } from "react";
-import { Link } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 import menu from "./hamburger.jpg";
 import logo from "./RoadCar.jpeg";
 function Navbar() {
@@ -31,43 +31,56 @@ function Navbar() {
 
   return (
     <header className={`navbar-lina ${scrollPosition > 0 ? "scrolled" : ""}`}>
-      <Link to="/">
+      <NavLink to="/">
         {" "}
-        <img className="navbar-lina-logo" src={logo} />
-      </Link>
+        <img className="navbar-lina-logo" src={logo} alt="logo" />
+      </NavLink>
 
       <nav ref={navRef} className="navbar-lina-nav">
-        <Link to="/" className="navbar-lina-nav-Links" href="#About">
-          Home
-        </Link>
-        <Link to="/AboutUs" className="navbar-lina-nav-Links" href="#Languages">
-          About
-        </Link>
-        <Link to="/Cars" className="navbar-lina-nav-Links" href="#Projects">
-          Cars
-        </Link>
-        <Link
-          to="/ContactUs"
-          className="navbar-lina-nav-Links"
-          href="#ContactSection"
-        >
-          Contact
-        </Link>
-        <Link
-          to="/Login"
-          className="navbar-lina-nav-Links"
-          href="#ContactSection"
-        >
-          <button className="navbar-lina-login-btn">Login</button>
-        </Link>
+  <NavLink
+    exact
+    to="/"
+    className="navbar-lina-nav-Links"
+    activeClassName="active"
+  >
+    Home
+  </NavLink>
+  <NavLink
+    to="/AboutUs"
+    className="navbar-lina-nav-Links"
+    activeClassName="active"
+  >
+    About
+  </NavLink>
+  <NavLink
+    to="/Cars"
+    className="navbar-lina-nav-Links"
+    activeClassName="active"
+  >
+    Cars
+  </NavLink>
+  <NavLink
+    to="/ContactUs"
+    className="navbar-lina-nav-Links"
+    activeClassName="active"
+  >
+    Contact
+  </NavLink>
+  <NavLink
+    to="/Login"
+    className="navbar-lina-nav-Links"
+    activeClassName="active"
+  >
+    <button className="navbar-lina-login-btn">Login</button>
+  </NavLink>
 
-        <button
-          className="navbar-lina-nav-btn-nav-close-btn"
-          onClick={showNavbar}
-        >
-          <FaTimes />
-        </button>
-      </nav>
+  <button
+    className="navbar-lina-nav-btn-nav-close-btn"
+    onClick={showNavbar}
+  >
+    <FaTimes />
+  </button>
+</nav>
       {/* to open nav */}
 
       <img

@@ -15,12 +15,19 @@ import emailjs from "@emailjs/browser";
 import "../styles/car-item.css"; // <-- Import the CSS file
 
 const CarItem = ({ products, selectedCategory }) => {
-  
   const filteredProducts = selectedCategory
     ? products.filter((product) => product.category === selectedCategory)
     : products;
 
   const [modalIsOpen, setModalIsOpen] = useState(false); // <-- Add state for modal
+  const token = sessionStorage.getItem("token");
+
+  const getelements = async (carId) => {
+    const response = await axios.get(
+      `http://localhost:5000/api/reservations/${carId}`
+    );
+    console.log(response.data);
+  };
 
   const toggleModal = () => {
     // Check if user is logged in
@@ -33,14 +40,17 @@ const CarItem = ({ products, selectedCategory }) => {
     // User is logged in, proceed with opening the modal
     setModalIsOpen(!modalIsOpen);
   };
-  
+
   const reserveCar = (carId) => {
     const token = sessionStorage.getItem("token");
+    const firstName = sessionStorage.getItem("firstName");
+    const lastName = sessionStorage.getItem("lastName");
+    const email = sessionStorage.getItem("email");
     if (!token) {
       toast.error("Please login/register before reserving a car.");
       return;
     }
-  
+
     axios
       .post(
         "http://localhost:5000/api/Reservations/",
@@ -53,27 +63,32 @@ const CarItem = ({ products, selectedCategory }) => {
       )
       .then((response) => {
         console.log(response.data); // Handle successful response
-  
+
         const params = {
           car_id: carId,
+          firstName:firstName,
+          lastName:lastName,
+          email:email
 
         };
-  
-        emailjs.send(
-          "service_i65z4yo",
-          "template_kz0prl9",
-          params,
-          "X3GWKBc5fNzTxb_rm"
-        )  
-        .then(
-          (result) => {
-            console.log(result.text);
-          },
-          (error) => {
-            console.log(error.text);
-          }
-        );
-  
+
+        emailjs
+          .send(
+            "service_i65z4yo",
+            "template_kz0prl9",
+            params,
+
+            "X3GWKBc5fNzTxb_rm"
+          )
+          .then(
+            (result) => {
+              console.log(result.text);
+            },
+            (error) => {
+              console.log(error.text);
+            }
+          );
+
         toggleModal();
       })
       .catch((error) => {
@@ -149,9 +164,12 @@ const CarItem = ({ products, selectedCategory }) => {
                   <button
                     className="w-50 car__item-btn car__btn-rent"
                     style={{ borderRadius: "40px", marginLeft: "10px" }}
-                    onClick={toggleModal} // <-- Open modal on button click
+                    onClick={() => {
+                      toggleModal();
+                      getelements(product._id);
+                    }} // <-- Open modal on button click
                   >
-                    <strong>Reserve</strong>
+                    <strong>Reserve </strong>
                   </button>
                 </div>
               </div>

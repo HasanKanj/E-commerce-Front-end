@@ -3,7 +3,6 @@ import Slider from "react-slick";
 import { Container } from "reactstrap";
 import { Link } from "react-router-dom";
 import "./Sliderhome.css";
-import NavBar from "../Header/NavBar/NavBar";
 
 const HeroSlider = () => {
   const settings = {

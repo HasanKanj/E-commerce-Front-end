@@ -9,6 +9,7 @@ function TestimonialAdmin() {
   const [testimonials, setTestimonials] = useState([]);
   const [editIndex, setEditIndex] = useState(null);
   const navigate = useNavigate();
+  const token = sessionStorage.getItem("token");
 
   useEffect(() => {
     if (!sessionStorage.getItem("token") && window.location.pathname !== "/") {
@@ -40,7 +41,12 @@ function TestimonialAdmin() {
   };
 
   const handleDelete = async (_id) => {
-    await axios.delete(`http://localhost:5000/api/testimonial/${_id}`);
+    await axios.delete(`http://localhost:5000/api/testimonial/${_id}`,{
+      headers: {
+        "Content-Type": "multipart/form-data",
+        Authorization: `Bearer ${token}`,
+      },
+    });
     setTestimonials(testimonials.filter((test) => test._id !== _id));
   };
 
@@ -50,6 +56,11 @@ function TestimonialAdmin() {
     await axios.put(`http://localhost:5000/api/testimonial/${_id}`, {
       name: testimonials[index].name,
       description: testimonials[index].description,
+    },{
+      headers: {
+        "Content-Type": "multipart/form-data",
+        Authorization: `Bearer ${token}`,
+      },
     });
     setEditIndex(null);
   };
@@ -101,66 +112,67 @@ function TestimonialAdmin() {
       </form>
 
       {testimonials.map((test, index) => (
-        <div className="testimonials-view" key={test._id}>
-          {editIndex === index ? (
-            <form
-              className="testimonial-form"
-              onSubmit={(e) => handleEdit(e, index)}
-            >
-              <label> Name:</label>
-
-              <input
-                className="testtoAddname"
-                type="text"
-                value={test.name}
-                onChange={(e) => handleNameChange(e, index)}
-              />
-              <label> Description:</label>
-              <textarea
-                className="testtoAddDesc"
-                type="text"
-                value={test.description}
-                onChange={(e) => handleDescriptionChange(e, index)}
-              />
-              <div className="testi-saveCancel">
-                <button className="admin-testi-buttons" type="submit">
-                  Save
-                </button>
-                <button
-                  className="admin-testi-buttons"
-                  type="button"
-                  onClick={handleCancelEdit}
-                >
-                  Cancel
-                </button>
-              </div>
-            </form>
-          ) : (
-            <>
-              <div className="testi-ViewSection">
-                <div className="testi-testimonialsection">
-                  <h5>{test.name}</h5>
-                  <p>{test.description}</p>
-                </div>
-                <div className="testi-delAndEdit">
-                  <button
-                    className="admin-testi-buttons"
-                    onClick={() => handleDelete(test._id)}
-                  >
-                    Delete
-                  </button>
-                  <button
-                    className="admin-testi-buttons testiEDit"
-                    onClick={(e) => handleEditClick(e, index)}
-                  >
-                    Edit
-                  </button>
-                </div>
-              </div>
-            </>
-          )}
+  <div className="card my-3" key={test._id}>
+    {editIndex === index ? (
+      <form className="card-body" onSubmit={(e) => handleEdit(e, index)}>
+        <div className="form-group">
+          <label htmlFor={`name-${test._id}`}>Name:</label>
+          <input
+            className="form-control"
+            type="text"
+            id={`name-${test._id}`}
+            value={test.name}
+            onChange={(e) => handleNameChange(e, index)}
+          />
         </div>
-      ))}
+        <div className="form-group">
+          <label htmlFor={`description-${test._id}`}>Description:</label>
+          <textarea
+            className="form-control"
+            id={`description-${test._id}`}
+            value={test.description}
+            onChange={(e) => handleDescriptionChange(e, index)}
+          />
+        </div>
+        <div className="d-flex justify-content-end">
+          <button className="btn btn-danger btn-sm mx-2" type="submit">
+            Save
+          </button>
+          <button
+            className="btn btn-secondary btn-sm mx-2"
+            type="button"
+            onClick={handleCancelEdit}
+          >
+            Cancel
+          </button>
+        </div>
+      </form>
+    ) : (
+      <div className="card-body">
+        <div className="d-flex justify-content-between align-items-center">
+          <h5>{test.name}</h5>
+          <div>
+            <button
+              className="btn btn-danger btn-sm mx-2"
+              onClick={() => handleDelete(test._id)}
+            >
+              Delete
+            </button>
+            <button
+              className="btn btn-secondary btn-sm"
+              onClick={(e) => handleEditClick(e, index)}
+            >
+              Edit
+            </button>
+          </div>
+        </div>
+        <p>{test.description}</p>
+      </div>
+    )}
+  </div>
+))}
+
+
     </div>
   );
 }

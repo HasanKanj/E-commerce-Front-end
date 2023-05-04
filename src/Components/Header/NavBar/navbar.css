@@ -38,16 +38,16 @@ color: rgb(75, 5, 5);
 .navbar-lina-login-btn{
   padding:0.2vh 1.7vw;
   border-width: 0;
-  background-color: rgb(174, 13, 13);
-  color: white;
+  font-weight: bold;
+  background-color: rgb(236, 229, 229);
+  color: rgb(255, 0, 0);
   border-radius: 10px;
   font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
-.navbar-lina-login-btn:hover{
-  box-shadow: 10px 10px 10px white;
-background-color: #000;
-color: rgb(176, 27, 27);
+.navbar-lina-nav-Links.active {
+  color: red;
 }
+
 .navbar-lina .navbar-lina-nav-btn {
   padding: 5px;
   cursor: pointer;
@@ -115,14 +115,7 @@ align-content: center;
   .navbar-lina-nav .navbar-lina-nav-Links:hover {
 background-color: rgb(78, 18, 18);  }
 
-.navbar-lina-login-btn{
-width:15vw; 
-border-radius: 10px;
- border-width: 0;
-  background-color: rgb(174, 13, 13);
-  color: white;
-  font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-}
+
 }
 
 @media only screen and (min-width: 1011px) {
