@@ -4,6 +4,7 @@ import { Row, Col, Image, ListGroup, Nav, Tab } from "react-bootstrap";
 import { Modal, ModalHeader, ModalBody, ModalFooter } from "reactstrap";
 import { ToastContainer, toast } from 'react-toastify';
 import axios from "axios";
+import emailjs from "@emailjs/browser";
 import 'react-toastify/dist/ReactToastify.css';
 const CarDetails = () => {
   const { name } = useParams();
@@ -62,21 +63,43 @@ const CarDetails = () => {
       return;
     }
   
-    axios.post(
-      "http://localhost:5000/api/Reservations/",
-      { carId },
-      {
-        headers: {
-          Authorization: `Bearer ${token}`,
-        },
-      }
-    )
+    axios
+      .post(
+        "http://localhost:5000/api/Reservations/",
+        { carId },
+        {
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
+        }
+      )
       .then((response) => {
         console.log(response.data); // Handle successful response
-        toggleModal(); // Close the modal
+  
+        const params = {
+          car_id: carId,
+
+        };
+  
+        emailjs.send(
+          "service_i65z4yo",
+          "template_kz0prl9",
+          params,
+          "X3GWKBc5fNzTxb_rm"
+        )  
+        .then(
+          (result) => {
+            console.log(result.text);
+          },
+          (error) => {
+            console.log(error.text);
+          }
+        );
+  
+        toggleModal();
       })
       .catch((error) => {
-        console.log(error); // Handle error
+        console.log(error);
       });
   };
   return (

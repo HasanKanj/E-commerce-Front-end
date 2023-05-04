@@ -34,7 +34,7 @@ const CarItem = ({ products, selectedCategory }) => {
     setModalIsOpen(!modalIsOpen);
   };
   
-  const reserveCar = (carId, carName) => {
+  const reserveCar = (carId) => {
     const token = sessionStorage.getItem("token");
     if (!token) {
       toast.error("Please login/register before reserving a car.");
