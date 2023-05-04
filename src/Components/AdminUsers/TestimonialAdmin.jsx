@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import axios from "axios";
+import { useNavigate } from "react-router-dom";
 
 
 function TestimonialAdmin() {
@@ -7,14 +8,19 @@ function TestimonialAdmin() {
   const [description, setDescription] = useState("");
   const [testimonials, setTestimonials] = useState([]);
   const [editIndex, setEditIndex] = useState(null);
+  const navigate = useNavigate();
 
   useEffect(() => {
-    const fetchAllTestimonial = async () => {
-      const res = await axios.get("http://localhost:5000/api/testimonial");
-      setTestimonials(res.data.data);
-    };
-    fetchAllTestimonial();
-  }, []);
+    if (!sessionStorage.getItem("token") && window.location.pathname !== "/") {
+      navigate("/");
+    } else {
+      const fetchAllTestimonial = async () => {
+        const res = await axios.get("http://localhost:5000/api/testimonial");
+        setTestimonials(res.data.data);
+      };
+      fetchAllTestimonial();
+    }
+  }, [navigate]);
 
   const handleSubmit = async (e) => {
     e.preventDefault();

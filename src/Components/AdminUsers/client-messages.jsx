@@ -2,18 +2,28 @@ import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import './client-messages.css';
 import swal from 'sweetalert';
+import { useNavigate } from "react-router-dom";
 
 function ContactTable() {
   const [contacts, setContacts] = useState([]);
+  const [isLoading, setIsLoading] = useState(false);
+
+  const navigate = useNavigate();
 
   useEffect(() => {
+    if (!sessionStorage.getItem("token") && window.location.pathname !== "/") {
+      navigate("/");
+    }
+    
     async function fetchData() {
-      const response = await axios.get('http://localhost:5000/api/contact/getAll');
-      setContacts(response.data);
+        setIsLoading(true);
+        const response = await axios.get('http://localhost:5000/api/contact/getAll');
+        setContacts(response.data);
+        setIsLoading(false);
 
     }
     fetchData();
-  }, []);
+  }, [navigate]);
 
   const [selectedContact, setSelectedContact] = useState(null);
 

@@ -8,7 +8,6 @@ import {
   riSettings2Line,
   riTimerFlashLine,
 } from "@mwarnerdotme/react-remixicon";
-import jwtDecode from 'jwt-decode';
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import axios from "axios";
@@ -55,15 +54,9 @@ const CarItem = ({ products, selectedCategory }) => {
       .then((response) => {
         console.log(response.data); // Handle successful response
   
-        // Send email notification to admin and user
-        const decodedToken = jwtDecode(token);
-        const firstName = decodedToken.firstName;
-        const phoneNumber = decodedToken.phoneNumber;
-  
         const params = {
           car_id: carId,
-          first_name: firstName,
-          phone_number: phoneNumber
+
         };
   
         emailjs.send(

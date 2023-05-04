@@ -5,11 +5,18 @@ import Landingpage from "../Home/video";
 import Testimonial from "../Home/Testimonial";
 import TestimonialAdmin from "./TestimonialAdmin";
 import React from "react";
-import {useState} from 'react';
+import { useNavigate } from "react-router-dom";
+import  { useEffect, useState } from "react";
 
 
 function AdminHome() {
-    const [isLoading, setIsLoading] = useState(false);
+    const navigate = useNavigate();
+
+    useEffect(() => {
+      if (!sessionStorage.getItem("token") && window.location.pathname !== "/") {
+        navigate("/");
+      }
+    }, [navigate]);
 
   return (
     <div className="testimonials-adminsection">

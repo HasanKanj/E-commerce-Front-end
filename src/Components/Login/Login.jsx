@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import "./Login.css";
+import swal from "sweetalert";
 
 const API_URL = process.env.REACT_APP_API_URL;
 
@@ -28,23 +29,34 @@ function LoginPage() {
         throw new Error(data.message);
       }
       const data = await response.json();
-      await sessionStorage.setItem("token", data.token);
-      console.log(data.token);
-      navigate("/");
+      if (response.ok) {
+        sessionStorage.setItem("token", data.token);
+        swal({
+          title: "Login successful",
+          icon: "success",
+        }).then(() => {
+          if (data.role === "admin") {
+            window.location.href = "/Admin/Home";
+          } else if (data.role === "user") {
+            window.location.href = "/";
+          }
+        });
+      } else {
+        swal({
+          title: "Login failed",
+          text: data.message,
+          icon: "error",
+        });
+      }
     } catch (error) {
-      setError(error.message);
+      console.error(error);
     }
-    setLoading(false);
   };
 
   useEffect(() => {
-    if (sessionStorage.getItem("token")) sessionStorage.removeItem("token"); // updated to use localStorage
+    if (sessionStorage.getItem("token")) sessionStorage.removeItem("token"); 
   });
-  useEffect(() => {
-    if (navigate === "/") {
-      window.location.reload();
-    }
-  }, [navigate]);
+
 
   return (
     <div className="login-page">

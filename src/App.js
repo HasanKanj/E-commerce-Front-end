@@ -28,15 +28,13 @@ function App() {
 
   const handleLogin = () => {
     // perform login logic, set token in session storage, and set isLoggedIn to true
-    sessionStorage.setItem("token", "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MjAsImlhdCI6MTY4MjQ5NzQyMCwiZXhwIjoxNjg1MDg5NDIwfQ.RdbVeQ0wfX5lWzFZu4Wxb--9yz-o4VYFh00gq8o6PRc");
     setIsLoggedIn(true);
   };
 
   const handleLogout = () => {
-    // perform logout logic, remove token from session storage, and set isLoggedIn to false
     sessionStorage.removeItem("token");
     setIsLoggedIn(false);
-    setIsAdmin(false); // reset isAdmin state as well
+    setIsAdmin(false); 
   };
 
   return (

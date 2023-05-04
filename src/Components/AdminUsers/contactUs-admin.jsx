@@ -4,7 +4,10 @@ import phoneIcon from '../../assets/kindpng_3406718.png';
 import emailIcon from '../../assets/emailIcon.png'
 import houseIcon from '../../assets/houseIcon.png'
 import emailjs from '@emailjs/browser';
+import { useNavigate } from "react-router-dom";
+
 function ContactAdminForm() {
+  const navigate = useNavigate();
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
   const [phoneNumber, setPhoneNumber] = useState('');
@@ -37,8 +40,13 @@ function ContactAdminForm() {
 
   };
   useEffect(() => {
-    fetchContact();
-  }, []);
+    if (!sessionStorage.getItem("token") && window.location.pathname !== "/") {
+      navigate("/");
+    } else {
+      fetchContact();
+    }
+  }, [navigate]);
+  
   const handleSubmit = async (e) => {
     e.preventDefault();
     // Check if all form fields are filled out
