@@ -11,13 +11,14 @@ const CarDetails = () => {
   const [product, setProduct] = useState({});
   const [activeKey, setActiveKey] = useState("description");
   const [modalIsOpen, setModalIsOpen] = useState(false); // <-- Add state for modal
-  const [loading, setLoading] = useState(true);
+  const [loading, setLoading] = useState(false);
 
   useEffect(() => {
     const fetchProduct = async () => {
-      setLoading(true);
+      
 
       try {
+        setLoading(true);
         // Fetch the product by name to get its _id field
         const resNames = await fetch(`http://localhost:5000/api/cars`);
         const dataNames = await resNames.json();
@@ -31,10 +32,14 @@ const CarDetails = () => {
         const resId = await fetch(`http://localhost:5000/api/cars/${car._id}`);
         const data = await resId.json();
         setProduct(data);
+        setLoading(false);
+
       } catch (error) {
         console.error(error);
+        setLoading(false);
+
       }
-      setLoading(false);
+     
 
     };
 
@@ -104,13 +109,15 @@ const CarDetails = () => {
   };
   return (
     <>
+    { loading? <ProgressCircle /> : <div>
     
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous"/>
     <ToastContainer className="toast-container" />
 
       <Row style={{ marginTop: "100px" }}>
         <Col md={7}>
-          {product.url && ( // <-- only render Image if product.url exists
+          {product.url && ( 
+            // <-- only render Image if product.url exists
             <div>
               <Image
                 src={product.url}
@@ -232,7 +239,9 @@ const CarDetails = () => {
           </Modal>
         </Col>
       </Row>
+      </div>}
     </>
+   
   );
 };
 

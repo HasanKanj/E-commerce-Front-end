@@ -19,7 +19,9 @@ const Routers = () => {
         <Route path="/Admin/newcar" element={ <Container> <AdminNewCar /></Container> }/>
         <Route path="/Admin/AboutUs" element={<AboutUsAdmin />} />
         <Route path="/ContactUsAdmin" element={<ContactUsAdmin />} />
-        <Route path="/ClientMessages" element={<Container> <ClientMessages /></Container>} />
+        <Route path="/clientmessages" element={<Container> <ClientMessages /></Container>} />
+        <Route path="/Newsletter"></Route>
+
       </Routes>
       <ScrollToTop />
     </div>
