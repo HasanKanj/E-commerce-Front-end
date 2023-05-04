@@ -37,7 +37,7 @@ function AdminNavbar() {
 
   return (
     <header className={`navbar-lina ${scrollPosition > 0 ? "scrolled" : ""}`}>
-      <Link to="/">
+      <Link to="/Admin/Home">
         <img className="navbar-lina-logo"  alt="a" src={logo} />
       </Link>
 

@@ -7,68 +7,41 @@ import "./App.css";
 function App() {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   const [isAdmin, setIsAdmin] = useState(false);
-  const [userRole, setUserRole] = useState("");
 
   useEffect(() => {
-    // Check for user data in session storage
-    const userData = sessionStorage.getItem("userData");
-    console.log("User data from session storage:", userData);
-
-    if (userData) {
-      // User data exists in session storage
+    // Check for token in session storage
+    const token = sessionStorage.getItem("token");
+    console.log("Token from session storage:", token);
+  
+    if (token) {
+      // Token exists in session storage
       setIsLoggedIn(true);
-
-      // Check the user's role
-      const userDataObj = JSON.parse(userData);
-      setUserRole(userDataObj.role);
-
-      // Check if user is an admin
-      const isAdmin = userDataObj.isAdmin;
-      if (isAdmin) {
+  
+      // Check if token is admin token
+      if (token === "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MjAsImlhdCI6MTY4MjQ5NzQyMCwiZXhwIjoxNjg1MDg5NDIwfQ.RdbVeQ0wfX5lWzFZu4Wxb--9yz-o4VYFh00gq8o6PRc") { // replace "your_admin_token_here" with your actual admin token
         setIsAdmin(true);
         console.log("User is an admin");
       }
     }
-  }, []);
+  }, []); 
 
-  const handleLogout = () => {
-    // perform logout logic, remove user data from session storage, and set isLoggedIn to false
-    sessionStorage.removeItem("userData");
-    setIsLoggedIn(false);
-    setIsAdmin(false); // reset isAdmin state as well
+
+  const handleLogin = () => {
+    // perform login logic, set token in session storage, and set isLoggedIn to true
+    setIsLoggedIn(true);
   };
 
-  useEffect(() => {
-    // Fetch data
-    const fetchData = async () => {
-      const response = await fetch("http://localhost:5000/api/user/login", {
-        headers: {
-          Authorization: `Bearer ${sessionStorage.getItem("token")}`,
-        },
-      });
-      const data = await response.json();
-      console.log(data.token);
-      if (data.role === "admin") {
-        setIsAdmin(true);
-      } else {
-        setIsAdmin(false);
-      }
-    };
-    fetchData();
-  }, []);
+  const handleLogout = () => {
+    sessionStorage.removeItem("token");
+    setIsLoggedIn(false);
+    setIsAdmin(false); 
+  };
 
   return (
     <div>
-      {isLoggedIn && (
-        <>
-          {isAdmin ? (
-            <AdminLayout onLogout={handleLogout} />
-          ) : (
-            <UserLayout onLogout={handleLogout} />
-          )}
-        </>
-      )}
-      {!isLoggedIn && <Layout />}
+      {isAdmin && isLoggedIn && <AdminLayout onLogout={handleLogout} />}
+      {!isAdmin && isLoggedIn && <UserLayout onLogout={handleLogout} />}
+      {!isLoggedIn && <Layout onLogin={handleLogin} />}
     </div>
   );
 }

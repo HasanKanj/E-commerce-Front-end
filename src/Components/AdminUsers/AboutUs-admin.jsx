@@ -1,21 +1,20 @@
 import { useEffect, useState } from "react";
 
 import "./homeandabout.css";
-
-import NavBar from "../Header/NavBar/NavBar";
-import aboutImg from "../../assets/aboutImg.png";
 import dollar from "../../assets/dollar.png";
 import aboutimg from "../AboutUs/images/about.png";
 import customer from "../../assets/customer.png";
 import thumb from "../../assets/thumb.png";
 import Helmet from "../Helmet/Helmet";
 import CommonSection from "../UI/CommonSection.jsx";
+import { useNavigate } from "react-router-dom";
 import axios from "axios";
 
 function AboutUsAdmin() {
   const [about, setAbout] = useState([]);
   const [description, setDescription] = useState("");
   const [isLoading, setIsLoading] = useState(false);
+  const navigate = useNavigate();
 
   const fetchAbout = async () => {
     setIsLoading(true);
@@ -31,6 +30,15 @@ function AboutUsAdmin() {
     fetchAbout();
     handleChange();
   }, []);
+
+  useEffect(() => {
+    if (!sessionStorage.getItem("token") && window.location.pathname !== "/") {
+      navigate("/");
+    } else {
+      fetchAbout();
+      handleChange();
+    }
+  }, [navigate]);
 
   const handleChange = async (_id) => {
     const res = await axios.put(`http://localhost:5000/api/about/${_id}`, {
