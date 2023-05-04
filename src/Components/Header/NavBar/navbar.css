@@ -11,15 +11,11 @@
   justify-content: space-between;
   height: 80px;
   padding: 0 2rem;
-  background-color: transparent;
-  position: fixed;
+  background-color: black;
 }
 .navbar-lina-nav{
   z-index: 1000;
 margin-left: 50vw;
-}
-.scrolled {
-  background-color: #000;
 }
 .navbar-lina-nav .navbar-lina-nav-Links {
   text-decoration: none;

@@ -1,0 +1,20 @@
+.loader{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    align-self: center;
+    margin-top: 50%;
+ margin-right: 50%; 
+}
+
+.css-1idz92c-MuiCircularProgress-svg{
+    color: red;
+}
+.MuiBox-root, .css-whmuo1{
+    height: 100vh;
+    width: 100vw;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}

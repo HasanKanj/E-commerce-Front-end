@@ -5,14 +5,11 @@ import swal from 'sweetalert';
 
 function ContactTable() {
   const [contacts, setContacts] = useState([]);
-  const [isLoading, setIsLoading] = useState(false);
 
   useEffect(() => {
     async function fetchData() {
-            setIsLoading(true);
       const response = await axios.get('http://localhost:5000/api/contact/getAll');
       setContacts(response.data);
-            setIsLoading(false);
 
     }
     fetchData();
