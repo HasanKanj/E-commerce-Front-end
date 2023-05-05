@@ -22,12 +22,7 @@ const CarItem = ({ products, selectedCategory }) => {
   const [modalIsOpen, setModalIsOpen] = useState(false); // <-- Add state for modal
   const token = sessionStorage.getItem("token");
 
-  const getelements = async (carId) => {
-    const response = await axios.get(
-      `http://localhost:5000/api/reservations/${carId}`
-    );
-    console.log(response.data);
-  };
+
 
   const toggleModal = () => {
     // Check if user is logged in
@@ -62,14 +57,13 @@ const CarItem = ({ products, selectedCategory }) => {
         }
       )
       .then((response) => {
-        console.log(response.data); // Handle successful response
+        console.log("response.data ", response.data.reservation.car.name); // Handle successful response
 
         const params = {
           car_id: carId,
-          firstName:firstName,
-          lastName:lastName,
-          email:email
-
+          firstName: firstName,
+          lastName: lastName,
+          email: email,
         };
 
         emailjs
@@ -166,7 +160,6 @@ const CarItem = ({ products, selectedCategory }) => {
                     style={{ borderRadius: "40px", marginLeft: "10px" }}
                     onClick={() => {
                       toggleModal();
-                      getelements(product._id);
                     }} // <-- Open modal on button click
                   >
                     <strong>Reserve </strong>
@@ -184,7 +177,7 @@ const CarItem = ({ products, selectedCategory }) => {
               <button
                 className="btn btn-danger"
                 onClick={() => {
-                  reserveCar(product._id,);
+                  reserveCar(product._id);
                 }}
               >
                 Yes

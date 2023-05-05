@@ -5,7 +5,7 @@ import swal from "sweetalert";
 import { useNavigate } from "react-router-dom";
 import { Link } from "react-router-dom";
 
-function ContactTable() {
+function ClientTable() {
   const [contacts, setContacts] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
   const token = sessionStorage.getItem("token");
@@ -20,13 +20,14 @@ function ContactTable() {
     async function fetchData() {
       setIsLoading(true);
       const response = await axios.get(
-        "http://localhost:5000/api/contact/getAll"
-      ,{
-        headers: {
-          "Content-Type": "multipart/form-data",
-          Authorization: `Bearer ${token}`,
-        },
-      });
+        "http://localhost:5000/api/contact/getAll",
+        {
+          headers: {
+            "Content-Type": "multipart/form-data",
+            Authorization: `Bearer ${token}`,
+          },
+        }
+      );
       setContacts(response.data);
       setIsLoading(false);
     }
@@ -46,7 +47,7 @@ function ContactTable() {
     }).then((willDelete) => {
       if (willDelete) {
         axios
-          .delete(`http://localhost:5000/api/contact/delete/${id}`,{
+          .delete(`http://localhost:5000/api/contact/delete/${id}`, {
             headers: {
               "Content-Type": "multipart/form-data",
               Authorization: `Bearer ${token}`,
@@ -56,6 +57,7 @@ function ContactTable() {
             if (response.data.success) {
               setContacts(contacts.filter((item) => item._id !== id)); // update the state
               setSelectedContact(null); // reset the selected contact id
+              
             } else {
               console.log("Failed to delete contact.");
               setSelectedContact(null); // reset the selected contact id
@@ -74,8 +76,7 @@ function ContactTable() {
   return (
     <>
       <div>
-        
-      <Link
+        <Link
           className="btn btn-dark my-3"
           to="/ContactUsAdmin"
           style={{
@@ -90,12 +91,13 @@ function ContactTable() {
         >
           Go Back
         </Link>
-
       </div>
       <div className="my-table-container">
         <table className="my-table">
           <thead>
-          <h1 className="lili" style={{ whiteSpace: "nowrap" }}>Client Messages</h1>
+            <h1 className="lili" style={{ whiteSpace: "nowrap" }}>
+              Client Messages
+            </h1>
             <br />
             <tr>
               <th className="my-table-header">Name</th>
@@ -135,4 +137,4 @@ function ContactTable() {
   );
 }
 
-export default ContactTable;
+export default ClientTable;
