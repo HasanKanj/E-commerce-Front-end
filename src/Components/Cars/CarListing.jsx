@@ -7,9 +7,10 @@ import CommonSection from "../UI/CommonSection.jsx";
 import CarItem from "./CarItem.jsx";
 import "../styles/Car-listing.css"; // <-- Import the CSS file
 import { useParams } from "react-router";
+import ProgressCircle from '../Home/ProgressCircle';
 
 const CarListing = () => {
-  const [loading, setLoading] = useState(true);
+  const [loading, setLoading] = useState(false);
 
   const { category } = useParams();
   const [carData, setCarData] = useState([]);
@@ -22,13 +23,15 @@ const CarListing = () => {
     category && setSelectedCategory(category);
     axios
       .get("http://localhost:5000/api/cars/")
-      .then((response) => {
+        .then((response) => {
         setCarData(response.data);
+        setLoading(false);
+
       })
       .catch((error) => {
         console.log(error);
+        setLoading(false);
       });
-      setLoading(false);
 
   }, []);
 
@@ -38,6 +41,7 @@ const CarListing = () => {
   };
 
   return (
+    <>{ loading? <ProgressCircle /> :
     <Helmet title="Cars">
       <CommonSection title="Featured Cars" />
       <Container>
@@ -173,7 +177,9 @@ const CarListing = () => {
           </Row>
         </Container>
       </section>
-    </Helmet>
+    </Helmet> }
+    </>
+    
     );
     };
     
