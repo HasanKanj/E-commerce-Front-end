@@ -10,6 +10,9 @@ import ContactUsAdmin from "../Components/AdminUsers/contactUs-admin";
 import AdminHome from "../Components/AdminUsers/Admin-home";
 import ScrollToTop from "../Components/Home/ScrolltoTop/Scroll";
 import Page404 from "../Components/Home/404 Page/Page404";
+import ClientMessages from '../Components/AdminUsers/client-messages';
+import ReservationsAdmin from "../Components/AdminUsers/Reservations/ReservationsAdmin";
+
 const Routers = () => {
   return (
     <div className="App">
@@ -31,7 +34,9 @@ const Routers = () => {
 
         <Route path="/Admin/Home" element={<AdminHome />} />
         <Route path="/ContactUsAdmin" element={<ContactUsAdmin />} />
+        <Route path="/clientmessages" element={<Container> <ClientMessages /></Container>} />
         <Route path="/ContactUs" element={<ContactUs />} />
+        <Route path="/Reservations" element={<Container> <ReservationsAdmin /></Container>}></Route>
       </Routes>
       <ScrollToTop />
     </div>

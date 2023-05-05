@@ -1,42 +1,67 @@
-// import "./ReservationsAdmin.css";
-// import ProjectCard from "./ProjectCard/ProjectCard";
-// import React, { useState } from "react";
-// import { useEffect } from "react";
-// import axios from "axios";
+import React, { useState, useEffect } from "react";
+import axios from "axios";
+import './ReservationsAdmin.css'
+const ReservationTable = () => {
+  const [reservations, setReservations] = useState([]);
+  const [currentPage, setCurrentPage] = useState(1);
+  const [reservationsPerPage, setReservationsPerPage] = useState(10);
 
+  useEffect(() => {
+    axios
+      .get("http://localhost:5000/api/Reservations")
+      .then((response) => {
+        setReservations(response.data.reservations);
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  }, []);
 
-// export default function ReservationsAdmin(){
-//   // get data from API
-//   const [info, setInfo] = useState([]);
+  const indexOfLastReservation = currentPage * reservationsPerPage;
+  const indexOfFirstReservation = indexOfLastReservation - reservationsPerPage;
+  const currentReservations = reservations.slice(indexOfFirstReservation, indexOfLastReservation);
 
-//   useEffect(() => {
-//     getAllInfo();
-//   }, []);
+  const pageNumbers = [];
+  for (let i = 1; i <= Math.ceil(reservations.length / reservationsPerPage); i++) {
+    pageNumbers.push(i);
+  }
 
-//   const getAllInfo = () =>
-//     axios
-//       .get("http://localhost:5000/api/info/")
-//       .then((response) => {
-//         //add our data to state
-//         setInfo(response.data);
-//       })
-//       .catch((error) => console.error(`Error : {${error}`));
-//   const projectCards = info.map((object) => {
-//     if (object.section === "MyWork") {
-//       return (
-//         <div key={object.id} img={object.image} name={object.name} />
-//       );
-//     } else {
-//       return null;
-//     }
-//   });
-//   return (
-//     <div id="Projects" class="mywork">
-//       <h1 class="myWorkTitle">Reservations</h1>
-//       <div class="myWorkline"></div>
-//       <div class="conteudo">
-//         <div class="gallery">{projectCards}</div>
-//       </div>
-//     </div>
-//   );
-// }
+  const handleClick = (event) => {
+    setCurrentPage(Number(event.target.id));
+  };
+
+  return (
+    <div className="reservation-lina-table-container">
+      <h1 className="reservation-lina-title"> Current Reservations: </h1>
+      <div className="reservation-lina-table">
+        <div className="reservation-lina-table-row reservation-lina-table-header">
+          <div className="reservation-lina-table-cell">Car Name</div>
+          <div className="reservation-lina-table-cell">Price</div>
+          <div className="reservation-lina-table-cell">Email</div>
+          <div className="reservation-lina-table-cell">Phone Number</div>
+        </div>
+        <div className="reservation-lina-table-body">
+          {currentReservations.map((reservation) => (
+            <div key={reservation._id} className="reservation-lina-table-row">
+              <div className="reservation-lina-table-cell">{reservation.carId.name}</div>
+              <div className="reservation-lina-table-cell">{reservation.carId.price}</div>
+              <div className="reservation-lina-table-cell">{reservation.userId.email}</div>
+              <div className="reservation-lina-table-cell">{reservation.userId.phoneNumber}</div>
+            </div>
+          ))}
+        </div>
+      </div>
+      <div className="pagination">
+        <ul className="pagination-list">
+          {pageNumbers.map((number) => (
+            <li key={number} id={number} onClick={handleClick}>
+              {number}
+            </li>
+          ))}
+        </ul>
+      </div>
+    </div>
+  );
+};
+
+export default ReservationTable;
