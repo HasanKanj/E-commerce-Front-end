@@ -8,6 +8,10 @@ import CarDetails from "../Components/Cars/CarDetails";
 import CarListing from "../Components/Cars/CarListing";
 import ScrollToTop from "../Components/Home/ScrolltoTop/Scroll";
 import Page404 from "../Components/Home/404 Page/Page404";
+import ClientMessages from '../Components/AdminUsers/client-messages';
+import ReservationsAdmin from "../Components/AdminUsers/Reservations/ReservationsAdmin";
+
+
 const Routers = () => {
   return (
     <div className="App">
@@ -27,6 +31,7 @@ const Routers = () => {
           }
         />
         <Route path="/ContactUs" element={<ContactUs />} />
+        <Route path="/Reservations" element={<Container> <ReservationsAdmin /></Container>}></Route>
       </Routes>
       <ScrollToTop />
     </div>
