@@ -35,7 +35,7 @@ ul{
   margin-right: 2.5%;
   padding: 0;
   box-sizing: border-box;
-  margin-top: -130px;
+  margin-top: -190px;
   text-align: left;
 }
 
@@ -207,8 +207,7 @@ textarea::placeholder {
 
 .contact-info-title{
 font-size:45px;
-
-
+color: #BE3F3F;
 }
 .phone-img{
   max-width:23px;

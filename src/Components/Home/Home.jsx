@@ -78,6 +78,8 @@ function Home() {
         <Landingpage />
         
       </div>
+      <div className="footer-lina-parrallax"></div>
+
       <div className="all-testimonials">
         <div className="testimonials">
           <div className="testi-title-p">
@@ -90,9 +92,12 @@ function Home() {
 
           <div className="testi">
             <Testimonial />
+            
           </div>
+          
         </div>
       </div>
+
     </div>
   );
 }

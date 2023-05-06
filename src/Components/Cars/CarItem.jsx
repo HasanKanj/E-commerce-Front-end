@@ -20,9 +20,6 @@ const CarItem = ({ products, selectedCategory }) => {
     : products;
 
   const [modalIsOpen, setModalIsOpen] = useState(false); // <-- Add state for modal
-  const token = sessionStorage.getItem("token");
-
-
 
   const toggleModal = () => {
     // Check if user is logged in
@@ -57,13 +54,21 @@ const CarItem = ({ products, selectedCategory }) => {
         }
       )
       .then((response) => {
-        console.log("response.data ", response.data.reservation.car.name); // Handle successful response
+        console.log(response.data.reservation.car.price)
+        const carname = response.data.reservation.car.name;
+        const  carcategory = response.data.reservation.car.category;
+        const carprice = response.data.reservation.car.price;
+        const caryear = response.data.reservation.car.year;
 
         const params = {
-          car_id: carId,
           firstName: firstName,
           lastName: lastName,
           email: email,
+          carname : carname,
+          carcategory : carcategory,
+          caryear :caryear ,
+          carprice : carprice,
+          
         };
 
         emailjs
@@ -71,7 +76,6 @@ const CarItem = ({ products, selectedCategory }) => {
             "service_i65z4yo",
             "template_kz0prl9",
             params,
-
             "X3GWKBc5fNzTxb_rm"
           )
           .then(
@@ -188,8 +192,11 @@ const CarItem = ({ products, selectedCategory }) => {
             </ModalFooter>
           </Modal>
         </Col>
+        
       ))}
+      
     </>
+    
   );
 };
 

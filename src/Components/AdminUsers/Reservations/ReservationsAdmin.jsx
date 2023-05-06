@@ -5,10 +5,16 @@ const ReservationTable = () => {
   const [reservations, setReservations] = useState([]);
   const [currentPage, setCurrentPage] = useState(1);
   const [reservationsPerPage, setReservationsPerPage] = useState(10);
+  const token = sessionStorage.getItem("token");
 
   useEffect(() => {
     axios
-      .get("http://localhost:5000/api/Reservations")
+      .get("http://localhost:5000/api/Reservations",{
+        headers: {
+          "Content-Type": "multipart/form-data",
+          Authorization: `Bearer ${token}`,
+        },
+      })
       .then((response) => {
         setReservations(response.data.reservations);
       })

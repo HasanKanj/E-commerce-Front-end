@@ -267,6 +267,7 @@ function ContactAdminForm() {
                   value={name}
                   onChange={(e) => setName(e.target.value)}
                   required
+                  readOnly
                 />
               </label>
             </div>
@@ -281,6 +282,7 @@ function ContactAdminForm() {
                     value={email}
                     onChange={(e) => setEmail(e.target.value)}
                     required
+                    readOnly
                   />
                 </label>
               </div>
@@ -295,6 +297,7 @@ function ContactAdminForm() {
                     value={phoneNumber}
                     onChange={(e) => setPhoneNumber(e.target.value)}
                     required
+                    readOnly
                   />
                 </label>
               </div>
@@ -308,6 +311,7 @@ function ContactAdminForm() {
                   value={message}
                   onChange={(e) => setMessage(e.target.value)}
                   required
+                  readOnly
                 ></textarea>
               </label>
             </div>

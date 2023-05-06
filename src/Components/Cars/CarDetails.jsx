@@ -85,14 +85,21 @@ const CarDetails = () => {
         }
       )
       .then((response) => {
-        console.log(response.data); // Handle successful response
-  
-        const params = {
-          car_id: carId,
-          firstName:firstName,
-          lastName:lastName,
-          email:email
+        console.log(response.data.reservation.car.price)
+        const carname = response.data.reservation.car.name;
+        const  carcategory = response.data.reservation.car.category;
+        const carprice = response.data.reservation.car.price;
+        const caryear = response.data.reservation.car.year;
 
+        const params = {
+          firstName: firstName,
+          lastName: lastName,
+          email: email,
+          carname : carname,
+          carcategory : carcategory,
+          caryear :caryear ,
+          carprice : carprice,
+          
         };
   
         emailjs.send(

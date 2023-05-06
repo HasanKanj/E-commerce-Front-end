@@ -56,13 +56,17 @@ function AdminNavbar() {
         >
           About
         </NavLink>
-        <NavLink
-          to="/Admin/cars"
-          className="navbar-lina-nav-Links"
-          activeClassName="active"
-        >
-          Cars
-        </NavLink>
+        <div className="dropdown">
+          <NavLink
+            to="/Admin/cars"
+            className="navbar-lina-nav-Links dropdown-toggle"
+          >
+            Cars
+          </NavLink>
+          <div className="dropdown-content">
+            <NavLink to="/reservations">Reservations</NavLink>
+          </div>
+        </div>
         <NavLink
           to="/ContactUsAdmin"
           className="navbar-lina-nav-Links"

@@ -10,6 +10,7 @@ import { toast } from "react-toastify";
 import { useNavigate } from "react-router-dom";
 import { useEffect, useState } from "react";
 
+
 function AdminHome() {
   const navigate = useNavigate();
   const token = sessionStorage.getItem("token");
@@ -28,7 +29,11 @@ function AdminHome() {
   }, []);
 
   return (
+    <>
+        <div className="footer-lina-parrallax"></div>
+
     <div className="testimonials-adminsection">
+      
       <div className="testimonials">
         <h1 className="testimonial-title">Why Clients Love Us</h1>
         <p className="testimonials-p">
@@ -42,6 +47,8 @@ function AdminHome() {
         <TestimonialAdmin />
       </div>
     </div>
+    </>
+
   );
 }
 

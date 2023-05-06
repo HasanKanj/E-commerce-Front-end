@@ -5,6 +5,27 @@
 .navbar-lina-logo{
   width: 60px;
 }
+.dropdown-content {
+  position: absolute;
+  z-index: 1;
+  display: none;
+}
+
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+
+.dropdown-content a {
+  background-color: #f1f1f1;
+  color: black;
+  padding: 12px 9px;
+  text-decoration: none;
+  display: block;
+}
+
+.dropdown-content a:hover {
+  background-color: #ff0000;
+}
 .navbar-lina {
   display: flex;
   align-items: center;

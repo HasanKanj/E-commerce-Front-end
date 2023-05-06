@@ -48,7 +48,6 @@ const AdminCarsScreen = () => {
           headers: {
             "Content-Type": "multipart/form-data",
              Authorization: `Bearer ${token}`,
-  
           },
         });
         setCars(cars.filter((car) => car._id !== id));
