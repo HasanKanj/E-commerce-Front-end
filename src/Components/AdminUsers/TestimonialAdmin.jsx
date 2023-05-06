@@ -1,13 +1,15 @@
 import { useState, useEffect } from "react";
 import axios from "axios";
-
-
+import './TestimonialAdmin.css'
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 function TestimonialAdmin() {
   const [name, setName] = useState("");
   const [description, setDescription] = useState("");
   const [testimonials, setTestimonials] = useState([]);
   const [editIndex, setEditIndex] = useState(null);
   const token = sessionStorage.getItem("token");
+  const [editingTestimonial, setEditingTestimonial] = useState(null);
 
   useEffect(() => {
     const fetchAllTestimonial = async () => {
@@ -47,6 +49,7 @@ function TestimonialAdmin() {
       },
     });
     setTestimonials(testimonials.filter((test) => test._id !== _id));
+    toast.success("Reservation deleted successfully!");
   };
 
   const handleEdit = async (e, index) => {
@@ -71,6 +74,7 @@ function TestimonialAdmin() {
   const handleEditClick = (e, index) => {
     e.preventDefault();
     setEditIndex(index);
+
   };
 
   const handleNameChange = (e, index) => {
@@ -86,6 +90,8 @@ function TestimonialAdmin() {
   };
   return (
     <div className="all-testimonials">
+                <ToastContainer/>
+
       <form onSubmit={handleSubmit}>
         <div className="testtoAdd">
           <label>Name:</label>
@@ -132,12 +138,13 @@ function TestimonialAdmin() {
                 value={test.description}
                 onChange={(e) => handleDescriptionChange(e, index)}
               />
-              <div className="testi-saveCancel">
-                <button className="admin-testi-buttons" type="submit">
+              <div >
+                <button className="deletebtn" type="submit"
+                >
                   Save
                 </button>
-                <button
-                  className="admin-testi-buttons"
+                <button className="editbtn"
+               
                   type="button"
                   onClick={handleCancelEdit}
                 >
@@ -147,21 +154,20 @@ function TestimonialAdmin() {
             </form>
           ) : (
             <>
-              <div className="testi-ViewSection">
-                <div className="testi-testimonialsection">
+              <div className="">
+                <div className="">
                   <h5>{test.name}</h5>
                   <p>{test.description}</p>
                 </div>
-                <div className="testi-delAndEdit">
-                  <button
-                    className="admin-testi-buttons"
+                <div>
+                  <button className="deletebtn"
                     onClick={() => handleDelete(test._id)}
                   >
                     Delete
                   </button>
-                  <button
-                    className="admin-testi-buttons testiEDit"
+                  <button className="editbtn"
                     onClick={(e) => handleEditClick(e, index)}
+                    
                   >
                     Edit
                   </button>
