@@ -9,7 +9,7 @@
 /* About Us */
 
 .about-welcome {
-  color: #d00c05;
+  color: rgb(178, 55, 20);
   font-size: 100px;
   font-style: italic;
   animation: mymove 1s 1 forwards;

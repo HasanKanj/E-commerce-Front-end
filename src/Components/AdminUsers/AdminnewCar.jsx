@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import axios from "axios";
+import "./AdminUsers.css"
 
 const AdminNewCar = () => {
   const [name, setName] = useState("");
@@ -90,7 +91,7 @@ const AdminNewCar = () => {
       />
 
       <Link
-        className="btn btn-dark my-3"
+        className="go-back btn btn-dark my-3"
         to="/Admin/cars"
         style={{ width: "150px", whiteSpace: "nowrap", float: "left" }}
       >
@@ -266,7 +267,7 @@ const AdminNewCar = () => {
           ></textarea>
              <button
           type="submit"
-          className="btn btn-primary"
+          className=" create-btn btn btn-primary"
           style={{ width: "150px", whiteSpace: "nowrap", float: "left" ,backgroundColor:"red", fontWeight:"bold"}}
         >
           Create Car

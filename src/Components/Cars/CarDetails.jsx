@@ -121,9 +121,9 @@ const CarDetails = () => {
   };
   return (
     <>
-<div className="mt-5 mb-5">
+      <div className="mt-5 mb-5">
         <Link
-          className="btn btn-dark my-3"
+          className="listing-btn btn btn-dark my-3"
           to="/Cars"
           style={{ width: "150px", whiteSpace: "nowrap", float: "left" }}
         >
@@ -230,7 +230,7 @@ const CarDetails = () => {
 
             <div className="text-center">
               <button
-                className="w-50 car__item-btn car__btn-rent"
+                className=" reserve-btn w-50 car__item-btn car__btn-rent"
                 style={{
                   borderRadius: "40px",
                   marginLeft: "10px",

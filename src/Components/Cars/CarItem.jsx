@@ -160,13 +160,13 @@ const CarItem = ({ products, selectedCategory }) => {
 
                 <div className="d-flex justify-content-center">
                   <button
-                    className="w-50 car__item-btn car__btn-details"
+                    className=" seedetails w-50 car__item-btn car__btn-details"
                     style={{ borderRadius: "40px" }}
                   >
                     <Link to={`/product/${product.name}`}>See Details</Link>
                   </button>
                   <button
-                    className="w-50 car__item-btn car__btn-rent"
+                    className=" reserve-btn w-50 car__item-btn car__btn-rent"
                     style={{ borderRadius: "40px", marginLeft: "10px" }}
                     onClick={() => {
                       toggleModal();
@@ -198,11 +198,8 @@ const CarItem = ({ products, selectedCategory }) => {
             </ModalFooter>
           </Modal>
         </Col>
-        
       ))}
-      
     </>
-    
   );
 };
 

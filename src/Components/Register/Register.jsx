@@ -120,7 +120,7 @@ function Register() {
               />
             </div>
 
-            <button type="submit" className="btn btn-dark mb-3">
+            <button type="submit" className=" registerbtn btn btn-dark mb-3">
               Register
             </button>
             <p className="message">

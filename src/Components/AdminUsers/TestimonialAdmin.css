@@ -14,7 +14,7 @@
  
   
   .deletebtn {
-    background-color: red; /* Green */
+    background-color:rgb(178, 55, 20); /* Green */
     border: none;
     color: white;
     padding: 5px; /* Decrease padding */

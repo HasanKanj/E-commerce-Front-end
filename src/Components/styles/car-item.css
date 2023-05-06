@@ -8,6 +8,26 @@
   transition: transform 0.3s ease;
 }
 
+.seedetails{
+  background-color: rgb(57, 60, 57) !important;
+  border-radius: 10px !important;
+  font-size: 20px !important;
+}
+
+.listing-btn{
+  border: none !important;
+  font-size: 20px !important;
+  border-radius: 10px !important;
+}
+
+.reserve-btn{
+  background-color:rgb(178, 55, 20) !important;
+   border-radius: 10px !important;
+  font-size: 20px !important;
+  color: white !important;
+
+}
+
 .car__item:hover {
   transform: scale(1.05);
 }

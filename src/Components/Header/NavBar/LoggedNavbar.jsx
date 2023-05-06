@@ -75,13 +75,13 @@ function Navbars() {
           className="kanj"
           onClick={logOut}
           style={{
-            backgroundColor: "#f44336",
+            backgroundColor: "rgb(178, 55, 20)",
             color: "white",
             fontSize: "16px",
             padding: "8px 16px",
             border: "none",
-            borderRadius: "15px",
-            cursor: "pointer",
+            borderRadius: "10px",
+           
           }}
         >
           Logout

@@ -6,6 +6,7 @@ import { toast } from "react-toastify";
 import Swal from "sweetalert2/dist/sweetalert2.js";
 import "sweetalert2/src/sweetalert2.scss";
 import "react-toastify/dist/ReactToastify.css";
+import "./AdminUsers.css"
 
 import axios from "axios";
 
@@ -126,14 +127,14 @@ const AdminCarsScreen = () => {
       <ToastContainer />
 
       <div style={{ display: "flex", justifyContent: "flex-end" }}>
-       
         <Link
-          className="btn btn-dark my-3"
+          className=" btn-cretecar btn btn-dark my-3"
           to="/Admin/newcar"
           style={{
             width: "170px",
+            fontSize: "20px",
             whiteSpace: "nowrap",
-            backgroundColor: "red",
+            backgroundColor: "rgb(178, 55, 20)",
             color: "#fff",
           }}
         >
@@ -146,7 +147,7 @@ const AdminCarsScreen = () => {
           <h1>Cars List</h1>
 
           <tr>
-            <th >Image</th>
+            <th>Image</th>
             <th>Name</th>
             <th>Mileage</th>
             <th>Price</th>
@@ -308,14 +309,14 @@ const AdminCarsScreen = () => {
                   <>
                     <Button
                       variant="success"
-                      className="btn-sm mr-2"
+                      className="delete-btn-cars btn-sm mr-2"
                       onClick={() => updateHandler(car._id, editingCar)}
                     >
                       Update
                     </Button>
                     <Button
                       variant="light"
-                      className="btn-sm"
+                      className="edit-btn-cars btn-sm"
                       onClick={handleCancel}
                     >
                       Cancel
@@ -325,14 +326,14 @@ const AdminCarsScreen = () => {
                   <>
                     <Button
                       variant="primary"
-                      className="btn-sm mr-2"
+                      className="edit-btn-cars btn-sm mr-2"
                       onClick={() => handleEdit(car)}
                     >
                       Edit
                     </Button>
                     <Button
                       variant="danger"
-                      className="btn-sm"
+                      className="delete-btn-cars btn-sm"
                       onClick={() => deleteHandler(car._id)}
                     >
                       Delete

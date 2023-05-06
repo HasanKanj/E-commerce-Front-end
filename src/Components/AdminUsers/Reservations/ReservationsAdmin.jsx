@@ -72,26 +72,27 @@ const ReservationTable = () => {
 
   return (
     <div className="reservation-lina-table-container">
-          <ToastContainer/>
+      <ToastContainer />
       <h1 className="reservation-lina-title"> Current Reservations: </h1>
-      <div className="reservation-lina-table">
-        <div className="reservation-lina-table-row reservation-lina-table-header">
-          <div className="reservation-lina-table-cell">Car Name</div>
-          <div className="reservation-lina-table-cell">Price</div>
-          <div className="reservation-lina-table-cell">Email</div>
-          <div className="reservation-lina-table-cell">Phone Number</div>
-          <div className="reservation-lina-table-cell">Actions</div>
+      <div>
+        <div className="header-reservation">
+          <div>Car Name</div>
+          <div>Price</div>
+          <div>Email</div>
+          <div>Phone Number</div>
+          <div className="action">Actions</div>
         </div>
-        <div className="reservation-lina-table-body">
+        <div className="all-mssgs">
           {currentReservations.map((reservation) => (
-            <div key={reservation._id} className="reservation-lina-table-row">
-              <div className="reservation-lina-table-cell">{reservation.carId.name}</div>
-              <div className="reservation-lina-table-cell">{reservation.carId.price}</div>
-              <div className="reservation-lina-table-cell">{reservation.userId.email}</div>
-              <div className="reservation-lina-table-cell">{reservation.userId.phoneNumber}</div> {/* moved phone number to own th */}
-              <div className="reservation-lina-table-cell">
+            <div key={reservation._id} className="contact-reservation">
+              <div>{reservation.carId.name}</div>
+              <div>{reservation.carId.price}</div>
+              <div>{reservation.userId.email}</div>
+              <div>{reservation.userId.phoneNumber}</div>{" "}
+              {/* moved phone number to own th */}
+              <div>
                 <button
-                  className="btn btn-danger"
+                  className="delete-client-btn btn btn-danger"
                   onClick={() => {
                     handleDelete(reservation._id); // <-- use new function to handle delete and confirm
                   }}

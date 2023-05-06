@@ -18,12 +18,19 @@
   border-radius: 15px;
 margin-top: 190px;
 }
+
+.registerbtn{
+  background-color: rgb(178, 55, 20) !important;
+  font-size: 20px ;
+  border: none;
+  padding: 10px;
+}
 .register_page label{
    padding: 10px;
 }
 .register_button{
   text-transform: uppercase;
-  background: #171515;
+  background:rgb(178, 55, 20);
   border: 0;
   padding: 15px;
   color: #FFFFFF;
@@ -32,7 +39,7 @@ margin-top: 190px;
   cursor: pointer;
 }
 .register_page button:hover,.register_page button:active,.register_page button:focus {
-    background: #171515;
+    background:rgb(178, 55, 20);
     opacity: 65%;
   }
 

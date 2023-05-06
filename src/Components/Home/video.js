@@ -19,7 +19,7 @@ const Landingpage = () => {
           <div className="home-allimgs">
             <div className="homesecondsection">
               <div className="homethird-img">
-                <img className="home-payicon" src={choose}></img>
+                <img className="home-payicon" src={choose} alt=""></img>
                 <h2>Choose A Car </h2>
                 <h4>
                   Make a reservation to come and check the car you like at your
@@ -27,7 +27,7 @@ const Landingpage = () => {
                 </h4>
               </div>
               <div className="homethird-img">
-                <img className="home-payicon" src={Pay}></img>
+                <img className="home-payicon" src={Pay} alt=""></img>
                 <h2>Pay In Cash</h2>
                 <h4>
                   Pay the amount agreed on in dollars and get ready to receive
@@ -35,7 +35,7 @@ const Landingpage = () => {
                 </h4>
               </div>
               <div className="homethird-img">
-                <img className="home-payicon" src={drive}></img>
+                <img className="home-payicon" src={drive} alt=""></img>
                 <h2>Drive Ahead</h2>
                 <h4>
                   Feel free driving around with your brand new car and enjoy

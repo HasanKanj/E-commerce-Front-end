@@ -117,7 +117,7 @@ textarea.form-input {
 }
 
 .form-button:hover {
-  background-color: #870000;
+  background-color:rgb(178, 55, 20);
 }
 
 input[type="text"]::placeholder,
@@ -145,7 +145,7 @@ textarea::placeholder {
   left: 0;
   width: 23%;
   height: 1px;
-  background-color: #be3f3f;
+  background-color:rgb(178, 55, 20);
   opacity: 0.5;
 }
 .contact-form-p {
@@ -215,7 +215,7 @@ textarea::placeholder {
     flex-direction: row;
   }
   .form-button {
-    background-color: #be3f3f;
+    background-color:rgb(178, 55, 20);
     color: #fff;
     border: none;
     border-radius: 10px;
@@ -267,7 +267,7 @@ textarea::placeholder {
     padding: 0;
   }
   .form-button {
-    background-color: #be3f3f;
+    background-color:rgb(178, 55, 20);
     color: #fff;
     border: none;
     border-radius: 10px;
@@ -314,7 +314,7 @@ textarea::placeholder {
     padding: 0;
   }
   .form-button {
-    background-color: #be3f3f;
+    background-color:rgb(178, 55, 20);
     color: #fff;
     border: none;
     border-radius: 10px;

@@ -1,15 +1,12 @@
 import { useState, useEffect } from "react";
 import axios from "axios";
-import './TestimonialAdmin.css'
-import { ToastContainer, toast } from "react-toastify";
-import "react-toastify/dist/ReactToastify.css";
+
+
 function TestimonialAdmin() {
   const [name, setName] = useState("");
   const [description, setDescription] = useState("");
   const [testimonials, setTestimonials] = useState([]);
   const [editIndex, setEditIndex] = useState(null);
-  const token = sessionStorage.getItem("token");
-  const [editingTestimonial, setEditingTestimonial] = useState(null);
 
   useEffect(() => {
     const fetchAllTestimonial = async () => {
@@ -25,12 +22,7 @@ function TestimonialAdmin() {
       // Add validation check
       return;
     }
-    await axios.post("http://localhost:5000/api/testimonial/add",{
-      headers: {
-        "Content-Type": "multipart/form-data",
-         Authorization: `Bearer ${token}`,
-      },
-    }, {
+    await axios.post("http://localhost:5000/api/testimonial/add", {
       name,
       description,
     });
@@ -42,25 +34,14 @@ function TestimonialAdmin() {
   };
 
   const handleDelete = async (_id) => {
-    await axios.delete(`http://localhost:5000/api/testimonial/${_id}`,{
-      headers: {
-        "Content-Type": "multipart/form-data",
-         Authorization: `Bearer ${token}`,
-      },
-    });
+    await axios.delete(`http://localhost:5000/api/testimonial/${_id}`);
     setTestimonials(testimonials.filter((test) => test._id !== _id));
-    toast.success("Reservation deleted successfully!");
   };
 
   const handleEdit = async (e, index) => {
     e.preventDefault();
     const { _id } = testimonials[index];
-    await axios.put(`http://localhost:5000/api/testimonial/${_id}`,{
-      headers: {
-        "Content-Type": "multipart/form-data",
-         Authorization: `Bearer ${token}`,
-      },
-    } ,{
+    await axios.put(`http://localhost:5000/api/testimonial/${_id}`, {
       name: testimonials[index].name,
       description: testimonials[index].description,
     });
@@ -74,7 +55,6 @@ function TestimonialAdmin() {
   const handleEditClick = (e, index) => {
     e.preventDefault();
     setEditIndex(index);
-
   };
 
   const handleNameChange = (e, index) => {
@@ -90,8 +70,6 @@ function TestimonialAdmin() {
   };
   return (
     <div className="all-testimonials">
-                <ToastContainer/>
-
       <form onSubmit={handleSubmit}>
         <div className="testtoAdd">
           <label>Name:</label>
@@ -138,13 +116,12 @@ function TestimonialAdmin() {
                 value={test.description}
                 onChange={(e) => handleDescriptionChange(e, index)}
               />
-              <div >
-                <button className="deletebtn" type="submit"
-                >
+              <div className="testi-saveCancel">
+                <button className="admin-testi-buttons" type="submit">
                   Save
                 </button>
-                <button className="editbtn"
-               
+                <button
+                  className="canclebtn-home admin-testi-buttons"
                   type="button"
                   onClick={handleCancelEdit}
                 >
@@ -154,20 +131,21 @@ function TestimonialAdmin() {
             </form>
           ) : (
             <>
-              <div className="">
-                <div className="">
+              <div className="testi-ViewSection">
+                <div className="testi-testimonialsection">
                   <h5>{test.name}</h5>
                   <p>{test.description}</p>
                 </div>
-                <div>
-                  <button className="deletebtn"
+                <div className="testi-delAndEdit">
+                  <button
+                    className="admin-testi-buttons"
                     onClick={() => handleDelete(test._id)}
                   >
                     Delete
                   </button>
-                  <button className="editbtn"
+                  <button
+                    className="admin-testi-buttons testiEDit"
                     onClick={(e) => handleEditClick(e, index)}
-                    
                   >
                     Edit
                   </button>

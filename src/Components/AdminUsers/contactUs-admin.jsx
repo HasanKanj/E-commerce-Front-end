@@ -169,12 +169,13 @@ function ContactAdminForm() {
         className="btn btn-dark my-3"
         to="/clientmessages"
         style={{
-          width: "350px",
-          height: "50px",
+          width: "300px",
+          height: "60px",
           whiteSpace: "nowrap",
           fontWeight: "bold",
           fontSize: "25px",
-          backgroundColor: "red",
+          background: "rgb(178, 55, 20)",
+          marginLeft:"25px",
           color: "#fff",
         }}
       >

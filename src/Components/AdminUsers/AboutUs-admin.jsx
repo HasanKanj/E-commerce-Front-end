@@ -101,7 +101,7 @@ function AboutUsAdmin() {
                             setEditedDescription(event.target.value)
                           }
                         />
-                        <div>
+                        <di>
                           <button
                             className="admin-testi-buttons"
                             type="submit"
@@ -109,13 +109,13 @@ function AboutUsAdmin() {
                             Save
                           </button>
                           <button
-                            className="admin-testi-buttons"
+                            className="canclebtn-home admin-testi-buttons"
                             type="button"
                             onClick={handleCancel}
                           >
                             Cancel
                           </button>
-                        </div>
+                        </di>
                       </form>
                     ) : (
                       // Render the description text when not editing this section

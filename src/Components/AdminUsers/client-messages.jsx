@@ -85,10 +85,10 @@ function ClientTable() {
   };
   return (
     <div>
-          <ToastContainer/>
+      <ToastContainer />
 
       <Link
-        className="btn btn-dark my-3"
+        className="Goback-btn btn btn-dark my-3"
         to="/ContactUsAdmin"
         style={{
           width: "350px",
@@ -106,33 +106,25 @@ function ClientTable() {
       <div className="reservation-lina-table-container">
         <h1 className="reservation-lina-title"> Current Client messages: </h1>
 
-        <div className="reservation-lina-table">
-          <div className="reservation-lina-table-row reservation-lina-table-header">
-            <div className="reservation-lina-table-cell">Name</div>
-            <div className="reservation-lina-table-cell">Email</div>
-            <div className="reservation-lina-table-cell">Phone Number</div>
-            <div className="reservation-lina-table-cell">Message</div>
-            <div className="reservation-lina-table-cell">Actions</div>
+        <div>
+          <div className="header-reservation">
+            <div>Name</div>
+            <div>Email</div>
+            <div>Number</div>
+            <div>Message</div>
+            <div className="action">Actions</div>
           </div>
 
-          <div className="reservation-lina-table-body">
+          <div className="all-mssgs">
             {contacts.map((contact) => (
-              <div key={contact._id} className="reservation-lina-table-row">
-                <div className="reservation-lina-table-cell">
-                  {contact.name}
-                </div>
-                <div className="reservation-lina-table-cell">
-                  {contact.email}
-                </div>
-                <div className="reservation-lina-table-cell">
-                  {contact.phoneNumber}
-                </div>
-                <div className="reservation-lina-table-cell">
-                  {contact.message}
-                </div>
-                <div className="reservation-lina-table-cell">
+              <div key={contact._id} className="contact-reservation">
+                <div className="contact-name">{contact.name}</div>
+                <div>{contact.email}</div>
+                <div>{contact.phoneNumber}</div>
+                <div>{contact.message}</div>
+                <div>
                   <button
-                    className="btn btn-danger"
+                    className="delete-client-btn btn btn-danger"
                     onClick={() => handleDelete(contact._id)}
                   >
                     Delete
