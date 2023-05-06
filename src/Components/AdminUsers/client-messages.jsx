@@ -4,6 +4,8 @@ import "./client-messages.css";
 import swal from "sweetalert";
 import { useNavigate } from "react-router-dom";
 import { Link } from "react-router-dom";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 function ClientTable() {
   const [contacts, setContacts] = useState([]);
@@ -12,13 +14,10 @@ function ClientTable() {
 
   const navigate = useNavigate();
 
-  useEffect(() => {
-    if (!sessionStorage.getItem("token") && window.location.pathname !== "/") {
-      navigate("/");
-    }
-
-    async function fetchData() {
-      setIsLoading(true);
+  // Define fetchData function outside of useEffect block
+  const fetchData = async () => {
+    setIsLoading(true);
+    try {
       const response = await axios.get(
         "http://localhost:5000/api/contact/getAll",
         {
@@ -30,8 +29,18 @@ function ClientTable() {
       );
       setContacts(response.data);
       setIsLoading(false);
+    } catch (error) {
+      console.error(error);
+      setIsLoading(false);
     }
-    fetchData();
+  };
+
+  useEffect(() => {
+    if (!sessionStorage.getItem("token") && window.location.pathname !== "/") {
+      navigate("/");
+    }
+
+    fetchData(); // call fetchData here
   }, [navigate]);
 
   const [selectedContact, setSelectedContact] = useState(null);
@@ -54,10 +63,12 @@ function ClientTable() {
             },
           })
           .then((response) => {
+            fetchData(); // call fetchData here
+            toast.success("Reservation deleted successfully!"); // <-- show success message
+
             if (response.data.success) {
               setContacts(contacts.filter((item) => item._id !== id)); // update the state
               setSelectedContact(null); // reset the selected contact id
-              
             } else {
               console.log("Failed to delete contact.");
               setSelectedContact(null); // reset the selected contact id
@@ -72,69 +83,67 @@ function ClientTable() {
       }
     });
   };
-
   return (
-    <>
-      <div>
-        <Link
-          className="btn btn-dark my-3"
-          to="/ContactUsAdmin"
-          style={{
-            width: "350px",
-            height: "50px",
-            whiteSpace: "nowrap",
-            fontWeight: "bold",
-            fontSize: "25px",
-            backgroundColor: "red",
-            color: "#fff",
-          }}
-        >
-          Go Back
-        </Link>
-      </div>
-      <div className="my-table-container">
-        <table className="my-table">
-          <thead>
-            <h1 className="lili" style={{ whiteSpace: "nowrap" }}>
-              Client Messages
-            </h1>
-            <br />
-            <tr>
-              <th className="my-table-header">Name</th>
-              <th className="my-table-header">Email</th>
-              <th className="my-table-header">Phone Number</th>
-              <th className="my-table-header">Message</th>
-              <th className="my-table-header">Action</th>
-            </tr>
-          </thead>
-          <tbody>
+    <div>
+          <ToastContainer/>
+
+      <Link
+        className="btn btn-dark my-3"
+        to="/ContactUsAdmin"
+        style={{
+          width: "350px",
+          height: "50px",
+          whiteSpace: "nowrap",
+          fontWeight: "bold",
+          fontSize: "25px",
+          backgroundColor: "red",
+          color: "#fff",
+        }}
+      >
+        Go Back
+      </Link>
+
+      <div className="reservation-lina-table-container">
+        <h1 className="reservation-lina-title"> Current Client messages: </h1>
+
+        <div className="reservation-lina-table">
+          <div className="reservation-lina-table-row reservation-lina-table-header">
+            <div className="reservation-lina-table-cell">Name</div>
+            <div className="reservation-lina-table-cell">Email</div>
+            <div className="reservation-lina-table-cell">Phone Number</div>
+            <div className="reservation-lina-table-cell">Message</div>
+            <div className="reservation-lina-table-cell">Actions</div>
+          </div>
+
+          <div className="reservation-lina-table-body">
             {contacts.map((contact) => (
-              <tr
-                key={contact._id}
-                className={`my-table-row${
-                  selectedContact === contact._id ? " deleting" : ""
-                }`}
-              >
-                <td className="my-table-data">{contact.name}</td>
-                <td className="my-table-data">{contact.email}</td>
-                <td className="my-table-data">{contact.phoneNumber}</td>
-                <td className="my-table-data">{contact.message}</td>
-                <td className="my-table-data">
+              <div key={contact._id} className="reservation-lina-table-row">
+                <div className="reservation-lina-table-cell">
+                  {contact.name}
+                </div>
+                <div className="reservation-lina-table-cell">
+                  {contact.email}
+                </div>
+                <div className="reservation-lina-table-cell">
+                  {contact.phoneNumber}
+                </div>
+                <div className="reservation-lina-table-cell">
+                  {contact.message}
+                </div>
+                <div className="reservation-lina-table-cell">
                   <button
-                    className="delete-button"
+                    className="btn btn-danger"
                     onClick={() => handleDelete(contact._id)}
-                    disabled={selectedContact === contact._id}
                   >
-                    {selectedContact === contact._id ? "Deleting..." : "Delete"}
+                    Delete
                   </button>
-                </td>
-              </tr>
+                </div>
+              </div>
             ))}
-          </tbody>
-        </table>
+          </div>
+        </div>
       </div>
-    </>
+    </div>
   );
 }
-
 export default ClientTable;

@@ -1,8 +1,7 @@
-.navbar-lina{
+.navbar-lina {
   z-index: 10;
-
 }
-.navbar-lina-logo{
+.navbar-lina-logo {
   width: 60px;
 }
 .dropdown-content {
@@ -34,9 +33,9 @@
   padding: 0 2rem;
   background-color: black;
 }
-.navbar-lina-nav{
+.navbar-lina-nav {
   z-index: 1000;
-margin-left: 50vw;
+  margin-left: 50vw;
 }
 .navbar-lina-nav .navbar-lina-nav-Links {
   text-decoration: none;
@@ -49,21 +48,20 @@ margin-left: 50vw;
 }
 
 .navbar-lina-nav .navbar-lina-nav-Links:hover {
-  text-shadow: 1px 1px 10px white;
-color: rgb(245, 3, 3);
+  color: rgb(245, 3, 3);
 }
 .navbar-lina-nav .navbar-lina-nav-Links:active {
   text-shadow: 10px 10px 10px rgb(11, 9, 9);
-color: rgb(75, 5, 5);
+  color: rgb(75, 5, 5);
 }
-.navbar-lina-login-btn{
-  padding:0.2vh 1.7vw;
+.navbar-lina-login-btn {
+  padding: 0.2vh 1.7vw;
   border-width: 0;
   font-weight: bold;
   background-color: rgb(236, 229, 229);
   color: rgb(255, 0, 0);
   border-radius: 10px;
-  font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
 }
 .navbar-lina-nav-Links.active {
   color: red;
@@ -78,7 +76,7 @@ color: rgb(75, 5, 5);
   visibility: hidden;
   opacity: 0;
   font-size: 1.8rem;
-  width:80px;
+  width: 80px;
 }
 
 .navbar-lina,
@@ -89,12 +87,13 @@ color: rgb(75, 5, 5);
 
 /* media query */
 @media only screen and (max-width: 1024px) {
-  .navbar-lina .navbar-lina-nav-btn , .scrolled .navbar-lina-nav-btn {
+  .navbar-lina .navbar-lina-nav-btn,
+  .scrolled .navbar-lina-nav-btn {
     visibility: visible;
     opacity: 1;
-    padding-left:0;
-color: white;
- z-index: 20;
+    padding-left: 0;
+    color: white;
+    z-index: 20;
   }
   .navbar-lina .navbar-lina-nav {
     position: fixed;
@@ -107,7 +106,7 @@ color: white;
     align-items: center;
     justify-content: center;
     justify-items: center;
-align-content: center;  
+    align-content: center;
     background-color: black;
     transition: 1s;
     transform: translateY(-100vh);
@@ -116,16 +115,15 @@ align-content: center;
 
   .navbar-lina .responsive_nav {
     transform: none;
-    padding-top:20vh;
-    padding-bottom:9vh;
+    padding-top: 20vh;
+    padding-bottom: 9vh;
     height: 50vh;
-
   }
 
   .navbar-lina-nav .navbar-lina-nav-btn-nav-close-btn {
     position: absolute;
     top: 3rem;
- width: 30px;
+    width: 30px;
   }
 
   .navbar-lina-nav .navbar-lina-nav-Links {
@@ -134,9 +132,8 @@ align-content: center;
     margin: 0;
   }
   .navbar-lina-nav .navbar-lina-nav-Links:hover {
-background-color: rgb(78, 18, 18);  }
-
-
+    background-color: rgb(78, 18, 18);
+  }
 }
 
 @media only screen and (min-width: 1011px) {

@@ -76,7 +76,6 @@ function ContactAdminForm() {
         headers: {
           "Content-Type": "application/json",
           Authorization: `Bearer ${token}`,
-
         },
         body: JSON.stringify({ name, email, phoneNumber, message }),
       });
@@ -165,23 +164,22 @@ function ContactAdminForm() {
   };
 
   return (
-    
     <div className="all-contactUs-space">
       <Link
-  className="btn btn-dark my-3"
-  to="/clientmessages"
-  style={{
-    width: "350px",
-    height:"50px",
-    whiteSpace: "nowrap",
-    fontWeight:"bold",
-    fontSize:"25px",
-    backgroundColor: "red",
-    color: "#fff",
-  }}
->
-  Check Client Messages
-</Link>
+        className="btn btn-dark my-3"
+        to="/clientmessages"
+        style={{
+          width: "350px",
+          height: "50px",
+          whiteSpace: "nowrap",
+          fontWeight: "bold",
+          fontSize: "25px",
+          backgroundColor: "red",
+          color: "#fff",
+        }}
+      >
+        Check Client Messages
+      </Link>
 
       <div className="contact-us">
         <div className="contact-info-admin">
@@ -316,11 +314,10 @@ function ContactAdminForm() {
               </label>
             </div>
 
-            <button type="submit" class="form-button">
+            <button type="button" class="form-button" readonly>
               Send
             </button>
           </form>
-         
         </div>
       </div>
     </div>

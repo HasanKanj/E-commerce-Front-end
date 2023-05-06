@@ -3,7 +3,6 @@ import { useNavigate } from "react-router-dom";
 import "./Login.css";
 import swal from "sweetalert";
 
-
 function LoginPage() {
   const navigate = useNavigate();
   const [email, setEmail] = useState("");
@@ -34,6 +33,8 @@ function LoginPage() {
         sessionStorage.setItem("firstName", data.firstName);
         sessionStorage.setItem("lastName", data.lastName);
         sessionStorage.setItem("email", data.email);
+        sessionStorage.setItem("phoneNumber", data.phoneNumber);
+
         swal({
           title: "Login successful",
           icon: "success",

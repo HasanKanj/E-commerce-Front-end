@@ -38,6 +38,8 @@ const CarItem = ({ products, selectedCategory }) => {
     const firstName = sessionStorage.getItem("firstName");
     const lastName = sessionStorage.getItem("lastName");
     const email = sessionStorage.getItem("email");
+    const phoneNumber = sessionStorage.getItem("phoneNumber");
+
     if (!token) {
       toast.error("Please login/register before reserving a car.");
       return;
@@ -60,15 +62,19 @@ const CarItem = ({ products, selectedCategory }) => {
         const carprice = response.data.reservation.car.price;
         const caryear = response.data.reservation.car.year;
 
+        const currentDate = new Date().toLocaleString();
+
         const params = {
           firstName: firstName,
           lastName: lastName,
+          phoneNumber:phoneNumber,
           email: email,
           carname : carname,
           carcategory : carcategory,
           caryear :caryear ,
           carprice : carprice,
-          
+          date: currentDate 
+
         };
 
         emailjs
