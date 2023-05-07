@@ -47,7 +47,7 @@ const CarItem = ({ products, selectedCategory }) => {
 
     axios
       .post(
-        "http://localhost:5000/api/Reservations/",
+        "https://ecommerceback-uz5r.onrender.com/api/Reservations/",
         { carId },
         {
           headers: {
@@ -56,9 +56,9 @@ const CarItem = ({ products, selectedCategory }) => {
         }
       )
       .then((response) => {
-        console.log(response.data.reservation.car.price)
+        console.log(response.data.reservation.car.price);
         const carname = response.data.reservation.car.name;
-        const  carcategory = response.data.reservation.car.category;
+        const carcategory = response.data.reservation.car.category;
         const carprice = response.data.reservation.car.price;
         const caryear = response.data.reservation.car.year;
 
@@ -67,14 +67,13 @@ const CarItem = ({ products, selectedCategory }) => {
         const params = {
           firstName: firstName,
           lastName: lastName,
-          phoneNumber:phoneNumber,
+          phoneNumber: phoneNumber,
           email: email,
-          carname : carname,
-          carcategory : carcategory,
-          caryear :caryear ,
-          carprice : carprice,
-          date: currentDate 
-
+          carname: carname,
+          carcategory: carcategory,
+          caryear: caryear,
+          carprice: carprice,
+          date: currentDate,
         };
 
         emailjs

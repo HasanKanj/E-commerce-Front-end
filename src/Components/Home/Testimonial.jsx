@@ -3,13 +3,15 @@ import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import axios from "axios";
-import "./Home.css"
+import "./Home.css";
 
 const Testimonials = () => {
   const [testimonials, setTestimonials] = useState([]);
 
   const fetchTestimonials = async () => {
-    const res = await axios.get("http://localhost:5000/api/testimonial");
+    const res = await axios.get(
+      "https://ecommerceback-uz5r.onrender.com/api/testimonial"
+    );
     setTestimonials(res.data.data);
   };
 
@@ -69,7 +71,3 @@ const Testimonials = () => {
 };
 
 export default Testimonials;
-
-
-
-

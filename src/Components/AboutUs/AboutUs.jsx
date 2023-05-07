@@ -1,4 +1,3 @@
-
 import aboutimg from "../AboutUs/images/about.png";
 import dollar from "../../assets/dollar.png";
 import customer from "../../assets/customer.png";
@@ -12,15 +11,15 @@ import axios from "axios";
 function AboutUs() {
   const [loading, setLoading] = useState(true);
   const [about, setAbout] = useState([]);
- 
 
   const fetchAbout = async () => {
     setLoading(true);
 
-    const res = await axios.get("http://localhost:5000/api/about");
+    const res = await axios.get(
+      "https://ecommerceback-uz5r.onrender.com/api/about"
+    );
     setAbout(res.data.data);
     setLoading(false);
-
   };
 
   useEffect(() => {

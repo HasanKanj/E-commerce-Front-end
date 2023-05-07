@@ -6,7 +6,7 @@ import { toast } from "react-toastify";
 import Swal from "sweetalert2/dist/sweetalert2.js";
 import "sweetalert2/src/sweetalert2.scss";
 import "react-toastify/dist/ReactToastify.css";
-import "./AdminUsers.css"
+import "./AdminUsers.css";
 
 import axios from "axios";
 
@@ -21,11 +21,11 @@ const AdminCarsScreen = () => {
     setIsLoading(true);
 
     const fetchCars = async () => {
-
-      const { data } = await axios.get("http://localhost:5000/api/cars");
+      const { data } = await axios.get(
+        "https://ecommerceback-uz5r.onrender.com/api/cars"
+      );
       setCars(data);
       setIsLoading(false);
-
     };
 
     fetchCars();
@@ -45,12 +45,15 @@ const AdminCarsScreen = () => {
 
     if (result.isConfirmed) {
       try {
-        await axios.delete(`http://localhost:5000/api/cars/${id}`,{
-          headers: {
-            "Content-Type": "multipart/form-data",
-             Authorization: `Bearer ${token}`,
-          },
-        });
+        await axios.delete(
+          `https://ecommerceback-uz5r.onrender.com/api/cars/${id}`,
+          {
+            headers: {
+              "Content-Type": "multipart/form-data",
+              Authorization: `Bearer ${token}`,
+            },
+          }
+        );
         setCars(cars.filter((car) => car._id !== id));
 
         Swal.fire({
@@ -78,15 +81,13 @@ const AdminCarsScreen = () => {
       formData.append("image", selectedFile);
     }
     const { data } = await axios.put(
-      `http://localhost:5000/api/cars/${id}`,
+      `https://ecommerceback-uz5r.onrender.com/api/cars/${id}`,
       formData,
       {
         headers: {
           "Content-Type": "multipart/form-data",
-           Authorization: `Bearer ${token}`,
-
+          Authorization: `Bearer ${token}`,
         },
-        
       }
     );
     setCars(cars.map((car) => (car._id === id ? { ...data } : { ...car })));

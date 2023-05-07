@@ -21,7 +21,9 @@ function AboutUsAdmin() {
   const fetchAbout = async () => {
     setIsLoading(true);
 
-    const res = await axios.get("http://localhost:5000/api/about");
+    const res = await axios.get(
+      "https://ecommerceback-uz5r.onrender.com/api/about"
+    );
     setAbout(res.data.data);
     setIsLoading(false);
   };
@@ -61,7 +63,7 @@ function AboutUsAdmin() {
 
     // Update the description in the API
     const res = await axios.put(
-      `http://localhost:5000/api/about/${about[editedIndex]._id}`,
+      `https://ecommerceback-uz5r.onrender.com/api/about/${about[editedIndex]._id}`,
       {
         description: editedDescription,
       },
@@ -102,10 +104,7 @@ function AboutUsAdmin() {
                           }
                         />
                         <di>
-                          <button
-                            className="admin-testi-buttons"
-                            type="submit"
-                          >
+                          <button className="admin-testi-buttons" type="submit">
                             Save
                           </button>
                           <button
@@ -139,37 +138,37 @@ function AboutUsAdmin() {
           </div>
         </div>
 
-          <div className="about-imageFooter">
-            <div className="about-allimgs">
-              <h1 className="about-reasonTitle">Reasons to buy from RoadCar</h1>
-              <div className="aboutsection">
-                <div className="aboutthird-img">
-                  <img className="about-thumb" src={thumb}></img>
-                  <h3>Quality service</h3>
-                  <p>
-                    We ensure that every vehicle we sell is thoroughly
-                    inspected, maintained, and ready to hit the road.
-                  </p>
-                </div>
-                <div className="aboutthird-img">
-                  <img className="about-thumb" src={dollar}></img>
-                  <h3>Competitive pricing</h3>
-                  <p>
-                    We provide competitive prices to make sure you get the best
-                    value for your money.
-                  </p>
-                </div>
-                <div className="aboutthird-img">
-                  <img className="about-thumb" src={customer}></img>
-                  <h3>Customer Service</h3>
-                  <p>
-                    We provide exceptional customer service that meets the
-                    unique needs of each and every customer.
-                  </p>
-                </div>
+        <div className="about-imageFooter">
+          <div className="about-allimgs">
+            <h1 className="about-reasonTitle">Reasons to buy from RoadCar</h1>
+            <div className="aboutsection">
+              <div className="aboutthird-img">
+                <img className="about-thumb" src={thumb}></img>
+                <h3>Quality service</h3>
+                <p>
+                  We ensure that every vehicle we sell is thoroughly inspected,
+                  maintained, and ready to hit the road.
+                </p>
+              </div>
+              <div className="aboutthird-img">
+                <img className="about-thumb" src={dollar}></img>
+                <h3>Competitive pricing</h3>
+                <p>
+                  We provide competitive prices to make sure you get the best
+                  value for your money.
+                </p>
+              </div>
+              <div className="aboutthird-img">
+                <img className="about-thumb" src={customer}></img>
+                <h3>Customer Service</h3>
+                <p>
+                  We provide exceptional customer service that meets the unique
+                  needs of each and every customer.
+                </p>
               </div>
             </div>
           </div>
+        </div>
       </Helmet>
     </div>
   );

@@ -19,7 +19,7 @@ function UserTable() {
     setIsLoading(true);
     try {
       const response = await axios.get(
-        "http://localhost:5000/api/user/getAll",
+        "https://ecommerceback-uz5r.onrender.com/api/user/getAll",
         {
           headers: {
             "Content-Type": "multipart/form-data",
@@ -56,18 +56,21 @@ function UserTable() {
     }).then((willDelete) => {
       if (willDelete) {
         axios
-          .delete(`http://localhost:5000/api/user/delete/${id}`, {
-            headers: {
-              "Content-Type": "multipart/form-data",
-              Authorization: `Bearer ${token}`,
-            },
-          })
+          .delete(
+            `https://ecommerceback-uz5r.onrender.com/api/user/delete/${id}`,
+            {
+              headers: {
+                "Content-Type": "multipart/form-data",
+                Authorization: `Bearer ${token}`,
+              },
+            }
+          )
           .then((response) => {
             fetchData(); // call fetchData here
             toast.success("Reservation deleted successfully!"); // <-- show success message
 
             if (response.data.success) {
-                setUsers(users.filter((item) => item._id !== id)); // update the state
+              setUsers(users.filter((item) => item._id !== id)); // update the state
               setSelectedContact(null); // reset the selected contact id
             } else {
               console.log("Failed to delete contact.");
@@ -86,22 +89,6 @@ function UserTable() {
   return (
     <div>
       <ToastContainer />
-
-      <Link
-        className="Goback-btn btn btn-dark my-3"
-        to="/ContactUsAdmin"
-        style={{
-          width: "350px",
-          height: "50px",
-          whiteSpace: "nowrap",
-          fontWeight: "bold",
-          fontSize: "25px",
-          backgroundColor: "red",
-          color: "#fff",
-        }}
-      >
-        Go Back
-      </Link>
 
       <div className="reservation-lina-table-container">
         <h1 className="reservation-lina-title"> All users </h1>

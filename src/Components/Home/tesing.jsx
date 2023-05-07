@@ -8,7 +8,9 @@ export default function Testimonials() {
   useEffect(() => {
     const fetchTestimonials = async () => {
       try {
-        const res = await axios.get("http://localhost:5000/api/testimonial");
+        const res = await axios.get(
+          "https://ecommerceback-uz5r.onrender.com/api/testimonial"
+        );
         setTestimonials(res.data.data);
       } catch (error) {
         console.error(error);
@@ -19,8 +21,7 @@ export default function Testimonials() {
 
   return (
     <div>
-
-    <div className="quotes page-width"></div>
+      <div className="quotes page-width"></div>
       <div className="">
         <h2 className="testimonial-title">Why Clients Love Us</h2>
         <p className="testimonials-p">
@@ -28,7 +29,7 @@ export default function Testimonials() {
           tell us. Read about what some have said about us here.
         </p>
       </div>
-        
+
       {testimonials.map((testimonial, index) => (
         <div
           key={index}
@@ -67,6 +68,5 @@ export default function Testimonials() {
         </div>
       ))}
     </div>
-
   );
 }

@@ -20,7 +20,9 @@ const CarDetails = () => {
       try {
         setLoading(true);
         // Fetch the product by name to get its _id field
-        const resNames = await fetch(`http://localhost:5000/api/cars`);
+        const resNames = await fetch(
+          `https://ecommerceback-uz5r.onrender.com/api/cars`
+        );
         const dataNames = await resNames.json();
         const car = dataNames.find((c) => c.name === name);
 
@@ -29,7 +31,9 @@ const CarDetails = () => {
         }
 
         // Use the _id field to fetch the full product details
-        const resId = await fetch(`http://localhost:5000/api/cars/${car._id}`);
+        const resId = await fetch(
+          `https://ecommerceback-uz5r.onrender.com/api/cars/${car._id}`
+        );
         const data = await resId.json();
         setProduct(data);
         setLoading(false);
@@ -70,7 +74,7 @@ const CarDetails = () => {
 
     axios
       .post(
-        "http://localhost:5000/api/Reservations/",
+        "https://ecommerceback-uz5r.onrender.com/api/Reservations/",
         { carId },
         {
           headers: {

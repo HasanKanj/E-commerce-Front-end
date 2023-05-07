@@ -23,7 +23,7 @@ function ContactAdminForm() {
 
     try {
       const response = await fetch(
-        "http://localhost:5000/api/contactAdmin/getOne"
+        "https://ecommerceback-uz5r.onrender.com/api/contactAdmin/getOne"
       );
       const data = await response.json();
       setContact(data);
@@ -45,7 +45,6 @@ function ContactAdminForm() {
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    
     // Check if all form fields are filled out
     if (!name || !email || !phoneNumber || !message) {
       setSubmitStatus(
@@ -71,14 +70,16 @@ function ContactAdminForm() {
     }
 
     try {
-      const response = await fetch("http://localhost:5000/api/contact/create", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-          
-        },
-        body: JSON.stringify({ name, email, phoneNumber, message }),
-      });
+      const response = await fetch(
+        "https://ecommerceback-uz5r.onrender.com/api/contact/create",
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({ name, email, phoneNumber, message }),
+        }
+      );
       const data = await response.json();
       console.log(data);
 

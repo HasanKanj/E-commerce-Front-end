@@ -10,7 +10,9 @@ function TestimonialAdmin() {
 
   useEffect(() => {
     const fetchAllTestimonial = async () => {
-      const res = await axios.get("http://localhost:5000/api/testimonial");
+      const res = await axios.get(
+        "https://ecommerceback-uz5r.onrender.com/api/testimonial"
+      );
       setTestimonials(res.data.data);
     };
     fetchAllTestimonial();
@@ -23,13 +25,8 @@ function TestimonialAdmin() {
       return;
     }
     await axios.post(
-      "http://localhost:5000/api/testimonial/add",
-      { name, description },
-      {
-        headers: {
-          Authorization: `Bearer ${token}`,
-        },
-      }
+      "https://ecommerceback-uz5r.onrender.com/api/testimonial/add",
+      { name, description }
     );
 
     const newTestimonial = { name, description };
@@ -39,11 +36,14 @@ function TestimonialAdmin() {
   };
 
   const handleDelete = async (_id) => {
-    await axios.delete(`http://localhost:5000/api/testimonial/${_id}` , {
-      headers: {
-        Authorization: `Bearer ${token}`,
-      },
-    });
+    await axios.delete(
+      `https://ecommerceback-uz5r.onrender.com/api/testimonial/${_id}`,
+      {
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      }
+    );
     setTestimonials(testimonials.filter((test) => test._id !== _id));
   };
 
@@ -51,13 +51,8 @@ function TestimonialAdmin() {
     e.preventDefault();
     const { _id } = testimonials[index];
     await axios.put(
-      `http://localhost:5000/api/testimonial/${_id}`,
-      {
-        headers: {
-          "Content-Type": "multipart/form-data",
-          Authorization: `Bearer ${token}`,
-        },
-      },
+      `https://ecommerceback-uz5r.onrender.com/api/testimonial/${_id}`,
+
       {
         name: testimonials[index].name,
         description: testimonials[index].description,

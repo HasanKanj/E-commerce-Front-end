@@ -19,7 +19,7 @@ function ClientTable() {
     setIsLoading(true);
     try {
       const response = await axios.get(
-        "http://localhost:5000/api/contact/getAll",
+        "https://ecommerceback-uz5r.onrender.com/api/contact/getAll",
         {
           headers: {
             "Content-Type": "multipart/form-data",
@@ -56,12 +56,15 @@ function ClientTable() {
     }).then((willDelete) => {
       if (willDelete) {
         axios
-          .delete(`http://localhost:5000/api/contact/delete/${id}`, {
-            headers: {
-              "Content-Type": "multipart/form-data",
-              Authorization: `Bearer ${token}`,
-            },
-          })
+          .delete(
+            `https://ecommerceback-uz5r.onrender.com/api/contact/delete/${id}`,
+            {
+              headers: {
+                "Content-Type": "multipart/form-data",
+                Authorization: `Bearer ${token}`,
+              },
+            }
+          )
           .then((response) => {
             fetchData(); // call fetchData here
             toast.success("Reservation deleted successfully!"); // <-- show success message
@@ -86,22 +89,6 @@ function ClientTable() {
   return (
     <div>
       <ToastContainer />
-
-      <Link
-        className="Goback-btn btn btn-dark my-3"
-        to="/ContactUsAdmin"
-        style={{
-          width: "350px",
-          height: "50px",
-          whiteSpace: "nowrap",
-          fontWeight: "bold",
-          fontSize: "25px",
-          backgroundColor: "red",
-          color: "#fff",
-        }}
-      >
-        Go Back
-      </Link>
 
       <div className="reservation-lina-table-container">
         <h1 className="reservation-lina-title"> Current Client messages: </h1>

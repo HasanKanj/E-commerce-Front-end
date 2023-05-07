@@ -27,7 +27,7 @@ function Register() {
 
     try {
       const response = await axios.post(
-        `http://localhost:5000/api/user/register`,
+        `https://ecommerceback-uz5r.onrender.com/api/user/register`,
         formData,
         {
           headers: {

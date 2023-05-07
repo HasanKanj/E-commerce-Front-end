@@ -66,16 +66,31 @@ function AdminNavbar() {
           <div className="dropdown-content">
             <NavLink to="/reservations">Reservations</NavLink>
           </div>
+
+
+        </div>    
+        
+        
+        <div className="dropdown">
+          <NavLink
+            to="/ContactUsAdmin"
+            className="navbar-lina-nav-Links dropdown-toggle"
+          >
+            Contact
+          </NavLink>
+          <div className="dropdown-content">
+            <NavLink to="/clientmessages">Messages</NavLink>
+          </div>
         </div>
+
         <NavLink
-          to="/ContactUsAdmin"
+          to="/users"
           className="navbar-lina-nav-Links"
           href="#ContactSection"
           activeClassName="active"
         >
-          Contact
+                  Users
         </NavLink>
-
         <button
           className="kanj"
           onClick={logOut}

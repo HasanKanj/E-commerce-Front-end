@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import swal from "sweetalert";
-import './ReservationsAdmin.css'
+import "./ReservationsAdmin.css";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 const ReservationTable = () => {
@@ -16,12 +16,15 @@ const ReservationTable = () => {
 
   const fetchReservations = async () => {
     try {
-      const response = await axios.get("http://localhost:5000/api/Reservations", {
-        headers: {
-          "Content-Type": "multipart/form-data",
-          Authorization: `Bearer ${token}`,
-        },
-      });
+      const response = await axios.get(
+        "https://ecommerceback-uz5r.onrender.com/api/Reservations",
+        {
+          headers: {
+            "Content-Type": "multipart/form-data",
+            Authorization: `Bearer ${token}`,
+          },
+        }
+      );
       setReservations(response.data.reservations);
     } catch (error) {
       console.log(error);
@@ -30,10 +33,17 @@ const ReservationTable = () => {
 
   const indexOfLastReservation = currentPage * reservationsPerPage;
   const indexOfFirstReservation = indexOfLastReservation - reservationsPerPage;
-  const currentReservations = reservations.slice(indexOfFirstReservation, indexOfLastReservation);
+  const currentReservations = reservations.slice(
+    indexOfFirstReservation,
+    indexOfLastReservation
+  );
 
   const pageNumbers = [];
-  for (let i = 1; i <= Math.ceil(reservations.length / reservationsPerPage); i++) {
+  for (
+    let i = 1;
+    i <= Math.ceil(reservations.length / reservationsPerPage);
+    i++
+  ) {
     pageNumbers.push(i);
   }
 
@@ -51,17 +61,21 @@ const ReservationTable = () => {
     }).then((willDelete) => {
       if (willDelete) {
         axios
-          .delete(`http://localhost:5000/api/Reservations/${reservationId}`, {
-            headers: {
-              "Content-Type": "multipart/form-data",
-              Authorization: `Bearer ${token}`,
-            },
-          })
+          .delete(
+            `https://ecommerceback-uz5r.onrender.com/api/Reservations/${reservationId}`,
+            {
+              headers: {
+                "Content-Type": "multipart/form-data",
+                Authorization: `Bearer ${token}`,
+              },
+            }
+          )
           .then(() => {
-            fetchReservations()
-            setReservations(reservations.filter((r) => r._id !== reservationId));
+            fetchReservations();
+            setReservations(
+              reservations.filter((r) => r._id !== reservationId)
+            );
             toast.success("Reservation deleted successfully!"); // <-- show success message
-
           })
           .catch((error) => {
             console.log(error);

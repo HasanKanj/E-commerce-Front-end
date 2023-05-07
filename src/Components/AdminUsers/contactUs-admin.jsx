@@ -26,7 +26,7 @@ function ContactAdminForm() {
 
     try {
       const response = await fetch(
-        "http://localhost:5000/api/contactAdmin/getOne"
+        "https://ecommerceback-uz5r.onrender.com/api/contactAdmin/getOne"
       );
       const data = await response.json();
       console.log("admin contact info", data);
@@ -71,14 +71,17 @@ function ContactAdminForm() {
       return;
     }
     try {
-      const response = await fetch("http://localhost:5000/api/contact/create", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-          Authorization: `Bearer ${token}`,
-        },
-        body: JSON.stringify({ name, email, phoneNumber, message }),
-      });
+      const response = await fetch(
+        "https://ecommerceback-uz5r.onrender.com/api/contact/create",
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+            Authorization: `Bearer ${token}`,
+          },
+          body: JSON.stringify({ name, email, phoneNumber, message }),
+        }
+      );
       const data = await response.json();
       console.log(data);
       // Display success message and error message
@@ -103,7 +106,7 @@ function ContactAdminForm() {
 
     try {
       const response = await fetch(
-        "http://localhost:5000/api/contactAdmin/update",
+        "https://ecommerceback-uz5r.onrender.com/api/contactAdmin/update",
         {
           method: "PUT",
           headers: {
@@ -165,23 +168,6 @@ function ContactAdminForm() {
 
   return (
     <div className="all-contactUs-space">
-      <Link
-        className="btn btn-dark my-3"
-        to="/clientmessages"
-        style={{
-          width: "300px",
-          height: "60px",
-          whiteSpace: "nowrap",
-          fontWeight: "bold",
-          fontSize: "25px",
-          background: "rgb(178, 55, 20)",
-          marginLeft:"25px",
-          color: "#fff",
-        }}
-      >
-        Check Client Messages
-      </Link>
-
       <div className="contact-us">
         <div className="contact-info-admin">
           <h1 className="contact-info-title">Need additional information?</h1>
