@@ -10,6 +10,7 @@ import AdminHome from "../Components/AdminUsers/Admin-home";
 import ScrollToTop from "../Components/Home/ScrolltoTop/Scroll";
 import Page404 from "../Components/Home/404 Page/Page404";
 import ReservationsAdmin from "../Components/AdminUsers/Reservations/ReservationsAdmin";
+import UserTable from "../Components/AdminUsers/Users";
 
 const Routers = () => {
   return (
@@ -23,7 +24,7 @@ const Routers = () => {
         <Route path="/ContactUsAdmin" element={<ContactUsAdmin />} />
         <Route path="/clientmessages" element={<Container> <ClientMessages /></Container>} />
         <Route path="/reservations" element={<Container> <ReservationsAdmin /></Container>}/>
-        <Route path="/Newsletter"></Route>
+        <Route path="/users" element={<Container> <UserTable /></Container>}/>
 
       </Routes>
       <ScrollToTop />

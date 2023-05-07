@@ -1,12 +1,12 @@
 import { useState, useEffect } from "react";
 import axios from "axios";
 
-
 function TestimonialAdmin() {
   const [name, setName] = useState("");
   const [description, setDescription] = useState("");
   const [testimonials, setTestimonials] = useState([]);
   const [editIndex, setEditIndex] = useState(null);
+  const token = sessionStorage.getItem("token");
 
   useEffect(() => {
     const fetchAllTestimonial = async () => {
@@ -22,10 +22,15 @@ function TestimonialAdmin() {
       // Add validation check
       return;
     }
-    await axios.post("http://localhost:5000/api/testimonial/add", {
-      name,
-      description,
-    });
+    await axios.post(
+      "http://localhost:5000/api/testimonial/add",
+      { name, description },
+      {
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      }
+    );
 
     const newTestimonial = { name, description };
     setName("");
@@ -34,17 +39,30 @@ function TestimonialAdmin() {
   };
 
   const handleDelete = async (_id) => {
-    await axios.delete(`http://localhost:5000/api/testimonial/${_id}`);
+    await axios.delete(`http://localhost:5000/api/testimonial/${_id}` , {
+      headers: {
+        Authorization: `Bearer ${token}`,
+      },
+    });
     setTestimonials(testimonials.filter((test) => test._id !== _id));
   };
 
   const handleEdit = async (e, index) => {
     e.preventDefault();
     const { _id } = testimonials[index];
-    await axios.put(`http://localhost:5000/api/testimonial/${_id}`, {
-      name: testimonials[index].name,
-      description: testimonials[index].description,
-    });
+    await axios.put(
+      `http://localhost:5000/api/testimonial/${_id}`,
+      {
+        headers: {
+          "Content-Type": "multipart/form-data",
+          Authorization: `Bearer ${token}`,
+        },
+      },
+      {
+        name: testimonials[index].name,
+        description: testimonials[index].description,
+      }
+    );
     setEditIndex(null);
   };
 

@@ -9,6 +9,7 @@ import "./Home.css";
 import Testimonial from "./Testimonial";
 import HeroSlider from "./Sliderhome";
 import Landingpage from "./video";
+import Testimonials from "./testimonialss";
 
 
 function Home() {
@@ -82,22 +83,11 @@ function Home() {
 
       <div className="all-testimonials">
         <div className="testimonials">
-          <div className="testi-title-p">
-            <h2 className="testimonial-title">Why Clients Love Us</h2>
-            <p className="testimonials-p">
-              Many clients are thrilled by the service we deliver and are happy
-              to tell us. Read about what some have said about us here.
-            </p>
+          <div className="">
+            <Testimonials /> 
           </div>
-
-          <div className="testi">
-            <Testimonial />
-            
-          </div>
-          
         </div>
       </div>
-
     </div>
   );
 }
