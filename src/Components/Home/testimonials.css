@@ -52,3 +52,16 @@ cite::before {
   height: 25px;
   fill: #ff0000;
 }
+
+@media screen and (max-width: 768px) {
+  .testimonials {
+    padding: 20px;
+  }
+  .quotes {
+    display: flex;
+    flex-direction: column;
+  }
+  .quotes-slide {
+    width: 100%;
+  }
+}
