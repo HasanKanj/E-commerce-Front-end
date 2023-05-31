@@ -19,7 +19,7 @@ function UserTable() {
     setIsLoading(true);
     try {
       const response = await axios.get(
-        "https://ecommerceback-uz5r.onrender.com/api/user/getAll",
+        "https://final-project-backend-production-20f3.up.railway.app/api/user/getAll",
         {
           headers: {
             "Content-Type": "multipart/form-data",
@@ -57,7 +57,7 @@ function UserTable() {
       if (willDelete) {
         axios
           .delete(
-            `https://ecommerceback-uz5r.onrender.com/api/user/delete/${id}`,
+            `https://final-project-backend-production-20f3.up.railway.app/api/user/delete/${id}`,
             {
               headers: {
                 "Content-Type": "multipart/form-data",

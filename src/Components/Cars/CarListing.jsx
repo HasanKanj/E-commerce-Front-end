@@ -22,7 +22,9 @@ const CarListing = () => {
 
     category && setSelectedCategory(category);
     axios
-      .get("https://ecommerceback-uz5r.onrender.com/api/cars/")
+      .get(
+        "https://final-project-backend-production-20f3.up.railway.app/api/cars/"
+      )
       .then((response) => {
         setCarData(response.data);
         setLoading(false);
@@ -74,7 +76,7 @@ const CarListing = () => {
                             selectedCategory === "BMW" ? "#8B0000" : "black",
                         }}
                       >
-                        BMW
+                        Courses
                       </span>
                     </li>
                     <li className="nav-item" id="mercedes">

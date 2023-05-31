@@ -8,7 +8,7 @@ const HeroSlider = () => {
   const settings = {
     fade: true,
     speed: 2000,
-    autoplaySpeed: 3000,
+    autoplaySpeed: 3500,
     infinite: true,
     autoplay: true,
     slidesToShow: 1,
@@ -21,11 +21,10 @@ const HeroSlider = () => {
         <div className="slider__item slider__item-01 mt0">
           <Container>
             <div className="slider__content ">
-              <h1 className="text-light mb-3">N°1 Carshop in Lebanon</h1>
+              <h1 className="text-light mb-3">Best Crypto Services Provider</h1>
 
               <h2 className="text-light mb-4">
-                Discover the thrill of the open road by exploring our wide
-                selection of high-quality vehicles today.
+              Unlock the secrets of successful trading and elevate your skills with our expert guidance.
               </h2>
 
               <button className="seemore-btn btn reserve__btn mt-4">
@@ -38,12 +37,10 @@ const HeroSlider = () => {
         <div className="slider__item slider__item-02 mt0">
           <Container>
             <div className="slider__content ">
-              <h1 className="text-light mb-3">N°1 Carshop in Lebanon</h1>
+              <h1 className="text-light mb-3">Best Crypto Services Provider</h1>
 
               <h2 className="text-light mb-4">
-                Discover the thrill of the open road by exploring our wide
-                selection of high-quality vehicles today.
-              </h2>
+              Unlock the secrets of successful trading and elevate your skills with our expert guidance.</h2>
 
               <button className="seemore-btn btn reserve__btn mt-4">
                 <Link to="/cars">See More</Link>
@@ -55,12 +52,10 @@ const HeroSlider = () => {
         <div className="slider__item slider__item-03 mt0">
           <Container>
             <div className="slider__content ">
-              <h1 className="text-light mb-3">N°1 Carshop in Lebanon</h1>
+              <h1 className="text-light mb-3">Best Crypto Services Provider</h1>
 
               <h2 className="text-light mb-4">
-                Discover the thrill of the open road by exploring our wide
-                selection of high-quality vehicles today.
-              </h2>
+              Unlock the secrets of successful trading and elevate your skills with our expert guidance.</h2>
 
               <button className=" seemore-btn btn reserve__btn mt-4">
                 <Link to="/cars">See More</Link>

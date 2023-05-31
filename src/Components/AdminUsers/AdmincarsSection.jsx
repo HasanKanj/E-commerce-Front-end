@@ -22,7 +22,7 @@ const AdminCarsScreen = () => {
 
     const fetchCars = async () => {
       const { data } = await axios.get(
-        "https://ecommerceback-uz5r.onrender.com/api/cars"
+        "https://final-project-backend-production-20f3.up.railway.app/api/cars"
       );
       setCars(data);
       setIsLoading(false);
@@ -46,7 +46,7 @@ const AdminCarsScreen = () => {
     if (result.isConfirmed) {
       try {
         await axios.delete(
-          `https://ecommerceback-uz5r.onrender.com/api/cars/${id}`,
+          `https://final-project-backend-production-20f3.up.railway.app/api/cars/${id}`,
           {
             headers: {
               "Content-Type": "multipart/form-data",
@@ -81,7 +81,7 @@ const AdminCarsScreen = () => {
       formData.append("image", selectedFile);
     }
     const { data } = await axios.put(
-      `https://ecommerceback-uz5r.onrender.com/api/cars/${id}`,
+      `https://final-project-backend-production-20f3.up.railway.app/api/cars/${id}`,
       formData,
       {
         headers: {
@@ -286,7 +286,7 @@ const AdminCarsScreen = () => {
                     required
                   >
                     <option value="">Select a category</option>
-                    <option value="BMW">BMW</option>
+                    <option value="BMW">Courses</option>
                     <option value="MERCEDES">MERCEDES</option>
                     <option value="TOYOTA">TOYOTA</option>
                     <option value="ELECTRIC CAR">ELECTRIC CAR</option>

@@ -20,7 +20,7 @@ margin-top: 190px;
 }
 
 .registerbtn{
-  background-color: rgb(178, 55, 20) !important;
+  background-color: #ff890b !important;
   font-size: 20px ;
   border: none;
   padding: 10px;
@@ -30,7 +30,7 @@ margin-top: 190px;
 }
 .register_button{
   text-transform: uppercase;
-  background:rgb(178, 55, 20);
+  background:#ff890b;
   border: 0;
   padding: 15px;
   color: #FFFFFF;
@@ -39,7 +39,7 @@ margin-top: 190px;
   cursor: pointer;
 }
 .register_page button:hover,.register_page button:active,.register_page button:focus {
-    background:rgb(178, 55, 20);
+    background:#ff890b;
     opacity: 65%;
   }
 

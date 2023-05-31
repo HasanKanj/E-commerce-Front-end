@@ -9,7 +9,7 @@ export default function Testimonials() {
     const fetchTestimonials = async () => {
       try {
         const res = await axios.get(
-          "https://ecommerceback-uz5r.onrender.com/api/testimonial"
+          "https://final-project-backend-production-20f3.up.railway.app/api/testimonial"
         );
         setTestimonials(res.data.data);
       } catch (error) {

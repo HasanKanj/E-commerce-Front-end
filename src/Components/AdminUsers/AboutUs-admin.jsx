@@ -22,7 +22,7 @@ function AboutUsAdmin() {
     setIsLoading(true);
 
     const res = await axios.get(
-      "https://ecommerceback-uz5r.onrender.com/api/about"
+      "https://final-project-backend-production-20f3.up.railway.app/api/about"
     );
     setAbout(res.data.data);
     setIsLoading(false);
@@ -63,7 +63,7 @@ function AboutUsAdmin() {
 
     // Update the description in the API
     const res = await axios.put(
-      `https://ecommerceback-uz5r.onrender.com/api/about/${about[editedIndex]._id}`,
+      `https://final-project-backend-production-20f3.up.railway.app/api/about/${about[editedIndex]._id}`,
       {
         description: editedDescription,
       },

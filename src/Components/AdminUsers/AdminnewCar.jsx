@@ -24,7 +24,7 @@ const AdminNewCar = () => {
       formData.append("image", image);
 
       const response = await axios.post(
-        "https://ecommerceback-uz5r.onrender.com/api/cars",
+        "https://final-project-backend-production-20f3.up.railway.app/api/cars",
         formData,
         {
           headers: {
@@ -223,7 +223,7 @@ const AdminNewCar = () => {
             required
           >
             <option value="">Select a category</option>
-            <option value="BMW">BMW</option>
+            <option value="BMW">Courses</option>
             <option value="MERCEDES">MERCEDES</option>
             <option value="GMC">GMC</option>
             <option value="FORD">FORD</option>

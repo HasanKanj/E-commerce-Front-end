@@ -47,7 +47,7 @@ const CarItem = ({ products, selectedCategory }) => {
 
     axios
       .post(
-        "https://ecommerceback-uz5r.onrender.com/api/Reservations/",
+        "https://final-project-backend-production-20f3.up.railway.app/api/Reservations/",
         { carId },
         {
           headers: {

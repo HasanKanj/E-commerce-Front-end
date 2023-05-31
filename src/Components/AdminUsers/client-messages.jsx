@@ -19,7 +19,7 @@ function ClientTable() {
     setIsLoading(true);
     try {
       const response = await axios.get(
-        "https://ecommerceback-uz5r.onrender.com/api/contact/getAll",
+        "https://final-project-backend-production-20f3.up.railway.app/api/contact/getAll",
         {
           headers: {
             "Content-Type": "multipart/form-data",
@@ -57,7 +57,7 @@ function ClientTable() {
       if (willDelete) {
         axios
           .delete(
-            `https://ecommerceback-uz5r.onrender.com/api/contact/delete/${id}`,
+            `https://final-project-backend-production-20f3.up.railway.app/api/contact/delete/${id}`,
             {
               headers: {
                 "Content-Type": "multipart/form-data",

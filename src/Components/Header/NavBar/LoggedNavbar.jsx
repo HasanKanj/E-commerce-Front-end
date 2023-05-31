@@ -4,6 +4,8 @@ import { useRef, useState, useEffect } from "react";
 import {  NavLink } from "react-router-dom";
 import menu from "./hamburger.jpg";
 import logo from "./RoadCar.jpeg";
+import cryptoclub from "./cryptoclub.jpg";
+
 
 function Navbars() {
   const [scrollPosition, setScrollPosition] = useState(window.pageYOffset);
@@ -38,7 +40,7 @@ function Navbars() {
   return (
     <header className={`navbar-lina ${scrollPosition > 0 ? "scrolled" : ""}`}>
       <NavLink to="/">
-        <img className="navbar-lina-logo" alt="a" src={logo} />
+        <img className="navbar-lina-logo" alt="a" src={cryptoclub} />
       </NavLink>
 
       <nav ref={navRef} className="navbar-lina-nav">
@@ -57,11 +59,11 @@ function Navbars() {
           About
         </NavLink>
         <NavLink
-          to="/Cars"
+          to="/Courses"
           className="navbar-lina-nav-Links"
           activeClassName="active"
         >
-          Cars
+          Courses
         </NavLink>
         <NavLink
           to="/ContactUs"

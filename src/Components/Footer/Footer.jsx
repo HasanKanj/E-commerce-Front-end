@@ -33,7 +33,7 @@ function Footer() {
               className="fa-lg white-text mr-md-5 mr-3 fa-2x"
             />
           </a>
-          <a href="https://www.instagram.com/roadcar.lb/?igshid=YmMyMTA2M2Y=">
+          <a href="#">
             <FontAwesomeIcon
               icon={faInstagram}
               className="fa-lg white-text mr-md-5 mr-3 fa-2x"
