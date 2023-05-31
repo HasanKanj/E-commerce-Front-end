@@ -13,7 +13,7 @@ const CarDetails = () => {
   const [product, setProduct] = useState({});
   const [activeKey, setActiveKey] = useState("description");
   const [modalIsOpen, setModalIsOpen] = useState(false); // <-- Add state for modal
-  const [loading, setLoading] = useState(false);
+  const [setLoading] = useState(false);
 
   useEffect(() => {
     const fetchProduct = async () => {
@@ -21,7 +21,7 @@ const CarDetails = () => {
         setLoading(true);
         // Fetch the product by name to get its _id field
         const resNames = await fetch(
-          `https://ecommerceback-uz5r.onrender.com/api/cars`
+          `https://final-project-backend-production-20f3.up.railway.app/api/cars`
         );
         const dataNames = await resNames.json();
         const car = dataNames.find((c) => c.name === name);
@@ -32,7 +32,7 @@ const CarDetails = () => {
 
         // Use the _id field to fetch the full product details
         const resId = await fetch(
-          `https://ecommerceback-uz5r.onrender.com/api/cars/${car._id}`
+          `https://final-project-backend-production-20f3.up.railway.app/api/cars/${car._id}`
         );
         const data = await resId.json();
         setProduct(data);
@@ -74,7 +74,7 @@ const CarDetails = () => {
 
     axios
       .post(
-        "https://ecommerceback-uz5r.onrender.com/api/Reservations/",
+        "https://final-project-backend-production-20f3.up.railway.app/api/Reservations/",
         { carId },
         {
           headers: {

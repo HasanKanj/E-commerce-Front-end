@@ -7,7 +7,7 @@ import "react-toastify/dist/ReactToastify.css";
 const ReservationTable = () => {
   const [reservations, setReservations] = useState([]);
   const [currentPage, setCurrentPage] = useState(1);
-  const [reservationsPerPage, setReservationsPerPage] = useState(10);
+  const [reservationsPerPage ] = useState(10);
   const token = sessionStorage.getItem("token");
 
   useEffect(() => {
@@ -17,7 +17,7 @@ const ReservationTable = () => {
   const fetchReservations = async () => {
     try {
       const response = await axios.get(
-        "https://ecommerceback-uz5r.onrender.com/api/Reservations",
+        "https://final-project-backend-production-20f3.up.railway.app/api/Reservations",
         {
           headers: {
             "Content-Type": "multipart/form-data",
@@ -62,7 +62,7 @@ const ReservationTable = () => {
       if (willDelete) {
         axios
           .delete(
-            `https://ecommerceback-uz5r.onrender.com/api/Reservations/${reservationId}`,
+            `https://final-project-backend-production-20f3.up.railway.app/api/Reservations/${reservationId}`,
             {
               headers: {
                 "Content-Type": "multipart/form-data",

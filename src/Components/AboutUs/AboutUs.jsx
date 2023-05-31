@@ -1,22 +1,20 @@
-import aboutimg from "../AboutUs/images/about.png";
-import dollar from "../../assets/dollar.png";
-import customer from "../../assets/customer.png";
-import thumb from "../../assets/thumb.png";
+
 import Helmet from "../Helmet/Helmet";
 import CommonSection from "../UI/CommonSection.jsx";
 import "./AboutUs.css";
 import { useEffect, useState } from "react";
 import axios from "axios";
+import aboutUs from "../AboutUs/images/aboutUs.png";
 
 function AboutUs() {
-  const [loading, setLoading] = useState(true);
+  const [ setLoading] = useState(true);
   const [about, setAbout] = useState([]);
 
   const fetchAbout = async () => {
     setLoading(true);
 
     const res = await axios.get(
-      "https://ecommerceback-uz5r.onrender.com/api/about"
+      "https://final-project-backend-production-20f3.up.railway.app/api/about"
     );
     setAbout(res.data.data);
     setLoading(false);
@@ -37,7 +35,7 @@ function AboutUs() {
       />
 
       <div className="about-everything">
-        <h5 className="about-welcome"> Welcome to RoadCar</h5>
+        <h5 className="about-welcome"> Who Are We</h5>
         <div className="about-titDescImg">
           <div className="about-description">
             {about.map((item, index) => (
@@ -48,11 +46,11 @@ function AboutUs() {
           </div>
 
           <div className="about-description">
-            <img className="aboutimage" src={aboutimg} alt="aboutimage"></img>
+            <img className="aboutUsImage" src={aboutUs} alt="aboutimage"></img>
           </div>
         </div>
 
-        <div className="about-imageFooter">
+        {/* <div className="about-imageFooter">
           <div className="about-allimgs">
             <h1 className="about-reasonTitle">Reasons to buy from RoadCar</h1>
             <div className="aboutsection">
@@ -82,7 +80,7 @@ function AboutUs() {
               </div>
             </div>
           </div>
-        </div>
+        </div> */}
       </div>
     </Helmet>
   );

@@ -8,7 +8,7 @@ function LoginPage() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
-  const [loading, setLoading] = useState(true);
+  const [ setLoading] = useState(true);
 
   const handleLogin = async (e) => {
     e.preventDefault();
@@ -16,7 +16,7 @@ function LoginPage() {
 
     try {
       const response = await fetch(
-        `https://ecommerceback-uz5r.onrender.com/api/user/login`,
+        `https://final-project-backend-production-20f3.up.railway.app/api/user/login`,
         {
           method: "POST",
           headers: {

@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import {React, useEffect, useState } from "react";
 
 import "./homeandabout.css";
 import dollar from "../../assets/dollar.png";
@@ -12,7 +12,7 @@ import axios from "axios";
 
 function AboutUsAdmin() {
   const [about, setAbout] = useState([]);
-  const [isLoading, setIsLoading] = useState(false);
+  const [ setIsLoading] = useState(false);
   const [editedDescription, setEditedDescription] = useState("");
   const [editedIndex, setEditedIndex] = useState(null);
   const navigate = useNavigate();
@@ -22,7 +22,7 @@ function AboutUsAdmin() {
     setIsLoading(true);
 
     const res = await axios.get(
-      "https://ecommerceback-uz5r.onrender.com/api/about"
+      "https://final-project-backend-production-20f3.up.railway.app/api/about"
     );
     setAbout(res.data.data);
     setIsLoading(false);
@@ -63,7 +63,7 @@ function AboutUsAdmin() {
 
     // Update the description in the API
     const res = await axios.put(
-      `https://ecommerceback-uz5r.onrender.com/api/about/${about[editedIndex]._id}`,
+      `https://final-project-backend-production-20f3.up.railway.app/api/about/${about[editedIndex]._id}`,
       {
         description: editedDescription,
       },
@@ -143,7 +143,7 @@ function AboutUsAdmin() {
             <h1 className="about-reasonTitle">Reasons to buy from RoadCar</h1>
             <div className="aboutsection">
               <div className="aboutthird-img">
-                <img className="about-thumb" src={thumb}></img>
+                <img className="about-thumb" src={thumb} alt="thumb"></img>
                 <h3>Quality service</h3>
                 <p>
                   We ensure that every vehicle we sell is thoroughly inspected,
@@ -151,7 +151,7 @@ function AboutUsAdmin() {
                 </p>
               </div>
               <div className="aboutthird-img">
-                <img className="about-thumb" src={dollar}></img>
+                <img className="about-thumb" src={dollar} alt="thumb"></img>
                 <h3>Competitive pricing</h3>
                 <p>
                   We provide competitive prices to make sure you get the best
@@ -159,7 +159,7 @@ function AboutUsAdmin() {
                 </p>
               </div>
               <div className="aboutthird-img">
-                <img className="about-thumb" src={customer}></img>
+                <img className="about-thumb" src={customer} alt="thumb"></img>
                 <h3>Customer Service</h3>
                 <p>
                   We provide exceptional customer service that meets the unique

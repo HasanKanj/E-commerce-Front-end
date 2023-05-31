@@ -11,7 +11,7 @@ function TestimonialAdmin() {
   useEffect(() => {
     const fetchAllTestimonial = async () => {
       const res = await axios.get(
-        "https://ecommerceback-uz5r.onrender.com/api/testimonial"
+        "https://final-project-backend-production-20f3.up.railway.app/api/testimonial"
       );
       setTestimonials(res.data.data);
     };
@@ -25,7 +25,7 @@ function TestimonialAdmin() {
       return;
     }
     await axios.post(
-      "https://ecommerceback-uz5r.onrender.com/api/testimonial/add",
+      "https://final-project-backend-production-20f3.up.railway.app/api/testimonial/add",
       { name, description }
     );
 
@@ -37,7 +37,7 @@ function TestimonialAdmin() {
 
   const handleDelete = async (_id) => {
     await axios.delete(
-      `https://ecommerceback-uz5r.onrender.com/api/testimonial/${_id}`,
+      `https://final-project-backend-production-20f3.up.railway.app/api/testimonial/${_id}`,
       {
         headers: {
           Authorization: `Bearer ${token}`,
@@ -51,7 +51,7 @@ function TestimonialAdmin() {
     e.preventDefault();
     const { _id } = testimonials[index];
     await axios.put(
-      `https://ecommerceback-uz5r.onrender.com/api/testimonial/${_id}`,
+      `https://final-project-backend-production-20f3.up.railway.app/api/testimonial/${_id}`,
 
       {
         name: testimonials[index].name,

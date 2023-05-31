@@ -4,7 +4,7 @@
 
 .slider__item-01 {
   background: linear-gradient(rgba(7, 7, 7, 0.635), rgba(33, 29, 29, 0.712)),
-    url("./images/slider-1.jpg");
+    url("./images/crypto.jpg");
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
@@ -12,7 +12,7 @@
 
 .slider__item-02 {
   background: linear-gradient(rgba(7, 7, 7, 0.618), rgba(54, 51, 51, 0.712)),
-    url("./images/slider-2.jpg");
+    url("./images/bitcoin.jpg");
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
@@ -20,7 +20,7 @@
 
 .slider__item-03 {
    background: linear-gradient(rgba(7, 7, 7, 0.635), rgba(33, 29, 29, 0.712)),
-    url("./images/slider-3.jpg");
+    url("./images/trading.jpg");
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
@@ -62,7 +62,7 @@
 
 .reserve__btn {
   font-size: 25px;
-  background-color:rgb(178, 55, 20);
+  background-color:#ff890b;
   border: none;
   border-radius: 7px;
   width: 150px;
@@ -109,7 +109,7 @@
   }
 
   .slider__content {
-    color:rgb(178, 55, 20);
+    color:#ff890b;
     margin-left: 5vh;
 
     padding-top: 150px;

@@ -27,7 +27,7 @@ function Register() {
 
     try {
       const response = await axios.post(
-        `https://ecommerceback-uz5r.onrender.com/api/user/register`,
+        `https://final-project-backend-production-20f3.up.railway.app/api/user/register`,
         formData,
         {
           headers: {

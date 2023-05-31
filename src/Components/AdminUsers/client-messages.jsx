@@ -9,7 +9,7 @@ import "react-toastify/dist/ReactToastify.css";
 
 function ClientTable() {
   const [contacts, setContacts] = useState([]);
-  const [isLoading, setIsLoading] = useState(false);
+  const [ setIsLoading] = useState(false);
   const token = sessionStorage.getItem("token");
 
   const navigate = useNavigate();
@@ -19,7 +19,7 @@ function ClientTable() {
     setIsLoading(true);
     try {
       const response = await axios.get(
-        "https://ecommerceback-uz5r.onrender.com/api/contact/getAll",
+        "https://final-project-backend-production-20f3.up.railway.app/api/contact/getAll",
         {
           headers: {
             "Content-Type": "multipart/form-data",
@@ -43,7 +43,7 @@ function ClientTable() {
     fetchData(); // call fetchData here
   }, [navigate]);
 
-  const [selectedContact, setSelectedContact] = useState(null);
+  const [ setSelectedContact] = useState(null);
 
   const handleDelete = (id) => {
     setSelectedContact(id); // set the selected contact id
@@ -57,7 +57,7 @@ function ClientTable() {
       if (willDelete) {
         axios
           .delete(
-            `https://ecommerceback-uz5r.onrender.com/api/contact/delete/${id}`,
+            `https://final-project-backend-production-20f3.up.railway.app/api/contact/delete/${id}`,
             {
               headers: {
                 "Content-Type": "multipart/form-data",

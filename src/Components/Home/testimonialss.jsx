@@ -9,7 +9,7 @@ export default function Testimonials() {
     const fetchTestimonials = async () => {
       try {
         const res = await axios.get(
-          "https://ecommerceback-uz5r.onrender.com/api/testimonial"
+          "https://final-project-backend-production-20f3.up.railway.app/api/testimonial"
         );
         setTestimonials(res.data.data);
       } catch (error) {
@@ -23,10 +23,11 @@ export default function Testimonials() {
     <>
       <div className="quotes page-width">
         <div className="">
-          <h2 className="testimonial-title">Why Clients Love Us</h2>
+          <h2 className="testimonial-title">Why Choosing Us</h2>
           <p className="testimonials-p">
-            Many clients are thrilled by the service we deliver and are happy to
-            tell us. Read about what some have said about us here.
+            Choose Crypto Club for a safe and trusted platform, offering
+            expert-led trading courses and personalized guidance for your
+            cryptocurrency journey
           </p>
         </div>
       </div>

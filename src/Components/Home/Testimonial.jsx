@@ -10,7 +10,7 @@ const Testimonials = () => {
 
   const fetchTestimonials = async () => {
     const res = await axios.get(
-      "https://ecommerceback-uz5r.onrender.com/api/testimonial"
+      "https://final-project-backend-production-20f3.up.railway.app/api/testimonial"
     );
     setTestimonials(res.data.data);
   };

@@ -3,13 +3,12 @@ import axios from "axios";
 import "./client-messages.css";
 import swal from "sweetalert";
 import { useNavigate } from "react-router-dom";
-import { Link } from "react-router-dom";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
 function UserTable() {
   const [users, setUsers] = useState([]);
-  const [isLoading, setIsLoading] = useState(false);
+  const [ setIsLoading] = useState(false);
   const token = sessionStorage.getItem("token");
 
   const navigate = useNavigate();
@@ -19,7 +18,7 @@ function UserTable() {
     setIsLoading(true);
     try {
       const response = await axios.get(
-        "https://ecommerceback-uz5r.onrender.com/api/user/getAll",
+        "https://final-project-backend-production-20f3.up.railway.app/api/user/getAll",
         {
           headers: {
             "Content-Type": "multipart/form-data",
@@ -43,7 +42,7 @@ function UserTable() {
     fetchData(); // call fetchData here
   }, [navigate]);
 
-  const [selectedContact, setSelectedContact] = useState(null);
+  const [ setSelectedContact] = useState(null);
 
   const handleDelete = (id) => {
     setSelectedContact(id); // set the selected contact id
@@ -57,7 +56,7 @@ function UserTable() {
       if (willDelete) {
         axios
           .delete(
-            `https://ecommerceback-uz5r.onrender.com/api/user/delete/${id}`,
+            `https://final-project-backend-production-20f3.up.railway.app/api/user/delete/${id}`,
             {
               headers: {
                 "Content-Type": "multipart/form-data",

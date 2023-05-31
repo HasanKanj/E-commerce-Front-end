@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 // import axios from "axios";
 import "./Footer.css";
 import { toast, ToastContainer } from "react-toastify";
@@ -27,19 +27,19 @@ function Footer() {
           }}
           align="center"
         >
-          <a href="#">
+          <a href="https://www.facebook.com/">
             <FontAwesomeIcon
               icon={faFacebook}
               className="fa-lg white-text mr-md-5 mr-3 fa-2x"
             />
           </a>
-          <a href="https://www.instagram.com/roadcar.lb/?igshid=YmMyMTA2M2Y=">
+          <a href="https://www.instagram.com/">
             <FontAwesomeIcon
               icon={faInstagram}
               className="fa-lg white-text mr-md-5 mr-3 fa-2x"
             />
           </a>
-          <a href="#">
+          <a href="https://www.linkedin.com/">
             <FontAwesomeIcon
               icon={faLinkedin}
               className="fa-lg white-text mr-md-5 mr-3 fa-2x"
