@@ -13,7 +13,7 @@ const CarDetails = () => {
   const [product, setProduct] = useState({});
   const [activeKey, setActiveKey] = useState("description");
   const [modalIsOpen, setModalIsOpen] = useState(false); // <-- Add state for modal
-  const [loading, setLoading] = useState(false);
+  const [setLoading] = useState(false);
 
   useEffect(() => {
     const fetchProduct = async () => {

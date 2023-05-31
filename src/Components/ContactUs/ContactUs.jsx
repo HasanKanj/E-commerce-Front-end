@@ -9,7 +9,7 @@ import emailjs from "emailjs-com";
 import { toast } from "react-toastify";
 
 function ContactAdminForm() {
-  const [loading, setLoading] = useState(true);
+  const [ setLoading] = useState(true);
 
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");

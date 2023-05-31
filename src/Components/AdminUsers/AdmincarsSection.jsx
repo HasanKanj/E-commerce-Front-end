@@ -14,7 +14,7 @@ const AdminCarsScreen = () => {
   const [cars, setCars] = useState([]);
   const [editingCar, setEditingCar] = useState(null);
   const [selectedFile, setSelectedFile] = useState(null);
-  const [isLoading, setIsLoading] = useState(false);
+  const [ setIsLoading] = useState(false);
   const token = sessionStorage.getItem("token");
 
   useEffect(() => {

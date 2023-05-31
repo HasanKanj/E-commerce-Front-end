@@ -1,17 +1,13 @@
-import aboutimg from "../AboutUs/images/about.png";
-import dollar from "../../assets/dollar.png";
-import customer from "../../assets/customer.png";
-import thumb from "../../assets/thumb.png";
+
 import Helmet from "../Helmet/Helmet";
 import CommonSection from "../UI/CommonSection.jsx";
 import "./AboutUs.css";
 import { useEffect, useState } from "react";
 import axios from "axios";
-import cryptoclub from "../AboutUs/images/cryptoclub.png";
 import aboutUs from "../AboutUs/images/aboutUs.png";
 
 function AboutUs() {
-  const [loading, setLoading] = useState(true);
+  const [ setLoading] = useState(true);
   const [about, setAbout] = useState([]);
 
   const fetchAbout = async () => {

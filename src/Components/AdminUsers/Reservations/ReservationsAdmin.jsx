@@ -7,7 +7,7 @@ import "react-toastify/dist/ReactToastify.css";
 const ReservationTable = () => {
   const [reservations, setReservations] = useState([]);
   const [currentPage, setCurrentPage] = useState(1);
-  const [reservationsPerPage, setReservationsPerPage] = useState(10);
+  const [reservationsPerPage ] = useState(10);
   const token = sessionStorage.getItem("token");
 
   useEffect(() => {

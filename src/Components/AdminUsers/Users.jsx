@@ -3,13 +3,12 @@ import axios from "axios";
 import "./client-messages.css";
 import swal from "sweetalert";
 import { useNavigate } from "react-router-dom";
-import { Link } from "react-router-dom";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
 function UserTable() {
   const [users, setUsers] = useState([]);
-  const [isLoading, setIsLoading] = useState(false);
+  const [ setIsLoading] = useState(false);
   const token = sessionStorage.getItem("token");
 
   const navigate = useNavigate();
@@ -43,7 +42,7 @@ function UserTable() {
     fetchData(); // call fetchData here
   }, [navigate]);
 
-  const [selectedContact, setSelectedContact] = useState(null);
+  const [ setSelectedContact] = useState(null);
 
   const handleDelete = (id) => {
     setSelectedContact(id); // set the selected contact id

@@ -15,10 +15,10 @@ function ContactAdminForm() {
   const [streetLocation, updateLocation] = useState("");
   const [adminEmail, updateEmail] = useState("");
   const [adminPhoneNumber, updatePhoneNumber] = useState("");
-  const [contact, setContact] = useState({});
+  const [ setContact] = useState({});
   const [submitStatus, setSubmitStatus] = useState("");
   const [updateStatus, setUpdateStatus] = useState("");
-  const [isLoading, setIsLoading] = useState(false);
+  const [ setIsLoading] = useState(false);
   const token = sessionStorage.getItem("token");
 
   const fetchContact = async () => {
