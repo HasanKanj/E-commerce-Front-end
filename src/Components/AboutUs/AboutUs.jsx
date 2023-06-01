@@ -7,7 +7,7 @@ import axios from "axios";
 import aboutUs from "../AboutUs/images/aboutUs.png";
 
 function AboutUs() {
-  const [ setLoading] = useState(true);
+  const [loading, setLoading] = useState(false); // Provide an initial value for loading and assign the setter function to setLoading
   const [about, setAbout] = useState([]);
 
   const fetchAbout = async () => {
