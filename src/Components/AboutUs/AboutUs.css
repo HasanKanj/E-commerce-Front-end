@@ -116,7 +116,9 @@
     align-items: center;
     flex-wrap: wrap;
   }
-
+.aboutUsImage{
+  display: none;
+}
   .aboutsection {
     width: 100%;
     padding-top: 50px;
