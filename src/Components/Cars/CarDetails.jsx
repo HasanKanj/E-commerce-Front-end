@@ -4,19 +4,23 @@ import { Row, Col, Image, ListGroup, Nav, Tab } from "react-bootstrap";
 import { Modal, ModalHeader, ModalBody, ModalFooter } from "reactstrap";
 import { ToastContainer, toast } from 'react-toastify';
 import axios from "axios";
+import emailjs from "@emailjs/browser";
+import Helmet from "../Helmet/Helmet";
+import CommonSection from "../UI/CommonSection.jsx";
 import 'react-toastify/dist/ReactToastify.css';
 const CarDetails = () => {
   const { name } = useParams();
   const [product, setProduct] = useState({});
   const [activeKey, setActiveKey] = useState("description");
   const [modalIsOpen, setModalIsOpen] = useState(false); // <-- Add state for modal
-  const [loading, setLoading] = useState(true);
+  const [loading, setLoading] = useState(false);
 
   useEffect(() => {
     const fetchProduct = async () => {
-      setLoading(true);
+      
 
       try {
+        setLoading(true);
         // Fetch the product by name to get its _id field
         const resNames = await fetch(`http://localhost:5000/api/cars`);
         const dataNames = await resNames.json();
@@ -30,10 +34,14 @@ const CarDetails = () => {
         const resId = await fetch(`http://localhost:5000/api/cars/${car._id}`);
         const data = await resId.json();
         setProduct(data);
+        setLoading(false);
+
       } catch (error) {
         console.error(error);
+        setLoading(false);
+
       }
-      setLoading(false);
+     
 
     };
 
@@ -47,6 +55,7 @@ const CarDetails = () => {
   const toggleModal = () => {
     // Check if user is logged in
     const token = sessionStorage.getItem("token");
+  
     if (!token) {
       toast.error("Please login/register before reserving a car.");
       return;
@@ -57,37 +66,69 @@ const CarDetails = () => {
   };
   const reserveCar = (carId) => {
     const token = sessionStorage.getItem("token");
+    const firstName = sessionStorage.getItem("firstName");
+    const lastName = sessionStorage.getItem("lastName");
+    const email = sessionStorage.getItem("email");
     if (!token) {
       toast.error("Please login/register before reserving a car.");
       return;
     }
   
-    axios.post(
-      "http://localhost:5000/api/Reservations/",
-      { carId },
-      {
-        headers: {
-          Authorization: `Bearer ${token}`,
-        },
-      }
-    )
+    axios
+      .post(
+        "http://localhost:5000/api/Reservations/",
+        { carId },
+        {
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
+        }
+      )
       .then((response) => {
         console.log(response.data); // Handle successful response
-        toggleModal(); // Close the modal
+  
+        const params = {
+          car_id: carId,
+          firstName:firstName,
+          lastName:lastName,
+          email:email
+
+        };
+  
+        emailjs.send(
+          "service_i65z4yo",
+          "template_kz0prl9",
+          params,
+          "X3GWKBc5fNzTxb_rm"
+        )  
+        .then(
+          (result) => {
+            console.log(result.text);
+          },
+          (error) => {
+            console.log(error.text);
+          }
+        );
+  
+        toggleModal();
       })
       .catch((error) => {
-        console.log(error); // Handle error
+        console.log(error);
       });
   };
   return (
     <>
     
+    <div>
+      <Helmet title="Cars"/>
+      <CommonSection title="Car Detail Section" />
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous"/>
     <ToastContainer className="toast-container" />
 
       <Row style={{ marginTop: "100px" }}>
         <Col md={7}>
-          {product.url && ( // <-- only render Image if product.url exists
+          {product.url && ( 
+            // <-- only render Image if product.url exists
             <div>
               <Image
                 src={product.url}
@@ -209,7 +250,9 @@ const CarDetails = () => {
           </Modal>
         </Col>
       </Row>
+      </div>
     </>
+   
   );
 };
 

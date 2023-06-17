@@ -14,6 +14,7 @@ const AdminCarsScreen = () => {
   const [editingCar, setEditingCar] = useState(null);
   const [selectedFile, setSelectedFile] = useState(null);
   const [isLoading, setIsLoading] = useState(false);
+  const token = sessionStorage.getItem("token");
 
   useEffect(() => {
     setIsLoading(true);
@@ -43,7 +44,13 @@ const AdminCarsScreen = () => {
 
     if (result.isConfirmed) {
       try {
-        await axios.delete(`http://localhost:5000/api/cars/${id}`);
+        await axios.delete(`http://localhost:5000/api/cars/${id}`,{
+          headers: {
+            "Content-Type": "multipart/form-data",
+             Authorization: `Bearer ${token}`,
+  
+          },
+        });
         setCars(cars.filter((car) => car._id !== id));
 
         Swal.fire({
@@ -76,7 +83,10 @@ const AdminCarsScreen = () => {
       {
         headers: {
           "Content-Type": "multipart/form-data",
+           Authorization: `Bearer ${token}`,
+
         },
+        
       }
     );
     setCars(cars.map((car) => (car._id === id ? { ...data } : { ...car })));

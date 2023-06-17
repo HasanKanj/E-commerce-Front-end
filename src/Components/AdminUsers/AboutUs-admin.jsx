@@ -1,56 +1,85 @@
 import { useEffect, useState } from "react";
 
 import "./homeandabout.css";
-
-import NavBar from "../Header/NavBar/NavBar";
-import aboutImg from "../../assets/aboutImg.png";
 import dollar from "../../assets/dollar.png";
 import aboutimg from "../AboutUs/images/about.png";
 import customer from "../../assets/customer.png";
 import thumb from "../../assets/thumb.png";
 import Helmet from "../Helmet/Helmet";
 import CommonSection from "../UI/CommonSection.jsx";
+import { useNavigate } from "react-router-dom";
 import axios from "axios";
 
 function AboutUsAdmin() {
   const [about, setAbout] = useState([]);
-  const [description, setDescription] = useState("");
   const [isLoading, setIsLoading] = useState(false);
+  const [editedDescription, setEditedDescription] = useState("");
+  const [editedIndex, setEditedIndex] = useState(null);
+  const navigate = useNavigate();
+  const token = sessionStorage.getItem("token");
 
   const fetchAbout = async () => {
     setIsLoading(true);
 
     const res = await axios.get("http://localhost:5000/api/about");
-    // console.log(res.data.data);
     setAbout(res.data.data);
     setIsLoading(false);
-
   };
 
+  // Call fetchAbout on component mount
   useEffect(() => {
-    fetchAbout();
-    handleChange();
-  }, []);
+    if (!sessionStorage.getItem("token") && window.location.pathname !== "/") {
+      navigate("/");
+    } else {
+      fetchAbout();
+    }
+  }, [navigate]);
 
-  const handleChange = async (_id) => {
-    const res = await axios.put(`http://localhost:5000/api/about/${_id}`, {
-      description: description,
-    });
-    fetchAbout();
-    //  console.log(res.data);
+  // Update the edit state variables when clicking the edit button
+  const handleEdit = (index) => {
+    setEditedDescription(about[index].description);
+    setEditedIndex(index);
   };
 
-  const handleSubmit = async (e) => {
-    e.preventDefault();
-    handleChange();
-    setDescription("");
+  // Clear the edit state variables when cancelling the edit
+  const handleCancel = () => {
+    setEditedDescription("");
+    setEditedIndex(null);
+  };
+
+  // Update the description in the state and API when submitting the edit form
+  const handleSubmit = async (event) => {
+    event.preventDefault();
+
+    // Update the description in the state
+    const updatedAbout = [...about];
+    updatedAbout[editedIndex] = {
+      ...about[editedIndex],
+      description: editedDescription,
+    };
+    setAbout(updatedAbout);
+
+    // Update the description in the API
+    const res = await axios.put(
+      `http://localhost:5000/api/about/${about[editedIndex]._id}`,
+      {
+        description: editedDescription,
+      },
+      {
+        headers: { Authorization: `Bearer ${token}` },
+      }
+    );
+    console.log(res.data);
+
+    // Clear the edit state variables
+    setEditedDescription("");
+    setEditedIndex(null);
   };
 
   return (
     <div>
       <Helmet title="About Us">
         <CommonSection title="About Us" />
-        {/* <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous"/> */}
 
         <div className="about-everything">
           <h5 className="about-welcome"> Welcome to RoadCar</h5>
@@ -62,27 +91,44 @@ function AboutUsAdmin() {
               <div>
                 {about.map((item, index) => (
                   <div className="about-section" key={index}>
-                    <form onSubmit={handleSubmit}>
-                      <p className="about-description"> {item.description}</p>
-
-                      <div className="about-textarea">
+                    {editedIndex === index ? (
+                      // Render the edit form when editing this section
+                      <form onSubmit={handleSubmit}>
                         <textarea
-                          className="AbouttoAddDesc"
-                          type="text"
-                          required
-                          value={description}
-                          onChange={(e) => setDescription(e.target.value)}
-                        ></textarea>
+                          className="about-textarea"
+                          value={editedDescription}
+                          onChange={(event) =>
+                            setEditedDescription(event.target.value)
+                          }
+                        />
+                        <div>
+                          <button
+                            className="admin-testi-buttons"
+                            type="submit"
+                          >
+                            Save
+                          </button>
+                          <button
+                            className="admin-testi-buttons"
+                            type="button"
+                            onClick={handleCancel}
+                          >
+                            Cancel
+                          </button>
+                        </div>
+                      </form>
+                    ) : (
+                      // Render the description text when not editing this section
+                      <div>
+                        <p className="about-description">{item.description}</p>
                         <button
                           className="admin-testi-buttons"
-                          type="submit"
-                          value="submit"
-                          onClick={() => handleChange(item._id)}
+                          onClick={() => handleEdit(index)}
                         >
                           Edit
                         </button>
                       </div>
-                    </form>
+                    )}
                   </div>
                 ))}
               </div>
@@ -91,6 +137,7 @@ function AboutUsAdmin() {
               <img className="aboutimage" src={aboutimg} alt="aboutimage"></img>
             </div>
           </div>
+        </div>
 
           <div className="about-imageFooter">
             <div className="about-allimgs">
@@ -123,7 +170,6 @@ function AboutUsAdmin() {
               </div>
             </div>
           </div>
-        </div>
       </Helmet>
     </div>
   );

@@ -14,6 +14,8 @@ const AdminNewCar = () => {
   const [year, setYear] = useState("");
   const [stock, setStock] = useState("");
   const [description, setDescription] = useState("");
+  const token = sessionStorage.getItem("token");
+
 
   const submitHandler = async (e) => {
     e.preventDefault();
@@ -27,6 +29,7 @@ const AdminNewCar = () => {
         {
           headers: {
             "Content-Type": "multipart/form-data",
+            Authorization: `Bearer ${token}`,
           },
         }
       );
@@ -79,7 +82,12 @@ const AdminNewCar = () => {
 
   return (
     <>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous"/>
+      <link
+        rel="stylesheet"
+        href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+        crossorigin="anonymous"
+      />
 
       <Link
         className="btn btn-dark my-3"
@@ -106,30 +114,34 @@ const AdminNewCar = () => {
         </div>
 
         <div class="form-group">
-          <label for="image" class="left-label">
-            Image:
-          </label>
-          <div class="custom-file">
-            <input
-              type="file"
-              id="image"
-              name="image"
-              accept="image/*"
-              onChange={(e) => uploadImageHandler(e)}
-              class="custom-file-input"
-              required
-            />
-          </div>
-          {image && (
-            <div>
-              <img
-                src={image}
-                alt="name"
-                style={{ width: "300px", height: "200px" }}
-              />
-            </div>
-          )}
-        </div>
+  <label for="image" class="left-label">
+    Image:
+  </label>
+  <div class="custom-file">
+    <input
+      type="file"
+      id="image"
+      name="image"
+      accept="image/*"
+      onChange={(e) => uploadImageHandler(e)}
+      class="custom-file-input"
+      required
+    />
+    <label class="custom-file-label" for="image">Choose file</label>
+  </div>
+  {image && (
+    <div>
+      <img
+        src={image}
+        alt="name"
+        class="uploaded-image"
+        style={{ width: "300px", height: "200px" }}
+
+      />
+    </div>
+  )}
+</div>
+
 
         <div class="form-group">
           <label for="mileage" class="left-label">
@@ -252,19 +264,18 @@ const AdminNewCar = () => {
             class="form-control"
             required
           ></textarea>
+             <button
+          type="submit"
+          className="btn btn-primary"
+          style={{ width: "150px", whiteSpace: "nowrap", float: "left" ,backgroundColor:"red", fontWeight:"bold"}}
+        >
+          Create Car
+        </button>
         </div>
 
         <br />
 
-       
-        <button type="submit"
-        className="btn btn-primary"
-        style={{ width: "150px", whiteSpace: "nowrap", float: "left" }}
-      >
-          Create Car
-      </button>
      
-       
       </form>
     </>
   );

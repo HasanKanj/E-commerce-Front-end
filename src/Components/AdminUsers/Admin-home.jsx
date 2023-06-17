@@ -5,11 +5,27 @@ import Landingpage from "../Home/video";
 import Testimonial from "../Home/Testimonial";
 import TestimonialAdmin from "./TestimonialAdmin";
 import React from "react";
-import {useState} from 'react';
-
+import { ToastContainer } from "react-toastify";
+import { toast } from "react-toastify";
+import { useNavigate } from "react-router-dom";
+import { useEffect, useState } from "react";
 
 function AdminHome() {
-    const [isLoading, setIsLoading] = useState(false);
+  const navigate = useNavigate();
+  const token = sessionStorage.getItem("token");
+
+  useEffect(() => {
+    const token = sessionStorage.getItem("token");
+    const role = sessionStorage.getItem("Role");
+
+    console.log("Token:", token);
+    console.log("Role:", role);
+
+    if (!token || role !== "admin") {
+      console.log("Navigating to /");
+      navigate("/");
+    }
+  }, []);
 
   return (
     <div className="testimonials-adminsection">
@@ -30,7 +46,3 @@ function AdminHome() {
 }
 
 export default AdminHome;
-
-
-
-

@@ -49,7 +49,7 @@ const Testimonials = () => {
   return (
     <Slider {...settings}>
       {testimonials.map((testimonial) => (
-        <div className="testimonial py-4 px-3" key={testimonial.id}>
+        <div className="testimonial py-5 px-3" key={testimonial.id}>
           <div className="testimon-section">
             <p className="testi-quote">"</p>
 

@@ -7,7 +7,6 @@ import Helmet from "../Helmet/Helmet";
 import CommonSection from "../UI/CommonSection.jsx";
 import emailjs from "emailjs-com";
 import { toast } from "react-toastify";
-import { Modal, Button } from "react-bootstrap";
 
 function ContactAdminForm() {
   const [loading, setLoading] = useState(true);
@@ -18,6 +17,7 @@ function ContactAdminForm() {
   const [message, setMessage] = useState("");
   const [contact, setContact] = useState({});
   const [submitStatus, setSubmitStatus] = useState("");
+
   const fetchContact = async () => {
     setLoading(true);
 
@@ -45,13 +45,7 @@ function ContactAdminForm() {
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    // Check if user is logged in
-    const token = sessionStorage.getItem("token");
-    if (!token) {
-      toast.error("Please login/register before submitting the form.");
-      return;
-    }
-
+    
     // Check if all form fields are filled out
     if (!name || !email || !phoneNumber || !message) {
       setSubmitStatus(
@@ -81,6 +75,7 @@ function ContactAdminForm() {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
+          
         },
         body: JSON.stringify({ name, email, phoneNumber, message }),
       });
@@ -154,7 +149,7 @@ function ContactAdminForm() {
 
   return (
     <Helmet title="Cars">
-      <CommonSection title="Contacat Us" />
+      <CommonSection title="Contact Us" />
       <link
         rel="stylesheet"
         href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css"

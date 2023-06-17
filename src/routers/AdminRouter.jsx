@@ -14,14 +14,15 @@ const Routers = () => {
   return (
     <div className="App">
       <Routes>
-        <Route exact path="/*" element={<Page404/>} />
+        <Route exact path="/*" element={<Page404 />} />
         <Route path="/Admin/Home" element={<AdminHome />} />
         <Route path="/Admin/cars" element={<AdminCarsScreen />} />
-        <Route path="/Admin/newcar" element={ <Container> <AdminNewCar /></Container> }/>
+        <Route path="/Admin/newcar" element={<Container> <AdminNewCar /></Container>} />
         <Route path="/Admin/AboutUs" element={<AboutUsAdmin />} />
         <Route path="/ContactUsAdmin" element={<ContactUsAdmin />} />
         <Route path="/ClientMessages" element={<Container> <ClientMessages /></Container>} />
-
+        <Route path="/clientmessages" element={<Container> <ClientMessages /></Container>} />
+        <Route path="/Newsletter" />
       </Routes>
       <ScrollToTop />
     </div>
