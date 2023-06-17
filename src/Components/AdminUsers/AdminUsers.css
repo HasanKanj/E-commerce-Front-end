@@ -1,38 +1,44 @@
-.go-back{
-    font-size: 20px !important;
-    border-radius: 10px !important;
-}
+.table-container {
+    max-width: 800px;
+    margin: 0 auto;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    overflow: hidden;
 
-.create-btn{
-    background-color: rgb(178, 55, 20) !important;
-    border:none !important;
-    margin-top: 10px !important;
-    font-size: 20px !important;
-     border-radius: 10px !important;
-}
-
-.btn-cretecar{
-    border: none !important;
-    margin-right: 33px;
-    padding:10px !important ;
-    border-radius: 10px !important;
-    
-}
-
-.edit-btn-cars{
-    background-color: rgb(63, 61, 61) !important;
-font-size: 17px !important;
-padding: 5px 20px !important;
-border-radius: 10px !important;
-color: white !important;
-border:none !important;
-
-}
-
-.delete-btn-cars{
-     background-color:rgb(178, 55, 20) !important;
-font-size: 17px !important;
-padding: 5px 20px !important;
-border-radius: 10px !important;
-
-}
+  }
+  
+  .users-table {
+    width: 100%;
+    border-collapse: collapse;
+    table-layout: fixed;
+  }
+  
+  .users-table-header {
+    background-color: #f5f5f5;
+    color: #666;
+    font-weight: bold;
+    text-align: left;
+    padding: 12px 20px;
+    border-bottom: 1px solid #ddd;
+  }
+  
+  .users-table-row {
+    background-color: #fff;
+    color: #666;
+    transition: all 0.3s ease;
+  }
+  
+  .users-table-row:nth-of-type(even) {
+    background-color: #f9f9f9;
+  }
+  
+  .users-table-row:hover {
+    background-color: #f5f5f5;
+  }
+  
+  .users-table-data {
+    text-align: left;
+    padding: 8px 20px;
+    border-bottom: 1px solid #ddd;
+  }
+  

@@ -10,8 +10,8 @@ import CarDetails from "../Components/Cars/CarDetails";
 import CarListing from "../Components/Cars/CarListing";
 import ScrollToTop from "../Components/Home/ScrolltoTop/Scroll";
 import Page404 from "../Components/Home/404 Page/Page404";
-import Testimonials from "../Components/Home/testimonialss";
-import Courses from "../Components/Services/Courses";
+import AdminUsers from "../Components/AdminUsers/AdminUsers";
+
 
 const Routers = () => {
   return (
@@ -33,7 +33,9 @@ const Routers = () => {
         <Route path="/ContactUs" element={<ContactUs />} />
         <Route path="/Login" element={<Login />} />
         <Route path="/Register" element={<Register />} />
-        <Route path="/Testimonials" element={<Testimonials />} />
+        <Route path="/AdminUsers" element={<AdminUsers />} />
+
+
       </Routes>
       <ScrollToTop />
     </div>
