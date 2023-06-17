@@ -3,26 +3,27 @@ import { useNavigate } from "react-router-dom";
 import "./Login.css";
 import swal from "sweetalert";
 
-
 function LoginPage() {
   const navigate = useNavigate();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
-  const [loading, setLoading] = useState(true);
-
+  const [loading, setLoading] = useState(false); // Provide an initial value for loading and assign the setter function to setLoading
   const handleLogin = async (e) => {
     e.preventDefault();
     setLoading(true);
 
     try {
-      const response = await fetch(`http://localhost:5000/api/user/login`, {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({ email, password }),
-      });
+      const response = await fetch(
+        `https://final-project-backend-production-20f3.up.railway.app/api/user/login`,
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({ email, password }),
+        }
+      );
       if (!response.ok) {
         const data = await response.json();
         throw new Error(data.message);
@@ -34,6 +35,8 @@ function LoginPage() {
         sessionStorage.setItem("firstName", data.firstName);
         sessionStorage.setItem("lastName", data.lastName);
         sessionStorage.setItem("email", data.email);
+        sessionStorage.setItem("phoneNumber", data.phoneNumber);
+
         swal({
           title: "Login successful",
           icon: "success",

@@ -15,10 +15,10 @@ function ContactAdminForm() {
   const [streetLocation, updateLocation] = useState("");
   const [adminEmail, updateEmail] = useState("");
   const [adminPhoneNumber, updatePhoneNumber] = useState("");
-  const [contact, setContact] = useState({});
+  const [ setContact] = useState({});
   const [submitStatus, setSubmitStatus] = useState("");
   const [updateStatus, setUpdateStatus] = useState("");
-  const [isLoading, setIsLoading] = useState(false);
+  const [ setIsLoading] = useState(false);
   const token = sessionStorage.getItem("token");
 
   const fetchContact = async () => {
@@ -26,7 +26,7 @@ function ContactAdminForm() {
 
     try {
       const response = await fetch(
-        "http://localhost:5000/api/contactAdmin/getOne"
+        "https://final-project-backend-production-20f3.up.railway.app/api/contactAdmin/getOne"
       );
       const data = await response.json();
       console.log("admin contact info", data);
@@ -71,15 +71,17 @@ function ContactAdminForm() {
       return;
     }
     try {
-      const response = await fetch("http://localhost:5000/api/contact/create", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-          Authorization: `Bearer ${token}`,
-
-        },
-        body: JSON.stringify({ name, email, phoneNumber, message }),
-      });
+      const response = await fetch(
+        "https://final-project-backend-production-20f3.up.railway.app/api/contact/create",
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+            Authorization: `Bearer ${token}`,
+          },
+          body: JSON.stringify({ name, email, phoneNumber, message }),
+        }
+      );
       const data = await response.json();
       console.log(data);
       // Display success message and error message
@@ -104,7 +106,7 @@ function ContactAdminForm() {
 
     try {
       const response = await fetch(
-        "http://localhost:5000/api/contactAdmin/update",
+        "https://final-project-backend-production-20f3.up.railway.app/api/contactAdmin/update",
         {
           method: "PUT",
           headers: {
@@ -165,33 +167,16 @@ function ContactAdminForm() {
   };
 
   return (
-    
     <div className="all-contactUs-space">
-      <Link
-  className="btn btn-dark my-3"
-  to="/clientmessages"
-  style={{
-    width: "350px",
-    height:"50px",
-    whiteSpace: "nowrap",
-    fontWeight:"bold",
-    fontSize:"25px",
-    backgroundColor: "red",
-    color: "#fff",
-  }}
->
-  Check Client Messages
-</Link>
-
       <div className="contact-us">
         <div className="contact-info-admin">
           <h1 className="contact-info-title">Need additional information?</h1>
           <br />
           <br />
           <p className="contact-info-p">
-            A multifaceted professional skilled in multiple fields of research,
-            development as well as a learning specialist. Over 15 years of
-            experience.
+            We're here to help! If you have any questions or need further
+            information, feel free to reach out to us. Our team is ready to
+            assist you.
           </p>
 
           <form onSubmit={handleUpdate}>
@@ -251,8 +236,8 @@ function ContactAdminForm() {
         <div className="contact-form">
           <h2 className="contact-form-title">Get in touch</h2>
           <p className="contact-form-p">
-            Feel free to browse our massive inventory online, set up a test
-            drive with a sales associate, or inquire about financing!
+            Reach out to us to inquire about any specific details or assistance
+            you may need in making your selection.
           </p>
           {submitStatus && <p>{submitStatus}</p>}
 
@@ -267,6 +252,7 @@ function ContactAdminForm() {
                   value={name}
                   onChange={(e) => setName(e.target.value)}
                   required
+                  readOnly
                 />
               </label>
             </div>
@@ -281,6 +267,7 @@ function ContactAdminForm() {
                     value={email}
                     onChange={(e) => setEmail(e.target.value)}
                     required
+                    readOnly
                   />
                 </label>
               </div>
@@ -295,6 +282,7 @@ function ContactAdminForm() {
                     value={phoneNumber}
                     onChange={(e) => setPhoneNumber(e.target.value)}
                     required
+                    readOnly
                   />
                 </label>
               </div>
@@ -308,15 +296,15 @@ function ContactAdminForm() {
                   value={message}
                   onChange={(e) => setMessage(e.target.value)}
                   required
+                  readOnly
                 ></textarea>
               </label>
             </div>
 
-            <button type="submit" class="form-button">
+            <button type="button" class="form-button" readonly>
               Send
             </button>
           </form>
-         
         </div>
       </div>
     </div>

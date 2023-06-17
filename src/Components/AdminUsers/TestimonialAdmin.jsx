@@ -1,16 +1,18 @@
 import { useState, useEffect } from "react";
 import axios from "axios";
 
-
 function TestimonialAdmin() {
   const [name, setName] = useState("");
   const [description, setDescription] = useState("");
   const [testimonials, setTestimonials] = useState([]);
   const [editIndex, setEditIndex] = useState(null);
+  const token = sessionStorage.getItem("token");
 
   useEffect(() => {
     const fetchAllTestimonial = async () => {
-      const res = await axios.get("http://localhost:5000/api/testimonial");
+      const res = await axios.get(
+        "https://final-project-backend-production-20f3.up.railway.app/api/testimonial"
+      );
       setTestimonials(res.data.data);
     };
     fetchAllTestimonial();
@@ -22,10 +24,10 @@ function TestimonialAdmin() {
       // Add validation check
       return;
     }
-    await axios.post("http://localhost:5000/api/testimonial/add", {
-      name,
-      description,
-    });
+    await axios.post(
+      "https://final-project-backend-production-20f3.up.railway.app/api/testimonial/add",
+      { name, description }
+    );
 
     const newTestimonial = { name, description };
     setName("");
@@ -34,17 +36,28 @@ function TestimonialAdmin() {
   };
 
   const handleDelete = async (_id) => {
-    await axios.delete(`http://localhost:5000/api/testimonial/${_id}`);
+    await axios.delete(
+      `https://final-project-backend-production-20f3.up.railway.app/api/testimonial/${_id}`,
+      {
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      }
+    );
     setTestimonials(testimonials.filter((test) => test._id !== _id));
   };
 
   const handleEdit = async (e, index) => {
     e.preventDefault();
     const { _id } = testimonials[index];
-    await axios.put(`http://localhost:5000/api/testimonial/${_id}`, {
-      name: testimonials[index].name,
-      description: testimonials[index].description,
-    });
+    await axios.put(
+      `https://final-project-backend-production-20f3.up.railway.app/api/testimonial/${_id}`,
+
+      {
+        name: testimonials[index].name,
+        description: testimonials[index].description,
+      }
+    );
     setEditIndex(null);
   };
 
@@ -121,7 +134,7 @@ function TestimonialAdmin() {
                   Save
                 </button>
                 <button
-                  className="admin-testi-buttons"
+                  className="canclebtn-home admin-testi-buttons"
                   type="button"
                   onClick={handleCancelEdit}
                 >

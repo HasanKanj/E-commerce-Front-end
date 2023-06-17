@@ -20,9 +20,6 @@ const CarItem = ({ products, selectedCategory }) => {
     : products;
 
   const [modalIsOpen, setModalIsOpen] = useState(false); // <-- Add state for modal
-  const token = sessionStorage.getItem("token");
-
-
 
   const toggleModal = () => {
     // Check if user is logged in
@@ -41,6 +38,8 @@ const CarItem = ({ products, selectedCategory }) => {
     const firstName = sessionStorage.getItem("firstName");
     const lastName = sessionStorage.getItem("lastName");
     const email = sessionStorage.getItem("email");
+    const phoneNumber = sessionStorage.getItem("phoneNumber");
+
     if (!token) {
       toast.error("Please login/register before reserving a car.");
       return;
@@ -48,7 +47,7 @@ const CarItem = ({ products, selectedCategory }) => {
 
     axios
       .post(
-        "http://localhost:5000/api/Reservations/",
+        "https://final-project-backend-production-20f3.up.railway.app/api/Reservations/",
         { carId },
         {
           headers: {
@@ -57,13 +56,24 @@ const CarItem = ({ products, selectedCategory }) => {
         }
       )
       .then((response) => {
-        console.log("response.data ", response.data.reservation.car.name); // Handle successful response
+        console.log(response.data.reservation.car.price);
+        const carname = response.data.reservation.car.name;
+        const carcategory = response.data.reservation.car.category;
+        const carprice = response.data.reservation.car.price;
+        const caryear = response.data.reservation.car.year;
+
+        const currentDate = new Date().toLocaleString();
 
         const params = {
-          car_id: carId,
           firstName: firstName,
           lastName: lastName,
+          phoneNumber: phoneNumber,
           email: email,
+          carname: carname,
+          carcategory: carcategory,
+          caryear: caryear,
+          carprice: carprice,
+          date: currentDate,
         };
 
         emailjs
@@ -71,7 +81,6 @@ const CarItem = ({ products, selectedCategory }) => {
             "service_i65z4yo",
             "template_kz0prl9",
             params,
-
             "X3GWKBc5fNzTxb_rm"
           )
           .then(
@@ -150,13 +159,13 @@ const CarItem = ({ products, selectedCategory }) => {
 
                 <div className="d-flex justify-content-center">
                   <button
-                    className="w-50 car__item-btn car__btn-details"
+                    className=" seedetails w-50 car__item-btn car__btn-details"
                     style={{ borderRadius: "40px" }}
                   >
                     <Link to={`/product/${product.name}`}>See Details</Link>
                   </button>
                   <button
-                    className="w-50 car__item-btn car__btn-rent"
+                    className=" reserve-btn w-50 car__item-btn car__btn-rent"
                     style={{ borderRadius: "40px", marginLeft: "10px" }}
                     onClick={() => {
                       toggleModal();

@@ -8,19 +8,17 @@ import CarDetails from "../Components/Cars/CarDetails";
 import CarListing from "../Components/Cars/CarListing";
 import ScrollToTop from "../Components/Home/ScrolltoTop/Scroll";
 import Page404 from "../Components/Home/404 Page/Page404";
-import ClientMessages from '../Components/AdminUsers/client-messages';
-import ReservationsAdmin from "../Components/AdminUsers/Reservations/ReservationsAdmin";
-
+import Courses from "../Components/Services/Courses";
 
 const Routers = () => {
   return (
     <div className="App">
       <Routes>
-      <Route exact path="/*" element={<Page404/>} />
+        <Route exact path="/*" element={<Page404 />} />
 
         <Route path="/" element={<Home />} />
         <Route path="/AboutUs" element={<AboutUs />} />
-        <Route path="/Cars" element={<CarListing />} />
+        <Route path="/Courses" element={<Courses />} />
         <Route path="/Cars/:category" element={<CarListing />} />
         <Route
           path="/product/:name"
@@ -31,7 +29,6 @@ const Routers = () => {
           }
         />
         <Route path="/ContactUs" element={<ContactUs />} />
-        <Route path="/Reservations" element={<Container> <ReservationsAdmin /></Container>}></Route>
       </Routes>
       <ScrollToTop />
     </div>

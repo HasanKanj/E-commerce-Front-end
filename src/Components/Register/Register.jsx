@@ -27,7 +27,7 @@ function Register() {
 
     try {
       const response = await axios.post(
-        `http://localhost:5000/api/user/register`,
+        `https://final-project-backend-production-20f3.up.railway.app/api/user/register`,
         formData,
         {
           headers: {
@@ -120,7 +120,7 @@ function Register() {
               />
             </div>
 
-            <button type="submit" className="btn btn-dark mb-3">
+            <button type="submit" className=" registerbtn btn btn-dark mb-3">
               Register
             </button>
             <p className="message">

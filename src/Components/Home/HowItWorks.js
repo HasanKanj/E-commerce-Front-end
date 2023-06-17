@@ -4,7 +4,7 @@ import choose from "../Home/images/choose.png";
 import "./Home.css";
 
 function HowItWorks() {
-  return (
+  return (  
     <div className="howItworks-All">
       <div className="howItworks-allimgs">
         <div className="howItworks-title">

@@ -4,6 +4,8 @@ import { useRef, useState, useEffect } from "react";
 import { NavLink } from "react-router-dom";
 import menu from "./hamburger.jpg";
 import logo from "./RoadCar.jpeg";
+import cryptoclub from "./cryptoclub.jpg";
+
 
 function AdminNavbar() {
   const [scrollPosition, setScrollPosition] = useState(window.pageYOffset);
@@ -38,7 +40,7 @@ function AdminNavbar() {
   return (
     <header className={`navbar-lina ${scrollPosition > 0 ? "scrolled" : ""}`}>
       <NavLink to="/Admin/Home">
-        <img className="navbar-lina-logo" alt="a" src={logo} />
+        <img className="navbar-lina-logo" alt="a" src={cryptoclub} />
       </NavLink>
 
       <nav ref={navRef} className="navbar-lina-nav">
@@ -56,22 +58,41 @@ function AdminNavbar() {
         >
           About
         </NavLink>
+        <div className="dropdown">
+          <NavLink
+            to="/Admin/cars"
+            className="navbar-lina-nav-Links dropdown-toggle"
+          >
+            Courses
+          </NavLink>
+          <div className="dropdown-content">
+            <NavLink to="/reservations">Reservations</NavLink>
+          </div>
+
+
+        </div>    
+        
+        
+        <div className="dropdown">
+          <NavLink
+            to="/ContactUsAdmin"
+            className="navbar-lina-nav-Links dropdown-toggle"
+          >
+            Contact
+          </NavLink>
+          <div className="dropdown-content">
+            <NavLink to="/clientmessages">Messages</NavLink>
+          </div>
+        </div>
+
         <NavLink
-          to="/Admin/cars"
-          className="navbar-lina-nav-Links"
-          activeClassName="active"
-        >
-          Cars
-        </NavLink>
-        <NavLink
-          to="/ContactUsAdmin"
+          to="/users"
           className="navbar-lina-nav-Links"
           href="#ContactSection"
           activeClassName="active"
         >
-          Contact
+                  Users
         </NavLink>
-
         <button
           className="kanj"
           onClick={logOut}

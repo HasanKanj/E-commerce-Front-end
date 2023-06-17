@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import {React, useEffect, useState } from "react";
 
 import "./homeandabout.css";
 import dollar from "../../assets/dollar.png";
@@ -12,7 +12,7 @@ import axios from "axios";
 
 function AboutUsAdmin() {
   const [about, setAbout] = useState([]);
-  const [isLoading, setIsLoading] = useState(false);
+  const [ setIsLoading] = useState(false);
   const [editedDescription, setEditedDescription] = useState("");
   const [editedIndex, setEditedIndex] = useState(null);
   const navigate = useNavigate();
@@ -21,7 +21,9 @@ function AboutUsAdmin() {
   const fetchAbout = async () => {
     setIsLoading(true);
 
-    const res = await axios.get("http://localhost:5000/api/about");
+    const res = await axios.get(
+      "https://final-project-backend-production-20f3.up.railway.app/api/about"
+    );
     setAbout(res.data.data);
     setIsLoading(false);
   };
@@ -61,7 +63,7 @@ function AboutUsAdmin() {
 
     // Update the description in the API
     const res = await axios.put(
-      `http://localhost:5000/api/about/${about[editedIndex]._id}`,
+      `https://final-project-backend-production-20f3.up.railway.app/api/about/${about[editedIndex]._id}`,
       {
         description: editedDescription,
       },
@@ -101,21 +103,18 @@ function AboutUsAdmin() {
                             setEditedDescription(event.target.value)
                           }
                         />
-                        <div>
-                          <button
-                            className="admin-testi-buttons"
-                            type="submit"
-                          >
+                        <di>
+                          <button className="admin-testi-buttons" type="submit">
                             Save
                           </button>
                           <button
-                            className="admin-testi-buttons"
+                            className="canclebtn-home admin-testi-buttons"
                             type="button"
                             onClick={handleCancel}
                           >
                             Cancel
                           </button>
-                        </div>
+                        </di>
                       </form>
                     ) : (
                       // Render the description text when not editing this section
@@ -139,37 +138,37 @@ function AboutUsAdmin() {
           </div>
         </div>
 
-          <div className="about-imageFooter">
-            <div className="about-allimgs">
-              <h1 className="about-reasonTitle">Reasons to buy from RoadCar</h1>
-              <div className="aboutsection">
-                <div className="aboutthird-img">
-                  <img className="about-thumb" src={thumb}></img>
-                  <h3>Quality service</h3>
-                  <p>
-                    We ensure that every vehicle we sell is thoroughly
-                    inspected, maintained, and ready to hit the road.
-                  </p>
-                </div>
-                <div className="aboutthird-img">
-                  <img className="about-thumb" src={dollar}></img>
-                  <h3>Competitive pricing</h3>
-                  <p>
-                    We provide competitive prices to make sure you get the best
-                    value for your money.
-                  </p>
-                </div>
-                <div className="aboutthird-img">
-                  <img className="about-thumb" src={customer}></img>
-                  <h3>Customer Service</h3>
-                  <p>
-                    We provide exceptional customer service that meets the
-                    unique needs of each and every customer.
-                  </p>
-                </div>
+        <div className="about-imageFooter">
+          <div className="about-allimgs">
+            <h1 className="about-reasonTitle">Reasons to buy from RoadCar</h1>
+            <div className="aboutsection">
+              <div className="aboutthird-img">
+                <img className="about-thumb" src={thumb} alt="thumb"></img>
+                <h3>Quality service</h3>
+                <p>
+                  We ensure that every vehicle we sell is thoroughly inspected,
+                  maintained, and ready to hit the road.
+                </p>
+              </div>
+              <div className="aboutthird-img">
+                <img className="about-thumb" src={dollar} alt="thumb"></img>
+                <h3>Competitive pricing</h3>
+                <p>
+                  We provide competitive prices to make sure you get the best
+                  value for your money.
+                </p>
+              </div>
+              <div className="aboutthird-img">
+                <img className="about-thumb" src={customer} alt="thumb"></img>
+                <h3>Customer Service</h3>
+                <p>
+                  We provide exceptional customer service that meets the unique
+                  needs of each and every customer.
+                </p>
               </div>
             </div>
           </div>
+        </div>
       </Helmet>
     </div>
   );

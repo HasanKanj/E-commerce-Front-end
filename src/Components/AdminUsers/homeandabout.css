@@ -21,7 +21,7 @@
   height: 20vh;
 }
 .buttonAbout-edit {
-  background-color: red;
+  background-color:rgb(178, 55, 20);
   color: white;
   font-size: 15px;
   border: none;
@@ -72,7 +72,7 @@
 }
 
 .admin-testi-buttons {
-  background-color: rgb(177, 34, 6);
+  background-color:rgb(178, 55, 20);
   border-style: none;
   border-radius: 13px;
   margin-bottom: 5px;
@@ -84,7 +84,7 @@
 }
 
 .testiEDit {
-  background-color: rgb(14, 14, 155);
+  background-color: rgb(40, 40, 50);
 }
 
 
@@ -137,7 +137,7 @@
 }
 
 .testi-testimonialsection h5{
-  color: red;
+  color:rgb(178, 55, 20);
   font-size: 20px;
 }
 
@@ -167,4 +167,8 @@
   border-radius: 5px;
   background-color: rgb(227, 226, 226);
 
+}
+.canclebtn-home{
+  background-color: rgb(23, 24, 24) !important;
+  margin-left: 5px;
 }

@@ -23,7 +23,7 @@ function ContactAdminForm() {
 
     try {
       const response = await fetch(
-        "http://localhost:5000/api/contactAdmin/getOne"
+        "https://final-project-backend-production-20f3.up.railway.app/api/contactAdmin/getOne"
       );
       const data = await response.json();
       setContact(data);
@@ -45,7 +45,6 @@ function ContactAdminForm() {
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    
     // Check if all form fields are filled out
     if (!name || !email || !phoneNumber || !message) {
       setSubmitStatus(
@@ -71,14 +70,16 @@ function ContactAdminForm() {
     }
 
     try {
-      const response = await fetch("http://localhost:5000/api/contact/create", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-          
-        },
-        body: JSON.stringify({ name, email, phoneNumber, message }),
-      });
+      const response = await fetch(
+        "https://final-project-backend-production-20f3.up.railway.app/api/contact/create",
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({ name, email, phoneNumber, message }),
+        }
+      );
       const data = await response.json();
       console.log(data);
 
@@ -163,9 +164,9 @@ function ContactAdminForm() {
             <br />
             <br />
             <p className="contact-info-p">
-              A multifaceted professional skilled in multiple fields of
-              research, development as well as a learning specialist. Over 15
-              years of experience.{" "}
+              We're here to help! If you have any questions or need further
+              information, feel free to reach out to us. Our team is ready to
+              assist you.{" "}
             </p>
             <ul>
               <li className="contact-info-list">
@@ -188,8 +189,8 @@ function ContactAdminForm() {
           <div className="contact-form">
             <h2 className="contact-form-title">Get in touch</h2>
             <p className="contact-form-p">
-              Feel free to browse our massive inventory online, set up a test
-              drive with a sales associate, or inquire about financing!
+              Reach out to us to inquire about any specific details or
+              assistance you may need in making your selection.
             </p>
             {submitStatus && <p>{submitStatus}</p>}
 

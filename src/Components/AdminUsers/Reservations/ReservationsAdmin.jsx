@@ -1,28 +1,49 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
-import './ReservationsAdmin.css'
+import swal from "sweetalert";
+import "./ReservationsAdmin.css";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 const ReservationTable = () => {
   const [reservations, setReservations] = useState([]);
   const [currentPage, setCurrentPage] = useState(1);
-  const [reservationsPerPage, setReservationsPerPage] = useState(10);
+  const [reservationsPerPage ] = useState(10);
+  const token = sessionStorage.getItem("token");
 
   useEffect(() => {
-    axios
-      .get("http://localhost:5000/api/Reservations")
-      .then((response) => {
-        setReservations(response.data.reservations);
-      })
-      .catch((error) => {
-        console.log(error);
-      });
+    fetchReservations();
   }, []);
+
+  const fetchReservations = async () => {
+    try {
+      const response = await axios.get(
+        "https://final-project-backend-production-20f3.up.railway.app/api/Reservations",
+        {
+          headers: {
+            "Content-Type": "multipart/form-data",
+            Authorization: `Bearer ${token}`,
+          },
+        }
+      );
+      setReservations(response.data.reservations);
+    } catch (error) {
+      console.log(error);
+    }
+  };
 
   const indexOfLastReservation = currentPage * reservationsPerPage;
   const indexOfFirstReservation = indexOfLastReservation - reservationsPerPage;
-  const currentReservations = reservations.slice(indexOfFirstReservation, indexOfLastReservation);
+  const currentReservations = reservations.slice(
+    indexOfFirstReservation,
+    indexOfLastReservation
+  );
 
   const pageNumbers = [];
-  for (let i = 1; i <= Math.ceil(reservations.length / reservationsPerPage); i++) {
+  for (
+    let i = 1;
+    i <= Math.ceil(reservations.length / reservationsPerPage);
+    i++
+  ) {
     pageNumbers.push(i);
   }
 
@@ -30,23 +51,69 @@ const ReservationTable = () => {
     setCurrentPage(Number(event.target.id));
   };
 
+  const handleDelete = (reservationId) => {
+    swal({
+      title: "Are you sure?",
+      text: "Once deleted, you will not be able to recover this contact.",
+      icon: "warning",
+      buttons: ["Cancel", "Delete"],
+      dangerMode: true,
+    }).then((willDelete) => {
+      if (willDelete) {
+        axios
+          .delete(
+            `https://final-project-backend-production-20f3.up.railway.app/api/Reservations/${reservationId}`,
+            {
+              headers: {
+                "Content-Type": "multipart/form-data",
+                Authorization: `Bearer ${token}`,
+              },
+            }
+          )
+          .then(() => {
+            fetchReservations();
+            setReservations(
+              reservations.filter((r) => r._id !== reservationId)
+            );
+            toast.success("Reservation deleted successfully!"); // <-- show success message
+          })
+          .catch((error) => {
+            console.log(error);
+          });
+      }
+    });
+  };
+
   return (
     <div className="reservation-lina-table-container">
+      <ToastContainer />
       <h1 className="reservation-lina-title"> Current Reservations: </h1>
-      <div className="reservation-lina-table">
-        <div className="reservation-lina-table-row reservation-lina-table-header">
-          <div className="reservation-lina-table-cell">Car Name</div>
-          <div className="reservation-lina-table-cell">Price</div>
-          <div className="reservation-lina-table-cell">Email</div>
-          <div className="reservation-lina-table-cell">Phone Number</div>
+      <div>
+        <div className="header-reservation">
+          <div>Car Name</div>
+          <div>Price</div>
+          <div>Email</div>
+          <div>Phone Number</div>
+          <div className="action">Actions</div>
         </div>
-        <div className="reservation-lina-table-body">
+        <div className="all-mssgs">
           {currentReservations.map((reservation) => (
-            <div key={reservation._id} className="reservation-lina-table-row">
-              <div className="reservation-lina-table-cell">{reservation.carId.name}</div>
-              <div className="reservation-lina-table-cell">{reservation.carId.price}</div>
-              <div className="reservation-lina-table-cell">{reservation.userId.email}</div>
-              <div className="reservation-lina-table-cell">{reservation.userId.phoneNumber}</div>
+            <div key={reservation._id} className="contact-reservation">
+              <div>{reservation.carId.name}</div>
+              <div>{reservation.carId.price}</div>
+              <div>{reservation.userId.email}</div>
+              <div>{reservation.userId.phoneNumber}</div>{" "}
+              {/* moved phone number to own th */}
+              <div>
+                <button
+                  className="delete-client-btn btn btn-danger"
+                  onClick={() => {
+                    handleDelete(reservation._id); // <-- use new function to handle delete and confirm
+                  }}
+                >
+                  Delete
+                </button>
+              </div>
             </div>
           ))}
         </div>
